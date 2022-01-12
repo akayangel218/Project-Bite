@@ -14,7 +14,11 @@ const port = config.server.port;
 const distance = 5; //in miles
 const types = ['Chinese', 'Greek', 'Mexican'];
 const priceRange = [2,3]; //price range ([2,3] is $$ and $$$ only)
-const openNow = false;
+const requirements = {
+  requireOpenNow: false,
+  requireDoesPickup: false,
+  requireDoesDelivery: false
+}
 
 function buildSearch(location, distance, types, priceRage, openNow) {
   let search = '?term=restaurants' + 
@@ -28,17 +32,50 @@ function buildSearch(location, distance, types, priceRage, openNow) {
 }
 
 app.get('/restaurants/:location', (req, res) => {
-  const yelpAPIEndpoint = 'https://api.yelp.com/v3/businesses/search' + buildSearch(req.params.location, distance, types, priceRange, openNow);
+  const yelpAPIEndpoint = 'https://api.yelp.com/v3/businesses/search' + buildSearch(req.params.location, distance, types, priceRange, requirements.requireOpenNow);
 
   axios.get(yelpAPIEndpoint, {
     headers: {
       'Authorization' : 'Bearer ' + keys.yelp.APIKey
     }
+
   }).then((yelpRes) => {
-    res.status(200).json(yelpRes.data).end();
+    // Build response data object
+    const responseData = {
+      'restaurants': [],
+      'total': yelpRes.data.total
+    };
+    // Loop thru results
+    yelpRes.data.businesses.forEach(restaurant => {
+      // Apply filters
+      if (restaurant.is_closed) return;
+      if (requirements.requireDoesPickup) {
+        if (!restaurant.transactions.includes('pickup')) return;
+      }
+      if (requirements.requireDoesDelivery) {
+        if (!restaurant.transactions.includes('delivery')) return;
+      }
+      // Add restaurant to response data
+      responseData.restaurants.push({
+        'name': restaurant.name,
+        'image_url': restaurant.image_url,
+        'review_avg': restaurant.rating,
+        'review_count': restaurant.review_count,
+        'cuisine': restaurant.categories[0].title,
+        'price': restaurant.price,
+        'address': restaurant.location.display_address.join(' '),
+        'phone': restaurant.phone,
+        'display_phone': restaurant.display_phone,
+        'distance': (restaurant.distance / 1609.344) //in miles
+      });
+    });
+    // Send response data
+    res.status(200).json(responseData).end();
+
   }).catch((yelpErr) => {
+    // Send error msg otherwise
     res.status(500).send("Error sending request to yelp.").end();
-  })
+  });
 });
 
 app.listen(port, () => {
