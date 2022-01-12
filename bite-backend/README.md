@@ -12,5 +12,7 @@ const yelp = {
 exports.yelp = yelp;
 ```
 
+Also don't forget to run `npm install`.
+
 ### Usage
 * `/restaurants/<location>` - Returns a list of restaurants near the given location. This can be an address, zip code, or city.

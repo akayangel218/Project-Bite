@@ -29,11 +29,24 @@ function buildSearch(location, distance, types, priceRage, openNow) {
 
 app.get('/restaurants/:location', (req, res) => {
   const yelpAPIEndpoint = 'https://api.yelp.com/v3/businesses/search' + buildSearch(req.params.location, distance, types, priceRange, openNow);
-  axios.get(yelpAPIEndpoint, {headers: {'Authorization' : 'Bearer ' + keys.yelp.APIKey}}).then((yelpRes) => {
-    res.send(yelpRes.data);
+
+  axios.get(yelpAPIEndpoint, {
+    headers: {
+      'Authorization' : 'Bearer ' + keys.yelp.APIKey
+    }
+  }).then((yelpRes) => {
+    res.status(200).json(yelpRes.data).end();
+  }).catch((yelpErr) => {
+    res.status(500).send("Error sending request to yelp.").end();
   })
 });
 
 app.listen(port, () => {
+  if (!keys.yelp.APIKey) {
+    console.log('Error: Missing or incorrectly formatted keys.js file!\n' +
+      'See bite-backend/README.md for instructions.\n');
+    process.exit();
+  }
+
   console.log('Server listening at http://localhost:' + port);
 });
