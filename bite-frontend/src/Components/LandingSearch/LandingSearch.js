@@ -4,11 +4,17 @@ import './LandingSearch.css'
 
 class Navbar extends Component {
     state = {
-        clicked: false
+        locationInput: ''
     }
 
-    handleClick = () => {
-        this.setState({ clicked: !this.state.clicked })
+    updateSearchVal(loc) {
+        this.setState({
+            locationInput: loc.target.value
+        });
+    }
+
+    sendRequest = () => {
+        alert(this.state.locationInput)
     }
 
     render() {
@@ -32,8 +38,16 @@ class Navbar extends Component {
             //     <Button>Sign up</Button>
             // </nav>
             <div>
-                <input type='text' size="30" placeholder='Address, zip code, or city' />
-                <button type='button'><i className='fas fa-search-location'></i></button>
+                <input
+                    type='text'
+                    size='30'
+                    placeholder='Address, zip code, or city'
+                    value={this.state.locationInput}
+                    onChange={loc => this.updateSearchVal(loc)}
+                />
+                <button type='button' onClick={this.sendRequest}>
+                    <i className='fas fa-search-location'></i>
+                </button>
                 <div className='input-spacer'/>
             </div>
         )
