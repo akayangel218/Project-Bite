@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button } from '../Button';
 import './LandingSearch.css'
 
-class Navbar extends Component {
+class LandingSearch extends Component {
     state = {
         locationInput: ''
     }
@@ -54,4 +54,4 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar
+export default LandingSearch
