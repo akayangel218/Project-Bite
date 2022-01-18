@@ -2,13 +2,19 @@
 import './App.css';
 import React from 'react';
 import Navbar from './Components/Navbar/Navbar';
+import LandingSearch from './Components/LandingSearch/LandingSearch';
 import logo from './logo_bite.png'
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <img src={logo} className="App-logo" alt="logo" />
+      <div>
+        <Navbar />
+        <img src={logo} className="App-logo" alt="logo" />
+      </div>
+      <div>
+        <LandingSearch />
+      </div>
     </div>
   );
 }
