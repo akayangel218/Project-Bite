@@ -1,6 +1,21 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import Navbar from './Components/Navbar/Navbar';
+import logo from './logo_bite.png'
 
+function App() {
+  return (
+    <div className="App">
+      <Navbar />
+      <img src={logo} className="App-logo" alt="logo" />
+    </div>
+  );
+}
+
+export default App;
+
+/*
 function App() {
   return (
     <div className="App">
@@ -21,5 +36,4 @@ function App() {
     </div>
   );
 }
-
-export default App;
+*/

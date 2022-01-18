@@ -1,3 +1,16 @@
+* {
+  background: #F1FAEE;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Work Sans', sans-serif;
+}
+.App-logo {
+  height: 90vmin;
+  pointer-events: none;
+}
+
+/*
 .App {
   text-align: center;
 }
@@ -36,3 +49,4 @@
     transform: rotate(360deg);
   }
 }
+*/
