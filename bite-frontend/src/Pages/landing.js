@@ -7,9 +7,9 @@ class LandingPage extends Component {
   render() {
     return (
       <div className="LandingPage">
-        <div>
+        {/* <div>
           <img src={logo} className="App-logo" alt="logo" />
-        </div>
+        </div> */}
         <div>
           <LandingSearch />
         </div>

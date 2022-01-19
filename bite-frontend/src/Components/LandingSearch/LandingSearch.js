@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Button } from '../Button';
 import './LandingSearch.css'
+import logo from '../../logo_bite.png'
 
 class LandingSearch extends Component {
     state = {
@@ -38,16 +38,31 @@ class LandingSearch extends Component {
             //     <Button>Sign up</Button>
             // </nav>
             <div>
-                <input
+                <img 
+                    className = 'input-logo'
+                    src={logo} className="App-logo" alt="logo" 
+                    
+                />
+                <div class="input-centerText">
+                    Find A Place To Eat Near You
+                </div>
+                <div>
+                     <input
                     type='text'
+                    className = 'input-search'
                     size='30'
                     placeholder='Address, zip code, or city'
                     value={this.state.locationInput}
                     onChange={loc => this.updateSearchVal(loc)}
                 />
-                <button type='button' onClick={this.sendRequest}>
+                <button 
+                    type='button' 
+                    className = 'input-button'
+                    onClick={this.sendRequest}
+                >    
                     <i className='fas fa-search-location'></i>
                 </button>
+                </div>
                 <div className='input-spacer'/>
             </div>
         )
