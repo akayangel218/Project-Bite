@@ -48,7 +48,8 @@
 }
 
 .fa-bars {
-    color: #F1FAEE;
+    background-color: transparent;
+    color: #457B9D;
 }
 
 .nav-links-mobile {
@@ -104,6 +105,7 @@
     }
 
     .menu-icon {
+        background-color: transparent;
         display: block;
         position: absolute;
         top: 0;
@@ -114,7 +116,8 @@
     }
 
     .fa-times {
-        columns: #F1FAEE;
+        background-color: transparent;
+        color: #457B9D;
         font-size: 2rem;
     }
 
@@ -122,12 +125,12 @@
         display: block;
         text-align: center;
         padding: 1.5rem;
-        margin: 2rem auto;
+        margin: auto;
         border-radius: 4px;
-        width: 80%;
-        background: #457B9D;
+
+        background-color: #457B9D;
         text-decoration: none;
-        color: #fff;
+        color: #F1FAEE;
         font-size: 1.5rem;
     }
 
