@@ -3,19 +3,14 @@ import React, { Component } from 'react';
 import LandingSearch from '../Components/LandingSearch/LandingSearch';
 import logo from '../logo_bite.png'
 
-class LandingPage extends Component {
+class ResultsPage extends Component {
   render() {
     return (
-      <div className="LandingPage">
-        <div>
-          <img src={logo} className="App-logo" alt="logo" />
-        </div>
-        <div>
-          <LandingSearch />
-        </div>
+      <div className="ResultsPage">
+        <h1>Results...</h1>
       </div>
     );
   }
 }
 
-export default LandingPage;
+export default ResultsPage;

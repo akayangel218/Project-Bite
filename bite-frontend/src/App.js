@@ -1,15 +1,22 @@
 //import logo from './logo.svg';
 import './App.css';
 import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
 import LandingPage from './Pages/landing';
-import logo from './logo_bite.png'
+import ResultsPage from './Pages/results';
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <LandingPage />
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<LandingPage />} />
+          <Route path="/results" element={<ResultsPage />} />
+          <Route path="*" element={<h1>Page not found</h1>} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
