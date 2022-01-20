@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './LandingSearch.css'
-import logo from '../../logo_bite.png'
+import logo from '../../temp-logo.svg'
 
 class LandingSearch extends Component {
     state = {
@@ -37,33 +37,31 @@ class LandingSearch extends Component {
             //     </ul>
             //     <Button>Sign up</Button>
             // </nav>
-            <div>
-                <img 
-                    className = 'input-logo'
-                    src={logo} className="App-logo" alt="logo" 
-                    
+            <div className='input-block'>
+                <img
+                    src={logo}
+                    className='input-logo'
+                    alt="logo" 
                 />
                 <div class="input-centerText">
                     Find A Place To Eat Near You
                 </div>
                 <div>
-                     <input
-                    type='text'
-                    className = 'input-search'
-                    size='30'
-                    placeholder='Address, zip code, or city'
-                    value={this.state.locationInput}
-                    onChange={loc => this.updateSearchVal(loc)}
-                />
-                <button 
-                    type='button' 
-                    className = 'input-button'
-                    onClick={this.sendRequest}
-                >    
-                    <i className='fas fa-search-location'></i>
-                </button>
+                    <input
+                        type='text'
+                        className = 'input-search'
+                        placeholder='  Address, Zip Code, or City'
+                        value={this.state.locationInput}
+                        onChange={loc => this.updateSearchVal(loc)}
+                    />
+                    <button 
+                        type='button' 
+                        className = 'submit-button'
+                        onClick={this.sendRequest}
+                    >    
+                        <i className='fas fa-search-location'></i>
+                    </button>
                 </div>
-                <div className='input-spacer'/>
             </div>
         )
     }
