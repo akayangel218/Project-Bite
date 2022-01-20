@@ -1,0 +1,40 @@
+.input-block {
+    position: relative;
+}
+
+.input-search {
+    border-radius: 20vmax;
+    width: 45vmax;
+    height: 4.6vmax;
+    font-size: 2vmax;
+    position: absolute;
+    top: 73%;
+    right: 30%;
+}
+
+.submit-button {
+    border-radius: 50%;
+    height: 4.6vmax;
+    width: 4.6vmax;
+    top: 73.2%;
+    left: 72%;
+    position: absolute;
+    display: inherit;
+}
+
+.input-logo {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+}
+
+.input-centerText {
+    color: #F1FAEE;
+    text-shadow: 2px 2px 2px rgb(0, 0, 0);
+    font-size: 3.3vmax;
+
+    position: absolute;
+    top: 59%;
+    left: 27%;
+    background-color: transparent;
+}
