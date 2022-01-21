@@ -1,6 +1,7 @@
 // DEPENDENCIES
 const express = require('express');
 const axios = require('axios');
+const cors = require('cors');
 // OTHER FILES
 const config = require('./config');
 const keys = require('./keys');
@@ -9,6 +10,8 @@ const keys = require('./keys');
 
 const app = express();
 const port = config.server.port;
+
+app.use(cors());
 
 // USER FILTERS - hardcoded for now
 const distance = 5; //in miles
@@ -43,7 +46,7 @@ app.get('/restaurants/:location', (req, res) => {
     // Build response data object
     const responseData = {
       'restaurants': [],
-      'total': yelpRes.data.total
+      'total': Math.min(parseInt(yelpRes.data.total), config.results.resultsSize)
     };
     // Loop thru results
     yelpRes.data.businesses.forEach(restaurant => {

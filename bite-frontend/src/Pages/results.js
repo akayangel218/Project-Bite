@@ -1,16 +1,24 @@
 import '../App.css';
-import React, { Component } from 'react';
-import LandingSearch from '../Components/LandingSearch/LandingSearch';
-import logo from '../logo_bite.png'
+import React, { useContext } from 'react';
+import { GlobalContext } from '../Context/GlobalState';
 
-class ResultsPage extends Component {
-  render() {
-    return (
-      <div className="ResultsPage">
-        <h1>Results...</h1>
-      </div>
-    );
-  }
+const ResultsPage = () => {
+  const { restaurantList } = useContext(GlobalContext);
+
+  const restaurantMarkup = restaurantList.map((restaurant, idx) => (
+    <li key={idx} className='restaurant-list-item'>
+      <h3>{restaurant.name}</h3>
+    </li>
+  ));
+
+  return (
+    <div className="ResultsPage">
+      <h1>Results:</h1>
+        <ul className='restaurant-list'>
+          {restaurantMarkup}
+        </ul>
+    </div>
+  );
 }
 
 export default ResultsPage;

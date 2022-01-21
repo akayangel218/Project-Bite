@@ -2,6 +2,7 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { GlobalProvider } from './Context/GlobalState';
 import Navbar from './Components/Navbar/Navbar';
 import LandingPage from './Pages/landing';
 import ResultsPage from './Pages/results';
@@ -9,14 +10,16 @@ import ResultsPage from './Pages/results';
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <BrowserRouter>
-        <Routes>
-          <Route exact path="/" element={<LandingPage />} />
-          <Route path="/results" element={<ResultsPage />} />
-          <Route path="*" element={<h1>Page not found</h1>} />
-        </Routes>
-      </BrowserRouter>
+      <GlobalProvider>
+        <Navbar />
+        <BrowserRouter>
+          <Routes>
+            <Route exact path="/" element={<LandingPage />} />
+            <Route path="/results" element={<ResultsPage />} />
+            <Route path="*" element={<h1>Page not found</h1>} />
+          </Routes>
+        </BrowserRouter>
+      </GlobalProvider>
     </div>
   );
 }
