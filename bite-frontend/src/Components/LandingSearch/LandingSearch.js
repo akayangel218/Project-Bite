@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { Navigate } from 'react-router-dom';
 import './LandingSearch.css'
 import logo from '../../temp-logo.svg'
 
 class LandingSearch extends Component {
     state = {
-        locationInput: ''
+        locationInput: '',
+        redirect: null
     }
 
     updateSearchVal(loc) {
@@ -14,36 +16,25 @@ class LandingSearch extends Component {
     }
 
     sendRequest = () => {
-        alert(this.state.locationInput)
+        // useSearchLocation(this.state.locationInput)
+        this.setState({
+            redirect: '/results'
+        });
     }
 
     render() {
+        if (this.state.redirect) {
+            return <Navigate to={this.state.redirect} />
+        }
+
         return(
-            // <nav className='NavbarItems'>
-            //     <h1 className='navbar-logo'>Bite<i className='fas fa-hamburger'></i></h1>
-            //     <div className='menu-icon' onClick={this.handleClick}>
-            //         <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
-            //     </div>
-            //     <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
-            //         {MenuItems.map((item, index) => {
-            //             return(
-            //                 <li key={index}>
-            //                     <a className={item.cName} href={item.url}>
-            //                         {item.title}
-            //                     </a>
-            //                 </li>
-            //             )
-            //         })}
-            //     </ul>
-            //     <Button>Sign up</Button>
-            // </nav>
             <div className='input-block'>
                 <img
                     src={logo}
                     className='input-logo'
                     alt="logo" 
                 />
-                <div class="input-centerText">
+                <div className="input-centerText">
                     Find A Place To Eat Near You
                 </div>
                 <div>
