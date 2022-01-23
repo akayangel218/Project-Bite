@@ -2,6 +2,7 @@ import '../App.css';
 import './results.css';
 import React, { useContext } from 'react';
 import { GlobalContext } from '../Context/GlobalState';
+import StarRating from '../Components/StarRating/StarRating';
 
 const ResultsPage = () => {
   const { restaurantList } = useContext(GlobalContext);
@@ -18,6 +19,9 @@ const ResultsPage = () => {
         </div>
         <div className='price'>
           {restaurant.price}
+        </div>
+        <div className='stars'>
+          <StarRating rating={restaurant.review_avg} total={restaurant.review_count} />
         </div>
       </div>
     </div>
