@@ -1,4 +1,5 @@
 import '../App.css';
+import './results.css';
 import React, { useContext } from 'react';
 import { GlobalContext } from '../Context/GlobalState';
 
@@ -6,15 +7,25 @@ const ResultsPage = () => {
   const { restaurantList } = useContext(GlobalContext);
 
   const restaurantMarkup = restaurantList.map((restaurant, idx) => (
-    <li key={idx} className='restaurant-list-item'>
-      <h3>{restaurant.name}</h3>
-    </li>
+    <div key={idx} className='card'>
+      <img src={restaurant.image_url} alt={restaurant.name + ' Yelp image'} className='img'/>
+      <div className='container'>
+        <div className='name'>
+          {restaurant.name}
+        </div>
+        <div className='desc'>
+          {restaurant.cuisine}
+        </div>
+        <div className='price'>
+          {restaurant.price}
+        </div>
+      </div>
+    </div>
   ));
 
   return (
     <div className="ResultsPage">
-      <h1>Results:</h1>
-        <ul className='restaurant-list'>
+        <ul className='results'>
           {restaurantMarkup}
         </ul>
     </div>
