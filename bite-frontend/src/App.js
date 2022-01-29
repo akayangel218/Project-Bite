@@ -6,6 +6,8 @@ import { GlobalProvider } from './Context/GlobalState';
 import Navbar from './Components/Navbar/Navbar';
 import LandingPage from './Pages/landing';
 import ResultsPage from './Pages/results';
+import FilterPage from './Pages/filter';
+import PrimaryResultPage from './Pages/primary_result';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         <Navbar />
         <BrowserRouter>
           <Routes>
+            <Route path="/filter" element={<FilterPage />} />
+            <Route path="/primary_result" element={<PrimaryResultPage />} />
             <Route exact path="/" element={<LandingPage />} />
             <Route path="/results" element={<ResultsPage />} />
             <Route path="*" element={<h1>Page not found</h1>} />
