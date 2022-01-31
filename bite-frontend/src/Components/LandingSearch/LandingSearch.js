@@ -19,7 +19,7 @@ const LandingSearch = () => {
             axios.get('http://localhost:8000/restaurants/' + text).then((res) => {
                 saveRestaurants(res.data.restaurants, res.data.total);
                 console.log(res.data.restaurants);
-                navigate('/results', { replace: false });
+                navigate('/primary_result', { replace: false });
 
             }).catch((err) => {
                 console.log('Error with backend API');
