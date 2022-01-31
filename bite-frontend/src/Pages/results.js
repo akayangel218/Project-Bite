@@ -21,7 +21,7 @@ const ResultsPage = () => {
           {restaurant.price}
         </div>
         <div className='stars'>
-          <StarRating rating={restaurant.review_avg} total={restaurant.review_count} />
+          <StarRating rating={restaurant.review_avg} total={restaurant.review_count} isOnPrimaryResultPage={false} />
         </div>
       </div>
     </div>

@@ -30,7 +30,7 @@ const PrimaryResultPage = () => {
                     <div className='pr-title'>
                         {'Best Bite for you: ' + restaurant.name}
                     </div>
-                    <StarRating rating={restaurant.review_avg} total={restaurant.review_count} />
+                    <StarRating rating={restaurant.review_avg} total={restaurant.review_count} isOnPrimaryResultPage={true} />
                     <div className='pr-price'>
                         {restaurant.price}
                     </div>
