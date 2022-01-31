@@ -16,9 +16,9 @@ function App() {
         <Navbar />
         <BrowserRouter>
           <Routes>
+            <Route exact path="/" element={<LandingPage />} />
             <Route path="/filter" element={<FilterPage />} />
             <Route path="/primary_result" element={<PrimaryResultPage />} />
-            <Route exact path="/" element={<LandingPage />} />
             <Route path="/results" element={<ResultsPage />} />
             <Route path="*" element={<h1>Page not found</h1>} />
           </Routes>
