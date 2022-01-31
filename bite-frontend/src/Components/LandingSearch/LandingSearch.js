@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../../Context/GlobalState';
 import './LandingSearch.css'
-import logo from '../../temp-logo.svg'
+import logo from '../../temp-logo.png'
 
 const LandingSearch = () => {
     const [text, updateText] = useState('');
