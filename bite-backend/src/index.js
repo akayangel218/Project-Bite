@@ -13,29 +13,19 @@ const port = config.server.port;
 
 app.use(cors());
 
-// USER FILTERS - hardcoded for now
-const distance = 5; //in miles
-const types = ['Chinese', 'Greek', 'Mexican'];
-const priceRange = [2,3]; //price range ([2,3] is $$ and $$$ only)
-const requirements = {
-  requireOpenNow: false,
-  requireDoesPickup: false,
-  requireDoesDelivery: false
-}
-
 function buildSearch(location, distance, types, priceRage, openNow) {
   let search = '?term=restaurants' + 
     '&location=' + location + 
     '&radius=' + (distance * 1609) + 
-    '&categories=' + types.join(',').toLowerCase() +
+    '&categories=' + types +
     '&limit=' + config.results.resultsSize +
-    '&price=' + priceRage.join(',') +
+    '&price=' + priceRage +
     '&open_now=' + openNow;
   return search;
 }
 
-app.get('/restaurants/:location', (req, res) => {
-  const yelpAPIEndpoint = 'https://api.yelp.com/v3/businesses/search' + buildSearch(req.params.location, distance, types, priceRange, requirements.requireOpenNow);
+app.get('/restaurants/:location/:radius/:categories/:price/:open_now/:doesPickup/:doesDelivery', (req, res) => {
+  const yelpAPIEndpoint = 'https://api.yelp.com/v3/businesses/search' + buildSearch(req.params.location, req.params.radius, req.params.categories, req.params.price, req.params.open_now);
 
   axios.get(yelpAPIEndpoint, {
     headers: {
@@ -52,10 +42,10 @@ app.get('/restaurants/:location', (req, res) => {
     yelpRes.data.businesses.forEach(restaurant => {
       // Apply filters
       if (restaurant.is_closed) return;
-      if (requirements.requireDoesPickup) {
+      if (req.params.doesPickup) {
         if (!restaurant.transactions.includes('pickup')) return;
       }
-      if (requirements.requireDoesDelivery) {
+      if (req.params.doesDelivery) {
         if (!restaurant.transactions.includes('delivery')) return;
       }
       // Add restaurant to response data
