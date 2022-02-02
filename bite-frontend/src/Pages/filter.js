@@ -18,18 +18,18 @@ const FilterPage = () => {
         <div className="FilterPage">
           <br></br>
           {/* Grid */}
-          <div class="grid-container">
-            <div class="grid-header">
+          <div className="grid-container">
+            <div className="grid-header">
                 <p>Filters</p>
                 <p>[reset]</p>
             </div>
-            <div class="grid-distance">
+            <div className="grid-distance">
                 <p>Distance</p>
                 <p>{slider_value}</p>
             </div>
             {/* Range Slider */}
-            <input type="range" min="1" max="30" defaultvalue="1" className='slider' id='myRange' />
-            <div class="grid-item">
+            <input type="range" min="1" max="30" defaultValue="1" className='slider' id='myRange' />
+            <div className="grid-item">
                 Price
                 <br></br>
                 <div className='button-container'>
@@ -39,7 +39,7 @@ const FilterPage = () => {
                     <div className='button-item'>$$$$</div>
                 </div>
             </div>
-            <div class="grid-item">
+            <div className="grid-item">
                 Rating
                 <br></br>
                 <div className='button-container'>
@@ -49,7 +49,7 @@ const FilterPage = () => {
                     <div className='button-item'>★★★★</div>
                 </div>
             </div>
-            <div class="grid-item">
+            <div className="grid-item">
                 Cuisine
                 <br></br>
                 <div className='button-container'>
@@ -65,7 +65,7 @@ const FilterPage = () => {
                     <div className='button-item2'>ANY</div>
                 </div>
             </div>
-            <div class="grid-item-takeout">
+            <div className="grid-item-takeout">
                 <br></br>
                 <div className='button-container'>
                     <div className={buttonStyle} onClick = {handleClick}  
