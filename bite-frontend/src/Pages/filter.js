@@ -1,9 +1,20 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import { GlobalContext } from '../Context/GlobalState';
 import './filter.css';
 
-class FilterPage extends Component {
-    render() {
-      return (
+
+var slider_value = '5';
+
+//temporary
+const FilterPage = () => {
+    const [buttonStyle, setStyle] = useState("button-item2");
+
+    function handleClick() {
+        alert("CLICKED");
+        setStyle("button-item2-hover");
+    }
+
+    return (
         <div className="FilterPage">
           <br></br>
           {/* Grid */}
@@ -14,7 +25,7 @@ class FilterPage extends Component {
             </div>
             <div class="grid-distance">
                 <p>Distance</p>
-                <p>[value]</p>
+                <p>{slider_value}</p>
             </div>
             {/* Range Slider */}
             <input type="range" min="1" max="30" defaultvalue="1" className='slider' id='myRange' />
@@ -54,16 +65,18 @@ class FilterPage extends Component {
                     <div className='button-item2'>ANY</div>
                 </div>
             </div>
-            <div className='grid-item'>
-                <div class="grid-subitem">[Open] [Pickup] [Delivery]</div>
-            </div>
-            <div className='grid-item'>
-                <div class="grid-subitem">[APPLY FILTERS]</div>
+            <div class="grid-item-takeout">
+                <br></br>
+                <div className='button-container'>
+                    <div className={buttonStyle} onClick = {handleClick}  
+                        >Open</div>
+                    <div className={buttonStyle} >Pickup</div>
+                    <div className='button-item2' >Delivery</div> 
+                </div>
             </div>
           </div>
         </div>
-      );
-    }
-  }
-  
-  export default FilterPage;
+    );
+}
+
+export default FilterPage;

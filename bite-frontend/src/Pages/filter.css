@@ -48,6 +48,13 @@ p {
     transition: opacity .2s; */
 }
 
+.grid-item-takeout {
+    background-color:  transparent;
+    color: #F1FAEE;
+    font-size: 3vmax;
+    /* text-align: left; */
+}
+
 /* .slider:hover {
     opacity: 1;
 } */
@@ -100,6 +107,30 @@ p {
 
 .button-item2 {
     background-color: #AD2B35;
+    color: #F1FAEE;
+    font-size: 1.5vmax;
+    font-weight: bold;
+    padding: 1vmax;
+    border-radius: 2vmax;
+    text-align: center;
+    width: 10.5vmax;
+}
+
+.button-item2:hover{
+    background-color: rgb(143, 28, 12);
+    transition: all 0.2s ease-in-out;
+    color: #F1FAEE;
+    font-size: 1.5vmax;
+    font-weight: bold;
+    padding: 1vmax;
+    border-radius: 2vmax;
+    text-align: center;
+    width: 10.5vmax;
+}
+
+.button-item2-hover{
+    background-color: rgb(143, 28, 12);
+    transition: all 0.2s ease-in-out;
     color: #F1FAEE;
     font-size: 1.5vmax;
     font-weight: bold;
