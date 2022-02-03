@@ -128,7 +128,7 @@ p {
     width: 10.5vmax;
 }
 
-.button-item2-hover{
+.button-item2-selected{
     background-color: rgb(143, 28, 12);
     transition: all 0.2s ease-in-out;
     color: #F1FAEE;
@@ -138,4 +138,5 @@ p {
     border-radius: 2vmax;
     text-align: center;
     width: 10.5vmax;
+    box-shadow: 2px 2px black;
 }

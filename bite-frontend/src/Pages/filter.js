@@ -2,17 +2,72 @@ import React, { useState } from 'react';
 import { GlobalContext } from '../Context/GlobalState';
 import './filter.css';
 
+// ===== Constants =====
+const buttonToggleOff = 'button-item2';
+const buttonToggleOn = 'button-item2-selected';
+const priceChoices = [1, 2, 3, 4];
+const ratingChoices = [1, 2, 3, 4];
 
-var slider_value = '5';
-
-//temporary
 const FilterPage = () => {
-    const [buttonStyle, setStyle] = useState("button-item2");
 
-    function handleClick() {
-        alert("CLICKED");
-        setStyle("button-item2-hover");
+    // ===== Setting Initial Component State =====
+    const [userFilters, updateFilters] = useState({
+        price: [],
+        rating: [],
+        other: []
+    });
+
+    const [buttonStyles, updateButtonStyles] = useState({
+        price: {
+            0: buttonToggleOff,
+            1: buttonToggleOff,
+            2: buttonToggleOff,
+            3: buttonToggleOff
+        },
+        rating: {
+            0: buttonToggleOff,
+            1: buttonToggleOff,
+            2: buttonToggleOff,
+            3: buttonToggleOff
+        },
+        other: {
+            0: buttonToggleOff,
+            1: buttonToggleOff,
+            2: buttonToggleOff
+        }
+    });
+    
+    const [distance, setNewSliderVal] = useState(5);
+
+    // ===== Functions to Update State =====
+    const handleSliderChange = (event) => {
+        setNewSliderVal(event.target.value);
     }
+
+    const handleButtonClick = (buttonID, buttonCategory) => {
+        const newStyle = ((buttonStyles[buttonCategory][buttonID] === buttonToggleOff) ? buttonToggleOn : buttonToggleOff);
+        const buttonStylesCopy = JSON.parse(JSON.stringify(buttonStyles));
+
+        buttonStylesCopy[buttonCategory][buttonID] = newStyle;
+        updateButtonStyles(buttonStylesCopy);
+
+        const userFiltersCopy = JSON.parse(JSON.stringify(userFilters));
+
+        if (newStyle === buttonToggleOn) {
+            userFiltersCopy[buttonCategory].push(buttonID);
+        } else {
+            const i = userFiltersCopy[buttonCategory].indexOf(buttonID);
+            userFiltersCopy[buttonCategory].splice(i, 1);
+        }
+        updateFilters(userFiltersCopy);
+    }
+
+    // ===== Functions to Render HTML =====
+    const priceButtons = priceChoices.map((price, idx) => (
+        <div key={idx} className={buttonStyles.price[idx]} onClick={() => handleButtonClick(idx, 'price')}>
+            {'$'.repeat(price)}
+        </div>
+    ));
 
     return (
         <div className="FilterPage">
@@ -25,18 +80,25 @@ const FilterPage = () => {
             </div>
             <div className="grid-distance">
                 <p>Distance</p>
-                <p>{slider_value}</p>
+                <p>{distance} miles</p>
             </div>
+
             {/* Range Slider */}
-            <input type="range" min="1" max="30" defaultValue="1" className='slider' id='myRange' />
+            <input
+                type="range"
+                min="1"
+                max="15"
+                value={distance}
+                className='slider'
+                id='myRange'
+                onChange={handleSliderChange}
+            />
+
             <div className="grid-item">
                 Price
                 <br></br>
                 <div className='button-container'>
-                    <div className='button-item'>$</div>
-                    <div className='button-item'>$$</div>
-                    <div className='button-item'>$$$</div>
-                    <div className='button-item'>$$$$</div>
+                    {priceButtons}
                 </div>
             </div>
             <div className="grid-item">
@@ -68,10 +130,15 @@ const FilterPage = () => {
             <div className="grid-item-takeout">
                 <br></br>
                 <div className='button-container'>
-                    <div className={buttonStyle} onClick = {handleClick}  
-                        >Open</div>
-                    <div className={buttonStyle} >Pickup</div>
-                    <div className='button-item2' >Delivery</div> 
+                    <div className={buttonStyles.other[0]} onClick = {() => handleButtonClick(0, 'other')}>
+                        Currently Open
+                    </div>
+                    <div className={buttonStyles.other[1]} onClick = {() => handleButtonClick(1, 'other')}>
+                        Does Pickup
+                    </div>
+                    <div className={buttonStyles.other[2]} onClick = {() => handleButtonClick(2, 'other')}>
+                        Does Delivery
+                    </div>
                 </div>
             </div>
           </div>
