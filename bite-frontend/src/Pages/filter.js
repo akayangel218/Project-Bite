@@ -8,36 +8,41 @@ const buttonToggleOn = 'button-item2-selected';
 const priceChoices = [1, 2, 3, 4];
 const ratingChoices = [1, 2, 3, 4];
 
+// ===== Default State =====
+const defaultUserFilters = {
+    price: [],
+    rating: [],
+    other: []
+};
+const defaultButtonStyles = {
+    price: {
+        0: buttonToggleOff,
+        1: buttonToggleOff,
+        2: buttonToggleOff,
+        3: buttonToggleOff
+    },
+    rating: {
+        0: buttonToggleOff,
+        1: buttonToggleOff,
+        2: buttonToggleOff,
+        3: buttonToggleOff
+    },
+    other: {
+        0: buttonToggleOff,
+        1: buttonToggleOff,
+        2: buttonToggleOff
+    }
+};
+const defaultDistance = 5;
+
 const FilterPage = () => {
 
     // ===== Setting Initial Component State =====
-    const [userFilters, updateFilters] = useState({
-        price: [],
-        rating: [],
-        other: []
-    });
+    const [userFilters, updateFilters] = useState(defaultUserFilters);
 
-    const [buttonStyles, updateButtonStyles] = useState({
-        price: {
-            0: buttonToggleOff,
-            1: buttonToggleOff,
-            2: buttonToggleOff,
-            3: buttonToggleOff
-        },
-        rating: {
-            0: buttonToggleOff,
-            1: buttonToggleOff,
-            2: buttonToggleOff,
-            3: buttonToggleOff
-        },
-        other: {
-            0: buttonToggleOff,
-            1: buttonToggleOff,
-            2: buttonToggleOff
-        }
-    });
+    const [buttonStyles, updateButtonStyles] = useState(defaultButtonStyles);
     
-    const [distance, setNewSliderVal] = useState(5);
+    const [distance, setNewSliderVal] = useState(defaultDistance);
 
     // ===== Functions to Update State =====
     const handleSliderChange = (event) => {
@@ -62,6 +67,12 @@ const FilterPage = () => {
         updateFilters(userFiltersCopy);
     }
 
+    const resetAllState = () => {
+        updateFilters(defaultUserFilters);
+        updateButtonStyles(defaultButtonStyles);
+        setNewSliderVal(defaultDistance);
+    }
+
     // ===== Functions to Render HTML =====
     const priceButtons = priceChoices.map((price, idx) => (
         <div key={idx} className={buttonStyles.price[idx]} onClick={() => handleButtonClick(idx, 'price')}>
@@ -76,7 +87,9 @@ const FilterPage = () => {
           <div className="grid-container">
             <div className="grid-header">
                 <p>Filters</p>
-                <p>[reset]</p>
+                <div className="button-reset" onClick = {() => resetAllState()}>
+                    Reset
+                </div>
             </div>
             <div className="grid-distance">
                 <p>Distance</p>

@@ -116,7 +116,7 @@ p {
     width: 10.5vmax;
 }
 
-.button-item2:hover{
+.button-item2:hover {
     background-color: rgb(143, 28, 12);
     transition: all 0.2s ease-in-out;
     color: #F1FAEE;
@@ -128,7 +128,7 @@ p {
     width: 10.5vmax;
 }
 
-.button-item2-selected{
+.button-item2-selected {
     background-color: rgb(143, 28, 12);
     transition: all 0.2s ease-in-out;
     color: #F1FAEE;
@@ -139,4 +139,21 @@ p {
     text-align: center;
     width: 10.5vmax;
     box-shadow: 2px 2px black;
+}
+
+.button-reset {
+    background-color: #AD2B35;
+    color: #F1FAEE;
+    font-size: 1.5vmax;
+    font-weight: bold;
+    padding: 1vmax;
+    border-radius: 2vmax;
+    text-align: center;
+    width: 10.5vmax;
+    height: 4vmax;
+}
+
+.button-reset:hover {
+    background-color: rgb(143, 28, 12);
+    transition: all 0.2s ease-in-out;
 }
