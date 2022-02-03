@@ -14,13 +14,22 @@ const port = config.server.port;
 app.use(cors());
 
 function buildSearch(location, distance, types, priceRage, openNow) {
-  let search = '?term=restaurants' + 
-    '&location=' + location + 
-    '&radius=' + (distance * 1609) + 
-    '&categories=' + types +
-    '&limit=' + config.results.resultsSize +
-    '&price=' + priceRage +
-    '&open_now=' + openNow;
+  let search = '?term=restaurants' + '&limit=' + config.results.resultsSize;
+  if (location != "") {
+    search += '&location=' + location;
+  }
+  if (distance != "") {
+    search += '&radius=' + (distance * 1609);
+  }
+  if (types != "") {
+    search += '&categories=' + types;
+  }
+  if (priceRage != "") {
+    search += '&price=' + priceRage;
+  }
+  if (openNow) {
+    search += '&open_now=' + openNow;
+  }
   return search;
 }
 
