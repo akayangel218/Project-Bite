@@ -6,12 +6,15 @@ import './filter.css';
 const buttonToggleOff = 'button-item2';
 const buttonToggleOn = 'button-item2-selected';
 const priceChoices = [1, 2, 3, 4];
-const ratingChoices = [1, 2, 3, 4];
+const ratingChoices = [1, 2, 3, 4, 5];
+const cuisineChoices = ["American", "Barbecue", "Chinese", "Hamburger", "Italian", 
+                        "Japanese", "Pizza", "Mexican", "Sushi",  "ANY"];
 
 // ===== Default State =====
 const defaultUserFilters = {
     price: [],
     rating: [],
+    cuisine: [],
     other: []
 };
 const defaultButtonStyles = {
@@ -25,7 +28,20 @@ const defaultButtonStyles = {
         0: buttonToggleOff,
         1: buttonToggleOff,
         2: buttonToggleOff,
-        3: buttonToggleOff
+        3: buttonToggleOff,
+        4: buttonToggleOff
+    },
+    cuisine: {
+        0: buttonToggleOff,
+        1: buttonToggleOff,
+        2: buttonToggleOff,
+        3: buttonToggleOff,
+        4: buttonToggleOff,
+        5: buttonToggleOff,
+        6: buttonToggleOff,
+        7: buttonToggleOff,
+        8: buttonToggleOff,
+        9: buttonToggleOff
     },
     other: {
         0: buttonToggleOff,
@@ -80,19 +96,31 @@ const FilterPage = () => {
         </div>
     ));
 
+    const ratingButtons = ratingChoices.map((rating, idx) => (
+        <div key={idx} className={buttonStyles.rating[idx]} onClick={() => handleButtonClick(idx, 'rating')}>
+            {'★'.repeat(rating)}
+        </div>
+    ));
+
+    const cuisineButtons = cuisineChoices.map((cuisine, idx) => (
+        <div key={idx} className={buttonStyles.cuisine[idx]} onClick={() => handleButtonClick(idx, 'cuisine')}>
+            {cuisine}
+        </div>
+    ));
+
     return (
         <div className="FilterPage">
           <br></br>
           {/* Grid */}
           <div className="grid-container">
             <div className="grid-header">
-                <p>Filters</p>
+                <div className='header'>Filters</div>
                 <div className="button-reset" onClick = {() => resetAllState()}>
                     Reset
                 </div>
             </div>
             <div className="grid-distance">
-                <p>Distance</p>
+                Distance
                 <p>{distance} miles</p>
             </div>
 
@@ -118,17 +146,15 @@ const FilterPage = () => {
                 Rating
                 <br></br>
                 <div className='button-container'>
-                    <div className='button-item'>★</div>
-                    <div className='button-item'>★★</div>
-                    <div className='button-item'>★★★</div>
-                    <div className='button-item'>★★★★</div>
+                    {ratingButtons}
                 </div>
             </div>
             <div className="grid-item">
                 Cuisine
                 <br></br>
                 <div className='button-container'>
-                    <div className='button-item2'>American</div>
+                    {cuisineButtons}
+                    {/* <div className='button-item2'>American</div>
                     <div className='button-item2'>Barbecue</div>
                     <div className='button-item2'>Chinese</div>
                     <div className='button-item2'>Hamburger</div>
@@ -137,24 +163,28 @@ const FilterPage = () => {
                     <div className='button-item2'>Pizza</div>
                     <div className='button-item2'>Mexican</div>
                     <div className='button-item2'>Sushi</div>
-                    <div className='button-item2'>ANY</div>
+                    <div className='button-item2'>ANY</div> */}
                 </div>
             </div>
+            <div className='divider'></div>
             <div className="grid-item-takeout">
-                <br></br>
-                <div className='button-container'>
+                <div className='button-container2'>
                     <div className={buttonStyles.other[0]} onClick = {() => handleButtonClick(0, 'other')}>
-                        Currently Open
+                        Currently<br></br>Open
                     </div>
                     <div className={buttonStyles.other[1]} onClick = {() => handleButtonClick(1, 'other')}>
-                        Does Pickup
+                        Does<br></br>Pickup
                     </div>
                     <div className={buttonStyles.other[2]} onClick = {() => handleButtonClick(2, 'other')}>
-                        Does Delivery
+                        Does<br></br>Delivery
                     </div>
                 </div>
             </div>
+            <div className='gird-apply'>
+                <div className='apply-button'>Apply</div>
+            </div>
           </div>
+          <br></br><br></br>
         </div>
     );
 }

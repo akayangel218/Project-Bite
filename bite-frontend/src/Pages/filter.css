@@ -2,45 +2,79 @@
     display: inline-grid;
     grid-template-columns: auto;
     background-color: #457B9D;
-    padding: 2vmax;
-    border-radius: 1.5vmax;
-    border: 1vmax;
-    border-color: black;
+    padding: 3vmax;
+    border-radius: 2vmax;
     row-gap: 2.2vmax;
 }
 
 .grid-header {
     background-color: #457B9D;
     color: #F1FAEE;
-    font-size: 4.2vmax;
-    font-weight: bold;
     justify-content: space-between;
     display: flex;
+    border-color: #1D3557;
+    border-bottom: 0.4vmax solid #1D3557;
+    margin-left: -3vmax;
+    margin-right: -3vmax;
+}
+
+.header {
+    background-color: #457B9D;
+    color: #F1FAEE;
+    margin-left: 2vmax;
+    font-size: 5.1vmax;
+    font-weight: bolder;
+    margin-top: -2vmax;
 }
 
 p {
     background-color: transparent;
+    font-size: 2.2vmax;
+    margin-top: 1vmax;
+    color: #1D3557;
+    font-weight: bold;
+}
+
+.button-reset {
+    background-color: #1D3557;
+    color: #F1FAEE;
+    font-size: 1.8vmax;
+    font-weight: bold;
+    padding: 0.9vmax;
+    border-radius: 1.5vmax;
+    text-align: center;
+    width: 9vmax;
+    height: 3.8vmax;
+    margin-right: 2vmax;
+    margin-top: -1vmax;
+}
+
+.button-reset:hover {
+    background-color: #F1FAEE;
+    color: #1D3557;
+    transition: all 0.2s ease-in-out;
 }
 
 .grid-distance {
     background-color: transparent;
     color: #F1FAEE;
-    font-size: 3vmax;
+    font-size: 3.2vmax;
     justify-content: space-between;
     display: flex;
+    margin-bottom: -1.7vmax;
 }
 
 .grid-item {
     background-color: transparent;
     color: #F1FAEE;
-    font-size: 3vmax;
+    font-size: 3.2vmax;
     text-align: left;
 }
 
 .slider {
     -webkit-appearance: none;
     width: 100%;
-    height: 1.2vmax;
+    height: 1vmax;
     border-radius: 3vmax;
     background: #F1FAEE;
     /* opacity: 0.7;
@@ -48,11 +82,19 @@ p {
     transition: opacity .2s; */
 }
 
+.divider {
+    background-color:  transparent;
+    border: 0.3vmax dotted #1D3557;
+    margin-top: 0.5vmax;
+    margin-left: 3vmax;
+    margin-right: 3vmax;
+}
+
 .grid-item-takeout {
     background-color:  transparent;
-    color: #F1FAEE;
     font-size: 3vmax;
-    /* text-align: left; */
+    display: grid;
+    justify-items: center;
 }
 
 /* .slider:hover {
@@ -94,8 +136,16 @@ p {
     gap: 2vmax;
 }
 
-.button-item {
-    background-color: #AD2B35;
+.button-container2 {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: transparent;
+    gap: 2vmax;
+}
+
+
+/* .button-item {
+    background-color: #6aad2b;
     color: #F1FAEE;
     font-size: 1.7vmax;
     font-weight: bold;
@@ -105,15 +155,26 @@ p {
     width: 10.5vmax;
 }
 
+.button-item-selected {
+    background-color: #6aad2b;
+    color: #F1FAEE;
+    font-size: 1.7vmax;
+    font-weight: bold;
+    padding: 0.5vmax;
+    border-radius: 2vmax;
+    text-align: center;
+    width: 10.5vmax;
+} */
+
 .button-item2 {
     background-color: #AD2B35;
     color: #F1FAEE;
     font-size: 1.5vmax;
     font-weight: bold;
     padding: 1vmax;
-    border-radius: 2vmax;
+    border-radius: 4vmax;
     text-align: center;
-    width: 10.5vmax;
+    width: 12vmax;
 }
 
 .button-item2:hover {
@@ -123,9 +184,9 @@ p {
     font-size: 1.5vmax;
     font-weight: bold;
     padding: 1vmax;
-    border-radius: 2vmax;
+    border-radius: 4vmax;
     text-align: center;
-    width: 10.5vmax;
+    width: 12vmax;
 }
 
 .button-item2-selected {
@@ -135,25 +196,25 @@ p {
     font-size: 1.5vmax;
     font-weight: bold;
     padding: 1vmax;
-    border-radius: 2vmax;
+    border-radius: 4vmax;
     text-align: center;
-    width: 10.5vmax;
-    box-shadow: 2px 2px black;
+    width: 12vmax;
+    box-shadow: 0.2vmax 0.2vmax rgb(58, 57, 57);
 }
 
-.button-reset {
-    background-color: #AD2B35;
-    color: #F1FAEE;
-    font-size: 1.5vmax;
-    font-weight: bold;
-    padding: 1vmax;
-    border-radius: 2vmax;
-    text-align: center;
-    width: 10.5vmax;
-    height: 4vmax;
+.gird-apply {
+    margin-top: 0.5vmax;
+    background-color: #457B9D;
+    display: grid;
+    justify-items: center;
 }
 
-.button-reset:hover {
-    background-color: rgb(143, 28, 12);
-    transition: all 0.2s ease-in-out;
+.apply-button {
+    background-color: #F1FAEE;
+    width: 52vmax;
+    padding: .2vmax;
+    font-size: 2.5vmax;
+    color: #AD2B35;
+    font-weight: bolder;
+    border-radius: 1vmax;
 }
