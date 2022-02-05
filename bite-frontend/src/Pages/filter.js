@@ -7,8 +7,10 @@ const buttonToggleOff = 'button-item2';
 const buttonToggleOn = 'button-item2-selected';
 const priceChoices = [1, 2, 3, 4];
 const ratingChoices = [1, 2, 3, 4, 5];
-const cuisineChoices = ["American", "Barbecue", "Chinese", "Hamburger", "Italian", 
-                        "Japanese", "Pizza", "Mexican", "Sushi",  "ANY"];
+const cuisineChoices = [
+    "American", "Mediterranean", "Mexican", "Chinese", "Italian", 
+    "Japanese", "Thai", "Fast Food", "Sushi", "Pizza"
+];
 
 // ===== Default State =====
 const defaultUserFilters = {
