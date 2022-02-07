@@ -165,7 +165,7 @@ const FilterPage = () => {
             .replace('american', 'newamerican,tradamerican')
             .replace('barbeque', 'bbq')
             .replace('breakfast', 'breakfast_brunch')
-            .replace('burgers', 'burgers,hotdogs')
+            .replace('burgers', 'hotdogs')
             .replace('chinese', 'chinese,asianfusion')
             .replace('european', specificallyEuropeanFood.toString())
             .replace('mediterranean', 'mediterranean,greek');
@@ -177,20 +177,17 @@ const FilterPage = () => {
             '/' + distance +
             '/' + (userFilters.other.includes(0)) + //require open_now
             '/' + (userFilters.other.includes(1)) + //require doesPickup
-            '/' + (userFilters.other.includes(2));  //require doesDelivery
+            '/' + (userFilters.other.includes(2)) + //require doesDelivery
+            '?';
         
         if (userFilters.price.length !== 0) {
-            search += '?price=' + userFilters.price.toString();
-        } else {
-            search += '?price=1,2,3,4';
+            search += 'price=' + userFilters.price.toString() + '&';
         }
-
         if (userFilters.rating.length !== 0) {
-            search += '&rating=' + userFilters.rating.toString();
+            search += 'rating=' + userFilters.rating.toString() + '&';
         }
-
         if (userFilters.cuisine.length !== 0) {
-            search += '&cuisine=' + parseCuisines();
+            search += 'cuisine=' + parseCuisines();
         }
         return search;
     }
