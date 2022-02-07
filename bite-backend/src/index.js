@@ -13,28 +13,29 @@ const port = config.server.port;
 
 app.use(cors());
 
-function buildSearch(location, distance, types, priceRage, openNow) {
-  let search = '?term=restaurants' + '&limit=' + config.results.resultsSize;
-  if (location != "") {
-    search += '&location=' + location;
+function buildSearch(location, distance, openNow, priceRange, cuisine) {
+  let search = '?term=restaurants' +
+    '&sort_by=' + 'best_match' +
+    '&limit=' + config.results.resultsSize +
+    '&location=' + location +
+    '&radius=' + (distance * 1609) +
+    '&open_now=' + openNow;
+
+  if (priceRange) {
+    search += '&price=' + priceRange;
   }
-  if (distance != "") {
-    search += '&radius=' + (distance * 1609);
-  }
-  if (types != "") {
-    search += '&categories=' + types;
-  }
-  if (priceRage != "") {
-    search += '&price=' + priceRage;
-  }
-  if (openNow) {
-    search += '&open_now=' + openNow;
+  if (cuisine) {
+    search += '&categories=' + cuisine;
   }
   return search;
 }
 
-app.get('/restaurants/:location/:radius/:categories/:price/:open_now/:doesPickup/:doesDelivery', (req, res) => {
-  const yelpAPIEndpoint = 'https://api.yelp.com/v3/businesses/search' + buildSearch(req.params.location, req.params.radius, req.params.categories, req.params.price, req.params.open_now);
+// Full: /restaurants/{location}/{distance}/{open_now}/{doesPickup}/{doesDelivery}?price={}&rating={}&cuisine={}
+// Exp param types:    string     int        bool       bool         bool          int arr  int arr   string arr
+// Example: "/restaurants/santa cruz/5/true/false/false?price=2,3&rating=3,4,5&cuisine=chinese,thai"
+app.get('/restaurants/:location/:distance/:open_now/:doesPickup/:doesDelivery', (req, res) => {
+
+  const yelpAPIEndpoint = 'https://api.yelp.com/v3/businesses/search' + buildSearch(req.params.location, req.params.distance, req.params.open_now, req.query.price, req.query.cuisine);
 
   axios.get(yelpAPIEndpoint, {
     headers: {
@@ -44,13 +45,18 @@ app.get('/restaurants/:location/:radius/:categories/:price/:open_now/:doesPickup
   }).then((yelpRes) => {
     // Build response data object
     const responseData = {
-      'restaurants': [],
-      'total': Math.min(parseInt(yelpRes.data.total), config.results.resultsSize)
+      'restaurants': []
     };
+    // Get rating options as array
+    let stars = ['1', '2', '3', '4', '5'];
+    if (req.query.rating) {
+      stars = req.query.rating.split(',');
+    }
     // Loop thru results
     yelpRes.data.businesses.forEach(restaurant => {
       // Apply filters
       if (restaurant.is_closed) return;
+      if (!stars.includes(Math.floor(restaurant.rating).toString())) return;
       if (req.params.doesPickup) {
         if (!restaurant.transactions.includes('pickup')) return;
       }
@@ -71,6 +77,8 @@ app.get('/restaurants/:location/:radius/:categories/:price/:open_now/:doesPickup
         'distance': (restaurant.distance / 1609.344) //in miles
       });
     });
+    // Save number of restaurants returned
+    responseData['total'] = Math.min(parseInt(responseData.restaurants.length), config.results.resultsSize)
     // Send response data
     res.status(200).json(responseData).end();
 
