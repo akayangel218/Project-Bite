@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../Context/GlobalState';
 import './filter.css';
 
@@ -9,8 +11,11 @@ const priceChoices = [1, 2, 3, 4];
 const ratingChoices = [1, 2, 3, 4, 5];
 const cuisineChoices = [
     "American", "Mediterranean", "Mexican", "Chinese", "Italian", 
-    "Japanese", "Thai", "Fast Food", "Sushi", "Pizza"
+    "Japanese", "Thai", "Burgers", "Sushi", "Pizza"
 ];
+const otherChoices = [0, 1, 2];
+
+const backendURL = 'http://localhost:8000';
 
 // ===== Default State =====
 const defaultUserFilters = {
@@ -54,6 +59,8 @@ const defaultButtonStyles = {
 const defaultDistance = 5;
 
 const FilterPage = () => {
+    const { location, saveRestaurants } = useContext(GlobalContext);
+    const navigate = useNavigate();
 
     // ===== Setting Initial Component State =====
     const [userFilters, updateFilters] = useState(defaultUserFilters);
@@ -74,12 +81,30 @@ const FilterPage = () => {
         buttonStylesCopy[buttonCategory][buttonID] = newStyle;
         updateButtonStyles(buttonStylesCopy);
 
+        let userFilter;
+        switch (buttonCategory) {
+            case 'price':
+                userFilter = priceChoices[buttonID];
+                break;
+            case 'rating':
+                userFilter = ratingChoices[buttonID];
+                break;
+            case 'cuisine':
+                userFilter = cuisineChoices[buttonID];
+                break;
+            case 'other':
+                userFilter = otherChoices[buttonID];
+                break;
+            default:
+                userFilter = 0;
+        };
+
         const userFiltersCopy = JSON.parse(JSON.stringify(userFilters));
 
         if (newStyle === buttonToggleOn) {
-            userFiltersCopy[buttonCategory].push(buttonID);
+            userFiltersCopy[buttonCategory].push(userFilter);
         } else {
-            const i = userFiltersCopy[buttonCategory].indexOf(buttonID);
+            const i = userFiltersCopy[buttonCategory].indexOf(userFilter);
             userFiltersCopy[buttonCategory].splice(i, 1);
         }
         updateFilters(userFiltersCopy);
@@ -109,6 +134,46 @@ const FilterPage = () => {
             {cuisine}
         </div>
     ));
+
+    // ===== Functions to Send API Request =====
+    const buildSearch = () => {
+        let search = '/restaurants' +
+            '/' + location +
+            '/' + distance +
+            '/' + (userFilters.other.includes(0)) + //require open_now
+            '/' + (userFilters.other.includes(1)) + //require doesPickup
+            '/' + (userFilters.other.includes(2));  //require doesDelivery
+        
+        if (userFilters.price.length !== 0) {
+            search += '?price=' + userFilters.price.toString();
+        } else {
+            search += '?price=1,2,3,4';
+        }
+
+        if (userFilters.rating.length !== 0) {
+            search += '&rating=' + userFilters.rating.toString();
+        }
+
+        if (userFilters.cuisine.length !== 0) {
+            search += '&cuisine=' + userFilters.cuisine.toString();
+        }
+        return search;
+    }
+
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        const searchString = backendURL + buildSearch();
+        console.log('Searching on bite-backend at:\n' + searchString);
+        axios.get(searchString).then((res) => {
+            saveRestaurants(res.data.restaurants, res.data.total);
+            navigate('/primary_result', { replace: false });
+
+        }).catch((err) => {
+            console.log('Error with backend API: ' + err.message);
+        });
+    }
 
     return (
         <div className="FilterPage">
@@ -183,7 +248,7 @@ const FilterPage = () => {
                 </div>
             </div>
             <div className='gird-apply'>
-                <div className='apply-button'>Apply</div>
+                <div className='apply-button' onClick={handleSubmit}>Apply</div>
             </div>
           </div>
           <br></br><br></br>

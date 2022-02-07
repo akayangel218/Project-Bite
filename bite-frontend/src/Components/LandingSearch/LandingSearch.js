@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../../Context/GlobalState';
 import './LandingSearch.css'
@@ -7,23 +6,14 @@ import logo from '../../temp-logo.png'
 
 const LandingSearch = () => {
     const [text, updateText] = useState('');
-    const { saveRestaurants, saveLocation } = useContext(GlobalContext);
+    const { saveLocation } = useContext(GlobalContext);
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         if (text.length) {
             event.preventDefault();
             saveLocation(text);
-            console.log('Searching location on bite-backend for: "' + text + '"');
-
-            axios.get('http://localhost:8000/restaurants/' + text).then((res) => {
-                saveRestaurants(res.data.restaurants, res.data.total);
-                console.log(res.data.restaurants);
-                navigate('/primary_result', { replace: false });
-
-            }).catch((err) => {
-                console.log('Error with backend API');
-            });
+            navigate('/filter');
         }
     }
 
