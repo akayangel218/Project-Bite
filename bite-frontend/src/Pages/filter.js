@@ -10,10 +10,29 @@ const buttonToggleOn = 'button-item2-selected';
 const priceChoices = [1, 2, 3, 4];
 const ratingChoices = [1, 2, 3, 4, 5];
 const cuisineChoices = [
-    "American", "Mediterranean", "Mexican", "Chinese", "Italian", 
-    "Japanese", "Thai", "Burgers", "Sushi", "Pizza"
+    "American", "Chinese", "European", "Italian", "Japanese",
+    "Korean", "Mediterranean", "Mexican", "Thai", "Barbeque",
+    "Breakfast", "Burgers", "Pizza", "Seafood", "Sushi"
 ];
 const otherChoices = [0, 1, 2];
+
+const specificallyEuropeanFood = [
+    'armenian',
+    'austrian',
+    'belgian',
+    'british',
+    'czechslovakian',
+    'danish',
+    'eastern_european',
+    'french',
+    'german',
+    'hungarian',
+    'jewish',
+    'kosher',
+    'portuguese',
+    'spanish',
+    'turkish'
+];
 
 const backendURL = 'http://localhost:8000';
 
@@ -48,7 +67,12 @@ const defaultButtonStyles = {
         6: buttonToggleOff,
         7: buttonToggleOff,
         8: buttonToggleOff,
-        9: buttonToggleOff
+        9: buttonToggleOff,
+       10: buttonToggleOff,
+       11: buttonToggleOff,
+       12: buttonToggleOff,
+       13: buttonToggleOff,
+       14: buttonToggleOff
     },
     other: {
         0: buttonToggleOff,
@@ -136,6 +160,17 @@ const FilterPage = () => {
     ));
 
     // ===== Functions to Send API Request =====
+    const parseCuisines = () => {
+        return userFilters.cuisine.toString().toLowerCase()
+            .replace('american', 'newamerican,tradamerican')
+            .replace('barbeque', 'bbq')
+            .replace('breakfast', 'breakfast_brunch')
+            .replace('burgers', 'burgers,hotdogs')
+            .replace('chinese', 'chinese,asianfusion')
+            .replace('european', specificallyEuropeanFood.toString())
+            .replace('mediterranean', 'mediterranean,greek');
+    }
+
     const buildSearch = () => {
         let search = '/restaurants' +
             '/' + location +
@@ -155,7 +190,7 @@ const FilterPage = () => {
         }
 
         if (userFilters.cuisine.length !== 0) {
-            search += '&cuisine=' + userFilters.cuisine.toString();
+            search += '&cuisine=' + parseCuisines();
         }
         return search;
     }
