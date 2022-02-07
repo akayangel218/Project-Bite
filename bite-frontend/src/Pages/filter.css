@@ -85,7 +85,8 @@ p {
 .divider {
     background-color:  transparent;
     border: 0.3vmax dotted #1D3557;
-    margin-top: 0.5vmax;
+    margin-top: 0.6vmax;
+    margin-bottom: 0.3vmax;
     margin-left: 3vmax;
     margin-right: 3vmax;
 }
@@ -174,7 +175,7 @@ p {
     padding: 1vmax;
     border-radius: 4vmax;
     text-align: center;
-    width: 12vmax;
+    width: 14vmax;
 }
 
 .button-item2:hover {
@@ -186,7 +187,7 @@ p {
     padding: 1vmax;
     border-radius: 4vmax;
     text-align: center;
-    width: 12vmax;
+    width: 14vmax;
 }
 
 .button-item2-selected {
@@ -198,7 +199,7 @@ p {
     padding: 1vmax;
     border-radius: 4vmax;
     text-align: center;
-    width: 12vmax;
+    width: 14vmax;
     box-shadow: 0.2vmax 0.2vmax rgb(58, 57, 57);
 }
 
@@ -211,7 +212,7 @@ p {
 
 .apply-button {
     background-color: #F1FAEE;
-    width: 52vmax;
+    width: 55vmax;
     padding: .2vmax;
     font-size: 2.5vmax;
     color: #AD2B35;
