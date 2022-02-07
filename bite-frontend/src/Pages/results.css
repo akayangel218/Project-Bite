@@ -1,42 +1,59 @@
 .card {
   background-color: #457B9D;
-  height: 200px;
-  margin-left: 75px;
-  margin-right: 75px;
-  margin-top: 40px;
-  border-radius: 25px;
+  height: 20vmax;
+  margin-top: 2vmax;
+  margin-left: 5vmax;
+  margin-right: 5vmax;
+  border-radius: 2vmax;
 }
 
 .img {
-  height: 200px;
-  width: 200px;
+  height: 20vmax;
+  width: 25vmax;
   object-fit: cover;
   float: left;
-  border-radius: 25px 0px 0px 25px;
+  border-radius: 2vmax;
 }
 
 .container {
-  float: left;
-  margin-left: 15px;
-  background-color: #457B9D;
-  padding-top: 25px;
-  border-radius: 25px;
+  display: grid;
+  background-color: transparent;
+  margin-left: 27vmax;
+  height: 20vmax;
+  padding-top: 0.5vmax;
+  border-radius: 4vmax;
   text-align: left;
 }
 
 .name {
-  background-color: #457B9D;
-  font-size: 25px;
-  border-left: 10px;
-  margin-bottom: 5px;
+  background-color: transparent;
+  color:  white;
+  display: grid;
+  font-weight: bolder;
+  font-size: 3.5vmax;
+  border-left: 1vmax;
+  margin-bottom: 0.5vmax;
 }
 
 .desc {
-  background-color: #457B9D;
-  margin-bottom: 3px;
+  font-size: 2.5vmax;
+  color:  white;
+  display: grid;
+  font-weight: 400;
+  background-color: transparent;
+  margin-bottom: 0.5vmax;
 }
 
+.stars{
+  font-size: 2vmax;
+  display: grid;
+  color : #AD2B35;
+}
 .price {
-  background-color: #457B9D;
-  margin-bottom: 3px;
+  font-size: 2.5vmax;
+  color:  white;
+  display: grid;
+  font-weight: 400;
+  background-color: transparent;
+  margin-bottom: 0.5vmax;
 }

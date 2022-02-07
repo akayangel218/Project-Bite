@@ -11,17 +11,17 @@ const ResultsPage = () => {
     <div key={idx} className='card'>
       <img src={restaurant.image_url} alt={restaurant.name + ' Yelp image'} className='img'/>
       <div className='container'>
-        <div className='name'>
+        <span className='name'>
           {restaurant.name}
+        </span>
+        <div className='stars'>
+          <StarRating rating={restaurant.review_avg} total={restaurant.review_count} isOnPrimaryResultPage={false} />
         </div>
         <div className='desc'>
           {restaurant.cuisine}
         </div>
         <div className='price'>
           {restaurant.price}
-        </div>
-        <div className='stars'>
-          <StarRating rating={restaurant.review_avg} total={restaurant.review_count} isOnPrimaryResultPage={false} />
         </div>
       </div>
     </div>

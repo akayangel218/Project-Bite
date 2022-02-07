@@ -1,42 +1,40 @@
 .pr-img {
-  height: 580px;
-  width: 750px;
-  object-fit: cover;
+  height: 70vmax;
+  width: 75vmax;
+  margin-top: 2vmax;
+  display: inline-grid;
   border-radius: 25px;
-  position: absolute;
-  top: 0;
-  left: 40vh;
+  
 }
 
 .pr-card-holder {
-  position: relative;
-  margin: 20px;
+  display: inline-grid;
 }
 
 .pr-card-content {
-  height: 190px;
-  width: 750px;
-  position: absolute;
-  left: 40vh;
-  bottom: -580px;
+  margin-top: -18vmax;
   background-color: rgb(241, 250, 238, 0.9);
   text-align: left;
-  padding: 7px;
 }
 
 .pr-title {
-  font-size: 30px;
+  font-size: 4vmax;
   color: #457B9D;
   background-color: rgba(255, 255, 255, 0);
 }
 
+.pr-star {
+  font-size: 2.5vmax;
+  background-color: transparent;
+}
+
 .pr-price {
   background-color: rgb(69, 123, 157, 0.66);
-  font-size: 20px;
-  border-radius: 12px;
-  width: 35px;
+  font-size: 2.5vmax;
+  width: 8vmax;
+  border-radius: 4vmax;
   text-align: center;
-  margin-top: 8px;
+  margin: 1vmax;
 }
 
 .pr-filter-matches {
@@ -46,23 +44,26 @@
 .pr-filter-match {
   background-color: rgb(29, 53, 87, 0.75);
   color: white;
-  font-size: 18px;
-  border-radius: 12px;
-  width: 150px;
+  margin: 0.5vmax;
+  font-size: 2vmax;
+  font-weight: bold;
+  border-radius: 4vmax;
   text-align: center;
-  margin-top: 8px;
-  margin-right: 8px;
-  padding: 5px;
-  float: left;
+  position: relative;
+  padding: 0.5vmax;
+}
+
+.gird-apply {
+  justify-items: center;
+  background-color: transparent;
 }
 
 .pr-more-results {
-  margin-top: 100px;
-  margin-bottom: 40px;
-  margin-left: 180px;
+  display: inherit;
+  margin: 1vmax;
+  padding: .75vmax;
+  font-size: 2vmax;
   background-color: #E63946;
   color: white;
-  font-size: 20px;
-  padding: 15px;
-  border-radius: 20px;
+  border-radius: 1.5vmax;
 }
