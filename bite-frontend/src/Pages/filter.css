@@ -219,3 +219,9 @@ p {
     font-weight: bolder;
     border-radius: 1vmax;
 }
+
+.apply-button:hover {
+    background-color: #1D3557;
+    color: #F1FAEE;
+    transition: all 0.2s ease-in-out;
+}
