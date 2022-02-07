@@ -30,26 +30,29 @@ const PrimaryResultPage = () => {
                     <div className='pr-title'>
                         {'Best Bite for you: ' + restaurant.name}
                     </div>
-                    <StarRating rating={restaurant.review_avg} total={restaurant.review_count} isOnPrimaryResultPage={true} />
+                    <div className='pr-star'>
+                        <StarRating rating={restaurant.review_avg} total={restaurant.review_count} isOnPrimaryResultPage={true} />
+                    </div>
                     <div className='pr-price'>
                         {restaurant.price}
                     </div>
                     <div className='pr-filter-matches'>
-                        <div className='pr-filter-match'>
+                        <span className='pr-filter-match'>
                             Filter match 1
-                        </div>
-                        <div className='pr-filter-match'>
+                        </span>
+                        <span className='pr-filter-match'>
                             Filter match 2
-                        </div>
-                        <div className='pr-filter-match'>
+                        </span>
+                        <span className='pr-filter-match'>
                             Filter match 3
-                        </div>
+                        </span>
                     </div>
-                    
-                    <button className='pr-more-results' onClick={handleSeeMore}>
-                        Not interested? See more matches
-                    </button>
                 </div>
+            </div>
+            <div className='gird-apply'>
+                <button className='pr-more-results' onClick={handleSeeMore}>
+                    Not interested? See more matches
+                 </button>
             </div>
         </div>
     );
