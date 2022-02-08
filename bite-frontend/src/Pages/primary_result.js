@@ -22,6 +22,12 @@ const PrimaryResultPage = () => {
         )
     }
 
+    const matchingCuisines = restaurant.cuisine.map((cuisine, idx) => (
+        <span className='pr-filter-match' key={idx}>
+            {cuisine}
+        </span>
+    ));
+
     return (
         <div className="PrimaryResultPage">
             <div className='pr-card-holder'>
@@ -37,15 +43,7 @@ const PrimaryResultPage = () => {
                         {restaurant.price}
                     </div>
                     <div className='pr-filter-matches'>
-                        <span className='pr-filter-match'>
-                            Filter match 1
-                        </span>
-                        <span className='pr-filter-match'>
-                            Filter match 2
-                        </span>
-                        <span className='pr-filter-match'>
-                            Filter match 3
-                        </span>
+                        {matchingCuisines}
                     </div>
                 </div>
             </div>

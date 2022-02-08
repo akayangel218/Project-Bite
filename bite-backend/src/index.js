@@ -63,13 +63,20 @@ app.get('/restaurants/:location/:distance/:open_now/:doesPickup/:doesDelivery', 
       if (req.params.doesDelivery) {
         if (!restaurant.transactions.includes('delivery')) return;
       }
+
+      // Get cuisine categories list
+      const cuisineList = [];
+      restaurant.categories.forEach(category => {
+        cuisineList.push(category.title);
+      });
+
       // Add restaurant to response data
       responseData.restaurants.push({
         'name': restaurant.name,
         'image_url': restaurant.image_url,
         'review_avg': restaurant.rating,
         'review_count': restaurant.review_count,
-        'cuisine': restaurant.categories[0].title,
+        'cuisine': cuisineList,
         'price': restaurant.price,
         'address': restaurant.location.display_address.join(' '),
         'phone': restaurant.phone,

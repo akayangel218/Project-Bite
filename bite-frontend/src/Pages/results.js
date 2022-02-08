@@ -18,7 +18,7 @@ const ResultsPage = () => {
           <StarRating rating={restaurant.review_avg} total={restaurant.review_count} isOnPrimaryResultPage={false} />
         </div>
         <div className='desc'>
-          {restaurant.cuisine}
+          {restaurant.cuisine.toString().replaceAll(',', ', ')}
         </div>
         <div className='price'>
           {restaurant.price}
