@@ -2,9 +2,9 @@
     display: inline-grid;
     grid-template-columns: auto;
     background-color: #457B9D;
-    padding: 3vmax;
-    border-radius: 2vmax;
-    row-gap: 2.2vmax;
+    padding: 3vmin;
+    border-radius: 2vmin;
+    row-gap: 2.2vmin;
 }
 
 .grid-header {
@@ -13,24 +13,24 @@
     justify-content: space-between;
     display: flex;
     border-color: #1D3557;
-    border-bottom: 0.4vmax solid #1D3557;
-    margin-left: -3vmax;
-    margin-right: -3vmax;
+    border-bottom: 0.4vmin solid #1D3557;
+    margin-left: -3vmin;
+    margin-right: -3vmin;
 }
 
 .header {
     background-color: #457B9D;
     color: #F1FAEE;
-    margin-left: 2vmax;
-    font-size: 5.1vmax;
+    margin-left: 2vmin;
+    font-size: 5.1vmin;
     font-weight: bolder;
-    margin-top: -2vmax;
+    margin-top: -2vmin;
 }
 
 p {
     background-color: transparent;
-    font-size: 2.2vmax;
-    margin-top: 1vmax;
+    font-size: 2.2vmin;
+    margin-top: 1vmin;
     color: #1D3557;
     font-weight: bold;
 }
@@ -38,15 +38,15 @@ p {
 .button-reset {
     background-color: #1D3557;
     color: #F1FAEE;
-    font-size: 1.8vmax;
+    font-size: 1.8vmin;
     font-weight: bold;
-    padding: 0.9vmax;
-    border-radius: 1.5vmax;
+    padding: 0.9vmin;
+    border-radius: 1.5vmin;
     text-align: center;
-    width: 9vmax;
-    height: 3.8vmax;
-    margin-right: 2vmax;
-    margin-top: -1vmax;
+    width: 9vmin;
+    height: 3.8vmin;
+    margin-right: 2vmin;
+    margin-top: -1vmin;
 }
 
 .button-reset:hover {
@@ -58,24 +58,24 @@ p {
 .grid-distance {
     background-color: transparent;
     color: #F1FAEE;
-    font-size: 3.2vmax;
+    font-size: 3.2vmin;
     justify-content: space-between;
     display: flex;
-    margin-bottom: -1.7vmax;
+    margin-bottom: -1.7vmin;
 }
 
 .grid-item {
     background-color: transparent;
     color: #F1FAEE;
-    font-size: 3.2vmax;
+    font-size: 3.2vmin;
     text-align: left;
 }
 
 .slider {
     -webkit-appearance: none;
     width: 100%;
-    height: 1vmax;
-    border-radius: 3vmax;
+    height: 1vmin;
+    border-radius: 3vmin;
     background: #F1FAEE;
     /* opacity: 0.7;
     -webkit-transition: .2s;
@@ -84,16 +84,16 @@ p {
 
 .divider {
     background-color:  transparent;
-    border: 0.3vmax dotted #1D3557;
-    margin-top: 0.6vmax;
-    margin-bottom: 0.3vmax;
-    margin-left: 3vmax;
-    margin-right: 3vmax;
+    border: 0.3vmin dotted #1D3557;
+    margin-top: 0.6vmin;
+    margin-bottom: 0.3vmin;
+    margin-left: 3vmin;
+    margin-right: 3vmin;
 }
 
 .grid-item-takeout {
     background-color:  transparent;
-    font-size: 3vmax;
+    font-size: 3vmin;
     display: grid;
     justify-items: center;
 }
@@ -105,8 +105,8 @@ p {
 /* Slider controller */
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 2.2vmax;
-    height: 2.2vmax;
+    width: 2.2vmin;
+    height: 2.2vmin;
     border-radius: 50%;
     background: #AD2B35;
     cursor: pointer;
@@ -114,8 +114,8 @@ p {
 
 /* Slider controller */
 .slider::-moz-range-thumb {
-    width: 2.2vmax;
-    height: 2.2vmax;
+    width: 2.2vmin;
+    height: 2.2vmin;
     border-radius: 50%;
     background: #AD2B35;
     cursor: pointer;
@@ -125,7 +125,7 @@ p {
 .grid-subitem {
     background-color: transparent;
     color: #AD2B35;
-    font-size: 2.5vmax;
+    font-size: 2.5vmin;
     text-align: center;
 }
 
@@ -134,77 +134,77 @@ p {
     grid-template-columns: auto auto auto auto auto;
     background-color: transparent;
     width: auto;
-    gap: 2vmax;
+    gap: 2vmin;
 }
 
 .button-container2 {
     display: grid;
     grid-template-columns: auto auto auto;
     background-color: transparent;
-    gap: 2vmax;
+    gap: 2vmin;
 }
 
 
 /* .button-item {
     background-color: #6aad2b;
     color: #F1FAEE;
-    font-size: 1.7vmax;
+    font-size: 1.7vmin;
     font-weight: bold;
-    padding: 0.5vmax;
-    border-radius: 2vmax;
+    padding: 0.5vmin;
+    border-radius: 2vmin;
     text-align: center;
-    width: 10.5vmax;
+    width: 10.5vmin;
 }
 
 .button-item-selected {
     background-color: #6aad2b;
     color: #F1FAEE;
-    font-size: 1.7vmax;
+    font-size: 1.7vmin;
     font-weight: bold;
-    padding: 0.5vmax;
-    border-radius: 2vmax;
+    padding: 0.5vmin;
+    border-radius: 2vmin;
     text-align: center;
-    width: 10.5vmax;
+    width: 10.5vmin;
 } */
 
 .button-item2 {
     background-color: #AD2B35;
     color: #F1FAEE;
-    font-size: 1.5vmax;
+    font-size: 1.5vmin;
     font-weight: bold;
-    padding: 1vmax;
-    border-radius: 4vmax;
+    padding: 1vmin;
+    border-radius: 4vmin;
     text-align: center;
-    width: 14vmax;
+    width: 14vmin;
 }
 
 .button-item2:hover {
     background-color: rgb(143, 28, 12);
     transition: all 0.2s ease-in-out;
     color: #F1FAEE;
-    font-size: 1.5vmax;
+    font-size: 1.5vmin;
     font-weight: bold;
-    padding: 1vmax;
-    border-radius: 4vmax;
+    padding: 1vmin;
+    border-radius: 4vmin;
     text-align: center;
-    width: 14vmax;
+    width: 14vmin;
 }
 
 .button-item2-selected {
     background-color: rgb(143, 28, 12);
     transition: all 0.2s ease-in-out;
     color: #F1FAEE;
-    font-size: 1.5vmax;
+    font-size: 1.5vmin;
     font-weight: bold;
-    padding: 1vmax;
-    border-radius: 4vmax;
+    padding: 1vmin;
+    border-radius: 4vmin;
     text-align: center;
-    width: 14vmax;
-    box-shadow: 0.2vmax 0.2vmax rgb(58, 57, 57);
+    width: 14vmin;
+    box-shadow: 0.2vmin 0.2vmin rgb(58, 57, 57);
 }
 
 .gird-apply {
-    margin-top: 0.5vmax;
+    margin-top: 0.5vmin;
     background-color: #457B9D;
     display: grid;
     justify-items: center;
@@ -212,12 +212,12 @@ p {
 
 .apply-button {
     background-color: #F1FAEE;
-    width: 55vmax;
-    padding: .2vmax;
-    font-size: 2.5vmax;
+    width: 55vmin;
+    padding: .2vmin;
+    font-size: 2.5vmin;
     color: #AD2B35;
     font-weight: bolder;
-    border-radius: 1vmax;
+    border-radius: 1vmin;
 }
 
 .apply-button:hover {
