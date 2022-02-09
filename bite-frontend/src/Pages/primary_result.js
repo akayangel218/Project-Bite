@@ -36,11 +36,16 @@ const PrimaryResultPage = () => {
                     <div className='pr-title'>
                         {'Best Bite for you: ' + restaurant.name}
                     </div>
+                    <div className='pr-phone'>
+                        {restaurant.display_phone}
+                    </div>
                     <div className='pr-star'>
                         <StarRating rating={restaurant.review_avg} total={restaurant.review_count} isOnPrimaryResultPage={true} />
                     </div>
-                    <div className='pr-price'>
-                        {restaurant.price}
+                    <div className='pr-filter-matches'>
+                        <span className='pr-price'>
+                            {restaurant.price}
+                        </span>
                     </div>
                     <div className='pr-filter-matches'>
                         {matchingCuisines}
