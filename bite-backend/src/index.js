@@ -15,7 +15,7 @@ app.use(cors());
 
 function buildSearch(location, distance, openNow, priceRange, cuisine) {
   let search = '?term=restaurants' +
-    '&sort_by=' + 'best_match' +
+    '&sort_by=' + ((distance == 1) ? 'distance' : 'best_match') +
     '&limit=' + config.results.resultsSize +
     '&location=' + location +
     '&radius=' + (distance * 1609) +
