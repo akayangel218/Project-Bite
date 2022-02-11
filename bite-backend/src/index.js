@@ -64,21 +64,25 @@ app.get('/restaurants/:location/:distance/:open_now/:doesPickup/:doesDelivery', 
         if (!restaurant.transactions.includes('delivery')) return;
       }
 
-      // Get cuisine categories list
+      // Get cuisine categories lists
       const cuisineList = [];
+      const cuisineCodeList = [];
       restaurant.categories.forEach(category => {
         cuisineList.push(category.title);
+        cuisineCodeList.push(category.alias);
       });
 
       // Add restaurant to response data
       responseData.restaurants.push({
         'name': restaurant.name,
+        'id': restaurant.id,
         'image_url': restaurant.image_url,
         'review_avg': restaurant.rating,
         'review_count': restaurant.review_count,
         'cuisine': cuisineList,
+        'cuisineCodes': cuisineCodeList,
         'price': restaurant.price,
-        'address': restaurant.location.display_address.join(' '),
+        'address': restaurant.location.display_address.join('\n'),
         'phone': restaurant.phone,
         'display_phone': restaurant.display_phone,
         'distance': (restaurant.distance / 1609.344) //in miles
