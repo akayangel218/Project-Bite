@@ -22,11 +22,14 @@ const PrimaryResultPage = () => {
         )
     }
 
-    const matchingCuisines = restaurant.cuisine.map((cuisine, idx) => (
-        <span className='pr-filter-match' key={idx}>
-            {cuisine}
-        </span>
-    ));
+    const matchingCuisines = restaurant.cuisine.map((cuisine, idx) => {
+        if (idx > 2) return;
+        return (
+            <span className='pr-filter-match' key={idx}>
+                {cuisine}
+            </span>
+        );
+    });
 
     return (
         <div className="PrimaryResultPage">

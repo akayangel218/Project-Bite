@@ -7,25 +7,28 @@ import StarRating from '../Components/StarRating/StarRating';
 const ResultsPage = () => {
   const { restaurantList } = useContext(GlobalContext);
 
-  const restaurantMarkup = restaurantList.map((restaurant, idx) => (
-    <div key={idx} className='card'>
-      <img src={restaurant.image_url} alt={restaurant.name + ' Yelp image'} className='img'/>
-      <div className='container'>
-        <span className='name'>
-          {restaurant.name}
-        </span>
-        <div className='stars'>
-          <StarRating rating={restaurant.review_avg} total={restaurant.review_count} isOnPrimaryResultPage={false} />
-        </div>
-        <div className='desc'>
-          {restaurant.cuisine.toString().replaceAll(',', ', ')}
-        </div>
-        <div className='price'>
-          {restaurant.price}
+  const restaurantMarkup = restaurantList.map((restaurant, idx) => {
+    if (idx === 0) return;
+    return (
+      <div key={idx} className='card'>
+        <img src={restaurant.image_url} alt={restaurant.name + ' Yelp image'} className='img'/>
+        <div className='container'>
+          <span className='name'>
+            {restaurant.name}
+          </span>
+          <div className='stars'>
+            <StarRating rating={restaurant.review_avg} total={restaurant.review_count} isOnPrimaryResultPage={false} />
+          </div>
+          <div className='desc'>
+            {restaurant.cuisine.toString().replaceAll(',', ', ')}
+          </div>
+          <div className='price'>
+            {restaurant.price}
+          </div>
         </div>
       </div>
-    </div>
-  ));
+    )
+  });
 
   return (
     <div className="ResultsPage">
