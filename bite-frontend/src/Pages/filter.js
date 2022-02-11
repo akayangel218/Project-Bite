@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../Context/GlobalState';
+import { getTopCuisines, getTopPrices, getDislikedIDs } from '../Context/LocalStorage';
 import './filter.css';
 
 // ===== Constants =====

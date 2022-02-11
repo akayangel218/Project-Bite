@@ -1,6 +1,7 @@
 import '../App.css';
 import React, { Component } from 'react';
 import LandingSearch from '../Components/LandingSearch/LandingSearch';
+import { getAllLikes, getAllDislikes, removeRestaurantFromLikes, removeRestaurantFromDislikes } from '../Context/LocalStorage';
 import logo from '../logo_bite.png'
 
 class LandingPage extends Component {
