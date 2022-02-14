@@ -30,12 +30,21 @@ function buildSearch(location, distance, openNow, priceRange, cuisine) {
   return search;
 }
 
-// Full: /restaurants/{location}/{distance}/{open_now}/{doesPickup}/{doesDelivery}?price={}&rating={}&cuisine={}
-// Exp param types:    string     int        bool       bool         bool          int arr  int arr   string arr
-// Example: "/restaurants/santa cruz/5/true/false/false?price=2,3&rating=3,4,5&cuisine=chinese,thai"
+// Full: /restaurants/{location}/{distance}/{open_now}/{doesPickup}/{doesDelivery}?price={}&rating={}&cuisine={}&top_cuisines={}&top_prices={}&dislikes={}
+// Exp param types:    string     int        bool       bool         bool          int arr  int arr   str arr    object          object        str arr
+// Example: "/restaurants/santa cruz/5/true/false/false?price=2,3&rating=3,4,5&cuisine=chinese,thai&top_cuisines={"chinese":5,"sushi":2,"hotpot":1}&top_prices={2:7,3:3,1:2}&dislikes=E8RJkjfdcwgtyoPMjQ_Olg,H2PYsyqsocvwlgDBmX_Adi"
 app.get('/restaurants/:location/:distance/:open_now/:doesPickup/:doesDelivery', (req, res) => {
 
   const yelpAPIEndpoint = 'https://api.yelp.com/v3/businesses/search' + buildSearch(req.params.location, req.params.distance, req.params.open_now, req.query.price, req.query.cuisine);
+
+  let top_cuisines = {};
+  let top_prices = {};
+  if (req.query.top_cuisines) {
+    top_cuisines = JSON.parse(req.query.top_cuisines);
+  }
+  if (req.query.top_prices) {
+    top_prices = JSON.parse(req.query.top_prices);
+  }
 
   axios.get(yelpAPIEndpoint, {
     headers: {
@@ -62,6 +71,9 @@ app.get('/restaurants/:location/:distance/:open_now/:doesPickup/:doesDelivery', 
       }
       if (req.params.doesDelivery) {
         if (!restaurant.transactions.includes('delivery')) return;
+      }
+      if (req.query.dislikes) {
+        if (req.query.dislikes.split(',').includes(restaurant.id)) return;
       }
 
       // Get cuisine categories lists
