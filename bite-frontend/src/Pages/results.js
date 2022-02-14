@@ -2,7 +2,7 @@ import '../App.css';
 import './results.css';
 import React, { useContext } from 'react';
 import { GlobalContext } from '../Context/GlobalState';
-import { addRestaurantToLikes, addRestaurantToDislikes, removeRestaurantFromLikes, removeRestaurantFromDislikes } from '../Context/LocalStorage';
+import { addRestaurantToLikes, addRestaurantToDislikes, removeRestaurantFromLikes, removeRestaurantFromDislikes, getAllLikes } from '../Context/LocalStorage';
 import StarRating from '../Components/StarRating/StarRating';
 
 const ResultsPage = () => {

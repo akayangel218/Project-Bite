@@ -54,12 +54,7 @@ function getTopCuisines() {
     }
   });
 
-  const cuisineList = [];
-  for (const cuisineCode in cuisines) {
-    cuisineList.push(cuisineCode + ':' + cuisines[cuisineCode]);
-  }
-
-  return cuisineList;
+  return cuisines;
 };
 
 function getTopPrices() {
@@ -73,12 +68,7 @@ function getTopPrices() {
     }
   });
 
-  const priceList = [];
-  for (const priceKey in prices) {
-    priceList.push(priceKey + ':' + prices[priceKey]);
-  }
-
-  return priceList;
+  return prices;
 };
 
 function getDislikedIDs() {
