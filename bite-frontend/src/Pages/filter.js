@@ -188,8 +188,18 @@ const FilterPage = () => {
             search += 'rating=' + userFilters.rating.toString() + '&';
         }
         if (userFilters.cuisine.length !== 0) {
-            search += 'cuisine=' + parseCuisines();
+            search += 'cuisine=' + parseCuisines() + '&';
         }
+        if (Object.keys(getTopCuisines()).length !== 0) {
+            search += 'top_cuisines=' + JSON.stringify(getTopCuisines()) + '&';
+        }
+        if (Object.keys(getTopPrices()).length !== 0) {
+            search += 'top_prices=' + JSON.stringify(getTopPrices()) + '&';
+        }
+        if (getDislikedIDs().length !== 0) {
+            search += 'dislikes=' + getDislikedIDs().toString();
+        }
+
         return search;
     }
 
