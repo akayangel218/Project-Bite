@@ -5,8 +5,10 @@ const cors = require('cors');
 // OTHER FILES
 const config = require('./config');
 const keys = require('./keys');
+const util = require('./util');
 // access config settings with config.{category}.{setting}
 // access yelp keys with keys.yelp.clientID & keys.yelp.APIKey
+// access utility functions with util.{function}
 
 const app = express();
 const port = config.server.port;
@@ -15,7 +17,7 @@ app.use(cors());
 
 function buildSearch(location, distance, openNow, priceRange, cuisine) {
   let search = '?term=restaurants' +
-    '&sort_by=' + ((distance == 1) ? 'distance' : 'best_match') +
+    '&sort_by=' + ((distance == 1 || util.isStreetAddress(location)) ? 'distance' : 'best_match') +
     '&limit=' + config.results.resultsSize +
     '&location=' + location +
     '&radius=' + (distance * 1609) +
