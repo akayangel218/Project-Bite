@@ -2,6 +2,7 @@ const axios = require('axios');
 
 const endpoint = 'http://localhost:8000';
 const baseParams = '/restaurants/san francisco';
+const defaultParams = baseParams + '/10/false/false/false'
 
 let testNum = 0;
 
@@ -35,10 +36,32 @@ function test_distance() {
   }).catch(endpointFailed);
 }
 
+function test_price() {
+  logTestAssertion('All restaurants have price points of 1 or 4');
+  return axios.get(endpoint + defaultParams + '?price=1,4').then((res) => {
+    res.data.restaurants.forEach(restaurant => {
+      if ((restaurant.price) != '$' && (restaurant.price) != '$$$$') logTestFailed();
+    });
+    logTestPassed();
+  }).catch(endpointFailed);
+}
+
+function test_rating() {
+  logTestAssertion('All restaurants have ratings of 4 or 4.5 stars');
+  return axios.get(endpoint + defaultParams + '?rating=4').then((res) => {
+    res.data.restaurants.forEach(restaurant => {
+      if ((restaurant.review_avg) != 4 && (restaurant.review_avg) != 4.5) logTestFailed();
+    });
+    logTestPassed();
+  }).catch(endpointFailed);
+}
+
 
 // ===== Handler =====
 async function runTests() {
   await test_distance();
+  await test_price();
+  await test_rating();
   console.log('[SUCCESS]: All tests passed!');
 }
 runTests();
