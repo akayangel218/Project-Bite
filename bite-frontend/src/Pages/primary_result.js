@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../Context/GlobalState';
 import { addRestaurantToLikes, addRestaurantToDislikes, removeRestaurantFromLikes, removeRestaurantFromDislikes, getAllLikes } from '../Context/LocalStorage';
 import StarRating from '../Components/StarRating/StarRating';
+import thumb from '../thumb.png'
 
 const PrimaryResultPage = () => {
     const navigate = useNavigate();
@@ -57,8 +58,14 @@ const PrimaryResultPage = () => {
                 </div>
             </div>
             <div className='gird-apply'>
-                <button className='pr-more-results' onClick={handleSeeMore}>
-                    Not interested? See more matches
+                 <button className='pr-likes' onClick={addRestaurantToLikes}>
+                    <img className='likes' src = {thumb} />
+                 </button>
+                 <button className='pr-more-results' onClick={handleSeeMore}>
+                    See more matches
+                 </button>
+                 <button className='pr-dislikes' onClick={addRestaurantToDislikes}>
+                    <img className='dislike' src = {thumb} />
                  </button>
             </div>
         </div>

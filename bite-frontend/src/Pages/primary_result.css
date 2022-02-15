@@ -7,7 +7,6 @@
 .pr-card-holder {
   margin-left: auto;
   margin-right: auto;
-
   display: inline-grid;
 }
 
@@ -67,15 +66,54 @@
 }
 
 .gird-apply {
-  justify-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: auto auto auto;
   background-color: transparent;
+  gap: 3vmin;
+  width: 20vmax;
+  height: 1vmax;
 }
 
 .pr-more-results {
   display: inherit;
-  padding: .5vmax;
-  font-size: 1em;
+  text-align: center;
+  font-size: 1vmax;
+  padding: 10%;
+  background-color: rgb(29, 53, 87, 1);
+  color: white;
+  border-radius: 50%;
+}
+
+.pr-likes {
+  display: inherit;
+  padding: 10%;
+  font-size: 0.5em;
   background-color: #E63946;
   color: white;
-  border-radius: 1vmax;
+  border-radius: 50%;
+}
+
+.pr-dislikes {
+  display: inherit;
+  padding: 10%;
+  font-size: 1em;
+  background-color: #457B9D;
+  color: white;
+  border-radius: 50%;
+}
+
+.likes {
+  background-color: transparent;
+  width:4vmax;
+  height:4vmax;
+  object-fit:cover;
+}
+
+.dislike{
+  background-color: transparent;
+  width:4vmax;
+  height:4vmax;
+  object-fit:cover;
+  transform: rotate(180deg);
 }
