@@ -58,13 +58,13 @@ const PrimaryResultPage = () => {
                 </div>
             </div>
             <div className='gird-apply'>
-                 <button className='pr-likes' onClick={addRestaurantToLikes}>
+                 <button className='pr-likes' onClick={() => addRestaurantToLikes(restaurant)}>
                     <img className='likes' src = {thumb} />
                  </button>
                  <button className='pr-more-results' onClick={handleSeeMore}>
                     See more matches
                  </button>
-                 <button className='pr-dislikes' onClick={addRestaurantToDislikes}>
+                 <button className='pr-dislikes' onClick={() => addRestaurantToDislikes(restaurant)}>
                     <img className='dislike' src = {thumb} />
                  </button>
             </div>
