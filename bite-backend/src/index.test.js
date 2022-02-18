@@ -8,21 +8,34 @@ let testNum = 0;
 
 // ===== Utility Functions =====
 function logTestAssertion(msg) {
-  console.log('[Test ' + (++testNum) + ' assertion]: ' + msg);
+  console.log(colorCode('[Test ' + (++testNum) + ' assertion]: ', 'cyan') + msg);
 }
 
 function logTestFailed() {
-  console.log('[ERROR]: Test ' + testNum + ' failed!');
+  console.log(colorCode('[ERROR]: ', 'red') + 'Test ' + testNum + ' failed!');
   process.exit();
 }
 
 function logTestPassed() {
-  console.log('[PASS]: Test ' + testNum + ' passed\n');
+  console.log(colorCode('[PASS]: ', 'green') + 'Test ' + testNum + ' passed\n');
 }
 
 function endpointFailed() {
-  console.log('[ERROR]: Endpoint failed to respond during test ' + testNum);
+  console.log(colorCode('[ERROR]: ', 'red') + 'Endpoint failed to respond during test ' + testNum);
   process.exit();
+}
+
+function colorCode(log, color) {
+  if (color === 'cyan') {
+    return '\x1b[36m' + log + '\x1b[0m';
+  }
+  if (color === 'green') {
+    return '\x1b[32m' + log + '\x1b[0m';
+  }
+  if (color === 'red') {
+    return '\x1b[31m' + log + '\x1b[0m';
+  }
+  else return log;
 }
 
 // ===== Unit Tests =====
@@ -113,6 +126,6 @@ async function runTests() {
   await test_likes();
   await test_dislikes();
   await test_sorting();
-  console.log('[SUCCESS]: All tests passed!');
+  console.log(colorCode('[SUCCESS]: ', 'green') + 'All tests passed!');
 }
 runTests();
