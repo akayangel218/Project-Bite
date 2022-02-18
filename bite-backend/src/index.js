@@ -34,7 +34,7 @@ function buildSearch(location, distance, openNow, priceRange, cuisine) {
 
 // Full: /restaurants/{location}/{distance}/{open_now}/{doesPickup}/{doesDelivery}?price={}&rating={}&cuisine={}&top_cuisines={}&top_prices={}&dislikes={}
 // Exp param types:    string     int        bool       bool         bool          int arr  int arr   str arr    object          object        str arr
-// Example: "/restaurants/santa cruz/5/true/false/false?price=2,3&rating=3,4,5&cuisine=chinese,thai&top_cuisines={"chinese":5,"sushi":2,"hotpot":1}&top_prices={2:7,3:3,1:2}&dislikes=E8RJkjfdcwgtyoPMjQ_Olg,H2PYsyqsocvwlgDBmX_Adi"
+// Example: "/restaurants/santa cruz/5/true/false/false?price=2,3&rating=3,4,5&cuisine=chinese,thai&top_cuisines={"chinese":5,"sushi":2,"hotpot":1}&top_prices={"2":7,"3":3,"1":2}&dislikes=E8RJkjfdcwgtyoPMjQ_Olg,H2PYsyqsocvwlgDBmX_Adi"
 app.get('/restaurants/:location/:distance/:open_now/:doesPickup/:doesDelivery', (req, res) => {
 
   const yelpAPIEndpoint = 'https://api.yelp.com/v3/businesses/search' + buildSearch(req.params.location, req.params.distance, req.params.open_now, req.query.price, req.query.cuisine);
@@ -102,8 +102,12 @@ app.get('/restaurants/:location/:distance/:open_now/:doesPickup/:doesDelivery', 
         'distance': (restaurant.distance / 1609.344) //in miles
       });
     });
-    // Save number of restaurants returned
-    responseData['total'] = Math.min(parseInt(responseData.restaurants.length), config.results.resultsSize)
+    // Add number of restaurants returned to response data
+    responseData['total'] = Math.min(parseInt(responseData.restaurants.length), config.results.resultsSize);
+
+    // Add relevance of each restaurant to response data
+    util.calculateRestaurantScores(responseData.restaurants, top_cuisines, top_prices);
+
     // Send response data
     res.status(200).json(responseData).end();
 

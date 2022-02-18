@@ -3,3 +3,6 @@
 
 # secrets
 /src/keys.js
+
+# environment dependent
+/src/scratch.js

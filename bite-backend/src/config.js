@@ -3,7 +3,7 @@ const server = {
 };
 
 const results = {
-  resultsSize: 20
+  resultsSize: 30
 }
 
 exports.server = server;

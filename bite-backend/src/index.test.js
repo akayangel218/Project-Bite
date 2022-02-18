@@ -56,6 +56,20 @@ function test_rating() {
   }).catch(endpointFailed);
 }
 
+function test_likes() {
+  logTestAssertion('Restaurants with chinese as top cuisine should have a relevance of 3');
+  return axios.get(endpoint + defaultParams + '?cuisine=chinese&top_cuisines={"chinese":6}').then((res) => {
+    res.data.restaurants.forEach(restaurant => {
+      if (restaurant.cuisineCodes[0]
+        && restaurant.cuisineCodes[0] === 'chinese'
+        && restaurant.relevance != 3) {
+          logTestFailed();
+        }
+    });
+    logTestPassed();
+  }).catch(endpointFailed);
+}
+
 function test_dislikes() {
   const dislikes = ['HHtpR0RslupSQ99GIIwW5A', 'oa6ZaLdQNzZHP7--gxBh2g', 'J7_-faNq_Ag9qTOlDn81Pw'];
   logTestAssertion('No restaurants should appear with IDs: (' + dislikes.toString().replaceAll(',', ', ') + ')');
@@ -73,6 +87,7 @@ async function runTests() {
   await test_distance();
   await test_price();
   await test_rating();
+  await test_likes();
   await test_dislikes();
   console.log('[SUCCESS]: All tests passed!');
 }
