@@ -17,7 +17,7 @@ function logTestFailed() {
 }
 
 function logTestPassed() {
-  console.log('[PASS]: Test ' + testNum + ' passed');
+  console.log('[PASS]: Test ' + testNum + ' passed\n');
 }
 
 function endpointFailed() {
@@ -56,12 +56,24 @@ function test_rating() {
   }).catch(endpointFailed);
 }
 
+function test_dislikes() {
+  const dislikes = ['HHtpR0RslupSQ99GIIwW5A', 'oa6ZaLdQNzZHP7--gxBh2g', 'J7_-faNq_Ag9qTOlDn81Pw'];
+  logTestAssertion('No restaurants should appear with IDs: (' + dislikes.toString().replaceAll(',', ', ') + ')');
+  return axios.get(endpoint + defaultParams + '?dislikes=' + dislikes.toString()).then((res) => {
+    res.data.restaurants.forEach(restaurant => {
+      if (dislikes.includes(restaurant.id)) logTestFailed();
+    });
+    logTestPassed();
+  }).catch(endpointFailed);
+}
+
 
 // ===== Handler =====
 async function runTests() {
   await test_distance();
   await test_price();
   await test_rating();
+  await test_dislikes();
   console.log('[SUCCESS]: All tests passed!');
 }
 runTests();
