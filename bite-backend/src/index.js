@@ -108,6 +108,9 @@ app.get('/restaurants/:location/:distance/:open_now/:doesPickup/:doesDelivery', 
     // Add relevance of each restaurant to response data
     util.calculateRestaurantScores(responseData.restaurants, top_cuisines, top_prices);
 
+    // Bump up restaurants with higher relevance
+    util.sortRestaurantsByRelevance(responseData.restaurants);
+
     // Send response data
     res.status(200).json(responseData).end();
 

@@ -46,7 +46,36 @@ function calculateRestaurantScores(restaurants, cuisine_points, price_points) {
   }
 }
 
+/**
+ * Loops thru restaurants backwards, bumping up ones with a relevance score above zero accordingly.
+ * @param {Array<Object>} restaurants The list of restaurant objects being built to later give to the frontend
+ */
+function sortRestaurantsByRelevance(restaurants) {
+  const restaurantsCopy = JSON.parse(JSON.stringify(restaurants));
+  for (let i = restaurantsCopy.length - 1; i >= 0; i--) {
+    // (Does restaurant have a relevance score?) && (Is the restaurant's score greater than 0?)
+    if ((restaurantsCopy[i].relevance) && (restaurantsCopy[i].relevance  > 0)) {
+      moveRestaurantUp(restaurants, restaurantsCopy[i].id, restaurantsCopy[i].relevance);
+    }
+  }
+}
+
+function moveRestaurantUp(restaurants, id, relevance) {
+  // Find restaurant's current position
+  const from = restaurants.findIndex((rest) => rest.id === id);
+  if (from < 0) return;
+  
+  // Calculate restaurant's new position
+  const diff = from - relevance;
+  const to = (diff < 0) ? 0 : diff;
+
+  // Remove restaurant from current position and inject into new position
+  const restaurant = restaurants.splice(from, 1)[0];
+  restaurants.splice(to, 0, restaurant);
+}
+
 module.exports = {
   isStreetAddress,
   calculateRestaurantScores,
+  sortRestaurantsByRelevance
 }

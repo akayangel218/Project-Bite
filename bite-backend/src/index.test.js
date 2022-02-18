@@ -81,6 +81,29 @@ function test_dislikes() {
   }).catch(endpointFailed);
 }
 
+async function test_sorting() {
+  logTestAssertion('Chinese restaurants should appear 3 spots higher when there are 6 liked chinese restaurants');
+  await axios.get(endpoint + defaultParams).then((res) => {
+    const restaurantIdxs = {};
+    for (let i = 0; i < res.data.restaurants.length; i++) {
+      const restaurant = res.data.restaurants[i];
+      if (restaurant.cuisineCodes[0] && restaurant.cuisineCodes[0] === 'chinese') {
+        restaurantIdxs[restaurant.id] = i;
+      }
+    }
+
+    return axios.get(endpoint + defaultParams + '?top_cuisines={"chinese":6}').then((res2) => {
+      for (let i = 0; i < res2.data.restaurants.length; i++) {
+        const restaurant = res2.data.restaurants[i];
+        if (restaurant.cuisineCodes[0] && restaurant.cuisineCodes[0] === 'chinese') {
+          if ((i != 0) && (i != restaurantIdxs[restaurant.id] - 3)) logTestFailed();
+        }
+      }
+      logTestPassed();
+    }).catch(endpointFailed);
+  }).catch(endpointFailed);
+}
+
 
 // ===== Handler =====
 async function runTests() {
@@ -89,6 +112,7 @@ async function runTests() {
   await test_rating();
   await test_likes();
   await test_dislikes();
+  await test_sorting();
   console.log('[SUCCESS]: All tests passed!');
 }
 runTests();
