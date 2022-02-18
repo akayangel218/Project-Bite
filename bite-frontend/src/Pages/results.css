@@ -1,7 +1,7 @@
 .card {
   background-color: #457B9D;
   height: 20vmax;
-  margin-top: 2vmax;
+  margin-top: 2.3vmax;
   margin-left: 5vmax;
   margin-right: 5vmax;
   border-radius: 2vmax;
@@ -30,30 +30,64 @@
   color:  white;
   display: grid;
   font-weight: bolder;
-  font-size: 3.5vmax;
+  font-size: 2.5vmax;
   border-left: 1vmax;
-  margin-bottom: 0.5vmax;
+  margin-top: 1vmax;
+  margin-bottom: 0.3vmax;
 }
 
 .desc {
-  font-size: 2.5vmax;
+  font-size: 1.5vmax;
   color:  white;
   display: grid;
   font-weight: 400;
   background-color: transparent;
-  margin-bottom: 0.5vmax;
+  margin-bottom: 0.3vmax;
+}
+
+.button-items {
+  background-color: transparent;
+  margin-right: 3vmax;
+  text-align: right;
+}
+
+/* .fa-thumbs-up:hover {
+  background-color: #55191e;
+  padding: 1vmax;
+  border-radius: 1vmax;
+  font-size: 2.5vmax;
+  color: white;
+  box-shadow: 0.2vmax 0.2vmax rgb(58, 57, 57);
+} */
+
+.fa-thumbs-up {
+  background-color: #E63946;
+  padding: 1vmax;
+  border-radius: 1vmax;
+  font-size: 2.5vmax;
+  color: white;
+  box-shadow: 0.2vmax 0.2vmax rgb(58, 57, 57);
+}
+
+.fa-thumbs-down {
+  background-color: #1D3557;
+  padding: 1vmax;
+  border-radius: 1vmax;
+  font-size: 2.5vmax;
+  color: white;
+  box-shadow: 0.2vmax 0.2vmax rgb(58, 57, 57);
 }
 
 .stars{
-  font-size: 2vmax;
+  font-size: 1.5vmax;
   display: grid;
   color : #AD2B35;
 }
 .price {
-  font-size: 2.5vmax;
+  font-size: 1.5vmax;
   color:  white;
   display: grid;
   font-weight: 400;
   background-color: transparent;
-  margin-bottom: 0.5vmax;
+  margin-bottom: 1vmax;
 }
