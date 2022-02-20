@@ -290,9 +290,9 @@ const FilterPage = () => {
                     </div>
                 </div>
             </div>
-            <div className='gird-apply'>
+            {/* <div className='gird-apply'> */}
                 <div className='apply-button' onClick={handleSubmit}>Apply</div>
-            </div>
+            {/* </div> */}
           </div>
           <br></br><br></br>
         </div>

@@ -203,21 +203,22 @@ p {
     box-shadow: 0.2vmin 0.2vmin rgb(58, 57, 57);
 }
 
-.gird-apply {
+/* .gird-apply {
     margin-top: 0.5vmin;
     background-color: #457B9D;
-    display: grid;
-    justify-items: center;
-}
+    text-align: center;
+} */
 
 .apply-button {
     background-color: #F1FAEE;
     width: 55vmin;
-    padding: .2vmin;
-    font-size: 2.5vmin;
+    padding: .1vmin;
+    font-size: 2.4vmin;
     color: #AD2B35;
     font-weight: bolder;
     border-radius: 1vmin;
+    justify-self: center;
+    margin-top: 0.5vmin;
 }
 
 .apply-button:hover {
