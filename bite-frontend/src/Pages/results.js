@@ -6,10 +6,10 @@ import { addRestaurantToLikes, addRestaurantToDislikes, removeRestaurantFromLike
 import StarRating from '../Components/StarRating/StarRating';
 
 // ===== Constants =====
-const likeOff = 'far fa-thumbs-up';
-const likeOn = 'fas fa-thumbs-up';
-const dislikeOff = 'far fa-thumbs-down';
-const dislikeOn = 'fas fa-thumbs-down';
+const likeOff = 'far fa-thumbs-up r-l';
+const likeOn = 'fas fa-thumbs-up r-l';
+const dislikeOff = 'far fa-thumbs-down r-d';
+const dislikeOn = 'fas fa-thumbs-down r-d';
 
 // ===== List of Liked and Disliked Restaurant ===== 
 var likeList = getAllLikes();

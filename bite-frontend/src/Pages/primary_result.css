@@ -1,89 +1,216 @@
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.75); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #F1FAEE;
+  border-radius: 2vmax;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 2vmax;
+  border: 0.1vmax solid #888;
+  width: 90vmax; /* Could be more or less, depending on screen size */
+  height: 30vmax;
+}
+
+.modal-image{
+  float: left;
+  border-radius: 2vmax;
+  height: 26vmax;
+}
+
+.modal-info{
+  float: right;
+  background-color: transparent;
+  color: #1D3557;
+}
+
+.modal-title{
+  text-align: right;
+  font-size: 3vmax;
+  font-weight: bold;
+  background-color: transparent;
+  color: #1D3557;
+}
+
+.modal-filter-matches {
+  display: grid;
+  justify-content: right;
+  grid-template-columns: auto auto auto;
+  background-color: transparent;
+  font-size: 0.8vmax;
+  column-gap: 0.5vmax;
+  margin-bottom: 5vmax;
+}
+
+.modal-phone{
+  text-align: right;
+  font-size: 2.5vmax;
+  font-weight: bold;
+  background-color: transparent;
+  color: #1D3557;
+}
+
+.modal-address{
+  text-align: right;
+  font-size: 2vmax;
+  font-weight: bold;
+  background-color: transparent;
+  color: #1D3557;
+  margin-bottom: 7vmax;
+}
+
+.modal-distance{
+  display: inline;
+  width: 10vmax;
+  font-size: 1.5vmax;
+  font-weight: normal;
+  background-color: white;
+  color: #1D3557;
+  padding: 0.4vmax;
+  padding-left: 1vmax;
+  padding-right: 1vmax;
+  border-radius: 2vmax;
+  margin-left: 30vmax;
+}
+
 .pr-img {
-  margin-top: 2vmax;
-  border-radius: 25px;
-  height: 40vmax;
+  border-radius: 1.8vmax;
+  width: 60vmax;
+  height: 45vmax;
+  object-fit: cover;
+  object-position: 50% 50% ;
 }
 
 .pr-card-holder {
+  width: 60vmax;
+  height: 45vmax;
+  margin-top: 1.5vmax;
+  border-radius: 1.8vmax;
+  /* border: 0.5vmax solid black; */
   margin-left: auto;
   margin-right: auto;
   display: inline-grid;
 }
 
 .pr-card-content {
-  margin-top: -25%;
-  display: inline-grid;
-  background-color: rgb(241, 250, 238, 0.9);
+  /* border: 0.1vmax solid black; */
+  margin-top: -13vmax;
+  background-color: #F1FAEE;
+  opacity: 0.85;
   text-align: left;
+  border-radius: 1.8vmax;
+  height: 13.1vmax;
 }
 
 .pr-title {
-  font-size: 1.5em;
-  overflow: visible;
-  font-weight: 1000; 
-  display: inline-block;
-  word-wrap: break-word;
+  margin-top: 1vmax;
+  margin-left: 1.5vmax;
+  font-size: 2.2vmax;
+  font-weight: bold; 
   color: #457B9D;
-  background-color: rgba(255, 255, 255, 0);
-}
-
-.pr-star {
-  font-size: 1em;
-  margin: 0.25vmax;
   background-color: transparent;
 }
 
-.pr-phone{
+.pr-star {
+  padding-top: 0.1vmax;
+  padding-left: 1.3vmax;
+  font-size: 1.35vmax;
   margin: 0.25vmax;
-  font-size: 1em;
-  color:rgb(29, 53, 87, 1);
   background-color: transparent;
 }
 
 .pr-price {
-  background-color: rgb(69, 123, 157, 0.66);
-  font-size: 1em;
-  padding: 0.5vmax;
-  border-radius: 1vmax;
+  margin-top: 0.8vmax;
+  margin-left: 1.6vmax;
+  
+  background-color: #457B9D;
+  opacity: 0.8;
+  color: #ffffff;
+  
+  font-size: 1.2vmax;
+  text-align: center;
+  padding: 0.4vmax;
+  padding-left: 2vmax;
+  padding-right: 2vmax;
+  border-radius: 2vmax;
+  display: inline-grid;
 }
 
 .pr-filter-matches {
-  background-color: rgba(255, 255, 255, 0);
-  padding: 0.5vmax;
-  
+  margin-left: 1.5vmax;
+  background-color: transparent;
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 0.7vmax;
+  font-size: 1.2vmax;
 }
 
 .pr-filter-match {
-  background-color: rgb(29, 53, 87, 0.75);
+  background-color: #1D3557;
+  opacity: 0.8;
   color: white;
-  margin-top: 0.5vmax;
-  font-size: 1em;
+  margin-top: 0.6vmax;
+  
   font-weight: bold;
-  border-radius: 4vmax;
-  text-align: center;
-  position: relative;
-  padding: 0.5vmax;
+  padding: 0.4vmax;
+  padding-left: 1vmax;
+  padding-right: 1vmax;
+  border-radius: 2vmax;
 }
 
 .gird-apply {
-  margin-left: auto;
-  margin-right: auto;
   grid-template-columns: auto auto auto;
   background-color: transparent;
-  gap: 3vmin;
-  width: 20vmax;
-  height: 1vmax;
+  margin-top: .5vmax;
+  /* border: .5vmax solid black; */
+}
+
+.pr-l {
+  background-color: #E63946;
+  padding: 1vmax;
+  border-radius: 1vmax;
+  font-size: 3.65vmax;
+  color: white;
+  box-shadow: 0.2vmax 0.2vmax rgb(58, 57, 57);
 }
 
 .pr-more-results {
-  display: inherit;
-  text-align: center;
-  font-size: 1vmax;
-  padding: 10%;
-  background-color: rgb(29, 53, 87, 1);
+  display: inline-block;
+  width: 9.5vmax;
+  font-size: 1.5vmax;
+  padding: 1vmax;
+  font-weight: bold;
+  border-radius: 1vmax;
+  background-color: #457B9D;
   color: white;
-  border-radius: 50%;
+  box-shadow: 0.2vmax 0.2vmax rgb(58, 57, 57);
 }
+
+.pr-more-results:hover {
+  background-color: #ffffff;
+  color: #457B9D;
+  transition: all 0.3s ease;
+}
+
+.pr-d {
+  background-color: #1D3557;
+  padding: 1vmax;
+  border-radius: 1vmax;
+  font-size: 3.65vmax;
+  color: white;
+  box-shadow: 0.2vmax 0.2vmax rgb(58, 57, 57);
+}
+
 
 .pr-likes {
   display: inherit;

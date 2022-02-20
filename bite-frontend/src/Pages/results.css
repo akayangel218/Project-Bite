@@ -60,7 +60,7 @@
   box-shadow: 0.2vmax 0.2vmax rgb(58, 57, 57);
 } */
 
-.fa-thumbs-up {
+.r-l {
   background-color: #E63946;
   padding: 1vmax;
   border-radius: 1vmax;
@@ -69,7 +69,7 @@
   box-shadow: 0.2vmax 0.2vmax rgb(58, 57, 57);
 }
 
-.fa-thumbs-down {
+.r-d {
   background-color: #1D3557;
   padding: 1vmax;
   border-radius: 1vmax;
