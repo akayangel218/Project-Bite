@@ -27,5 +27,8 @@ From the `bite-backend` directory, run `node .\src\index.js` or `npm start` to s
   * `rating={}` - Optional list of numbers corresponding to star ratings. Including this will only show restaurants with those ratings
   * `cuisine={}` - Optional list of cuisine codes. Including this will only show restaurants serving at least one cuisine included in the list
 
+* `/details/<restaurantID>` - Returns more details about a specific restaurant given the following parameters:
+  * `<restaurantID>` - A restaurant ID (given in body of `/restaurants` results) to search for
+
 ### Testing
 Some unit tests are provided to check the validity of the backend's results. Should any changes result in the parameters not working, the tests should reflect it. Do `npm run tests` to run the unit test file.

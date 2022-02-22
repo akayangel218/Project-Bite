@@ -10,6 +10,16 @@ const streetSuffixes = [
   'terrace', 'terr',
 ];
 
+const daysOfWeek = [
+  'Mon',
+  'Tue',
+  'Wed',
+  'Thu',
+  'Fri',
+  'Sat',
+  'Sun'
+];
+
 /**
  * Checks if a location to search from is a street address.
  * @param {string} loc An address to test
@@ -60,6 +70,29 @@ function sortRestaurantsByRelevance(restaurants) {
   }
 }
 
+/**
+ * Formats a restaurant's open hours into a readable string list of hours.
+ * @param {Array<Object} hours List of days' restaurant opening schedule as given by yelp
+ * @returns A list of formatted strings to display each day's open times
+ */
+function parseRestaurantHours(hours) {
+  // If restaurant has no known hours posted, return 'unknown'
+  if (!hours[0] || !hours[0].open[0]) {
+    return 'unknown';
+  }
+
+  // Loop thru days restaurant is open, adding parsed data to return object
+  const hrsList = [];
+  hours[0].open.forEach(dayObj => {
+    const dayHours = {
+      'day': daysOfWeek[dayObj.day],
+      'timeRange': prepareRestaurantHours(dayObj.start, dayObj.end, dayObj.is_overnight)
+    };
+    hrsList.push(dayHours);
+  });
+  return hrsList;
+}
+
 function moveRestaurantUp(restaurants, id, relevance) {
   // Find restaurant's current position
   const from = restaurants.findIndex((rest) => rest.id === id);
@@ -74,8 +107,32 @@ function moveRestaurantUp(restaurants, id, relevance) {
   restaurants.splice(to, 0, restaurant);
 }
 
+function prepareRestaurantHours(start, end, overnight) {
+  // Separate hours from minutes
+  const startHr = parseInt(start.slice(0, 2));
+  const startMin = parseInt(start.slice(2, 4));
+  const endHr = parseInt(end.slice(0, 2));
+  const endMin = parseInt(end.slice(2, 4));
+
+  // Calculate whether hours are AM or PM
+  const startMeridiem = (startHr >= 12) ? 'PM' : 'AM';
+  const endMeridiem = (endHr >= 12) ? 'PM' : 'AM';
+
+  // Convert to 12 hr time
+  const start12Hr = ((startHr + 11) % 12 + 1);
+  const end12Hr = ((endHr + 11) % 12 + 1);
+
+  // Combine parsed hours & minutes
+  const startFull = start12Hr + ':' + ((startMin.toString().length < 2) ? '0' : '') + startMin + ' ' + startMeridiem;
+  const endFull = end12Hr + ':' + ((endMin.toString().length < 2) ? '0' : '') + endMin + ' ' + endMeridiem;
+
+  // Put it all together
+  return startFull + ' - ' + endFull + ((overnight) ? ' (Next day)' : '');
+}
+
 module.exports = {
   isStreetAddress,
   calculateRestaurantScores,
-  sortRestaurantsByRelevance
+  sortRestaurantsByRelevance,
+  parseRestaurantHours
 }

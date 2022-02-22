@@ -120,6 +120,35 @@ app.get('/restaurants/:location/:distance/:open_now/:doesPickup/:doesDelivery', 
   });
 });
 
+// Full: /details/{restaurantID}
+// Exp param types:  string
+// Example: "/details/WavvLdfdP6g8aZTtbBQHTw"
+app.get('/details/:id', (req, res) => {
+  const yelpAPIEndpoint = 'https://api.yelp.com/v3/businesses/' + req.params.id;
+
+  axios.get(yelpAPIEndpoint, {
+    headers: {
+      'Authorization' : 'Bearer ' + keys.yelp.APIKey
+    }
+
+  }).then((yelpRes) => {
+    // Build response data object
+    const responseData = {
+      'name': yelpRes.data.name,
+      'photos': yelpRes.data.photos,
+      'hours': util.parseRestaurantHours(yelpRes.data.hours),
+      'open_now': ((yelpRes.data.hours[0]) ? yelpRes.data.hours[0].is_open_now : 'unknown')
+    };
+
+    // Send response data
+    res.status(200).json(responseData).end();
+
+  }).catch((yelpErr) => {
+    // Send error msg otherwise
+    res.status(500).send("Error sending request to yelp.").end();
+  });
+});
+
 app.listen(port, () => {
   if (!keys.yelp.APIKey) {
     console.log('Error: Missing or incorrectly formatted keys.js file!\n' +
