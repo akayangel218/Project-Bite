@@ -33,8 +33,8 @@ function calculateRestaurantScores(restaurants, cuisine_points, price_points) {
     restaurants[i]['relevance'] = 0;
     // (Does restaurant have at least 1 cuisine code?) && (Is the restaurant's top cuisine code in cuisine_points object?)
     if ((restaurants[i].cuisineCodes.length > 0) && (Object.keys(cuisine_points).includes(restaurants[i].cuisineCodes[0]))) {
-      // Add cuisine code's corresponding number of bumps (halved) to this restaurant
-      restaurants[i]['relevance'] += (cuisine_points[restaurants[i].cuisineCodes[0]] / 2);
+      // Add cuisine code's corresponding number of bumps to this restaurant
+      restaurants[i]['relevance'] += (cuisine_points[restaurants[i].cuisineCodes[0]]);
     }
     // (Does restaurant have a price?) && (Is the restaurant's price (as a number) in price_points object?)
     if ((restaurants[i].price) && (Object.keys(price_points).includes(restaurants[i].price.length.toString()))) {
