@@ -92,6 +92,8 @@ function getTopCuisines() {
 function getTopPrices() {
   const prices = {};
   getAllLikes().forEach(restaurant => {
+    if (!restaurant.price) return;
+    
     const price = (restaurant.price).length;
     if (prices[price] == null) {
       prices[price] = 1;

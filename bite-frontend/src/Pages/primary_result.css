@@ -49,7 +49,7 @@
   background-color: transparent;
   font-size: 0.8vmax;
   column-gap: 0.5vmax;
-  margin-bottom: 5vmax;
+  margin-bottom: 1vmax;
 }
 
 .modal-phone{
@@ -66,7 +66,7 @@
   font-weight: bold;
   background-color: transparent;
   color: #1D3557;
-  margin-bottom: 7vmax;
+  margin-bottom: 2vmax;
 }
 
 .modal-distance{
@@ -80,7 +80,7 @@
   padding-left: 1vmax;
   padding-right: 1vmax;
   border-radius: 2vmax;
-  margin-left: 30vmax;
+  margin-left: -20vmax;
 }
 
 .pr-img {

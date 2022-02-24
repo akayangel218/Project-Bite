@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../Context/GlobalState';
 import { addRestaurantToLikes, addRestaurantToDislikes, removeRestaurantFromLikes, removeRestaurantFromDislikes, getAllLikes, getAllDislikes } from '../Context/LocalStorage';
 import StarRating from '../Components/StarRating/StarRating';
-import thumb from '../thumb.png'
+import RestaurantHours from '../Components/RestaurantHours/RestaurantHours';
 
 // ===== Constants =====
 const likeOff = 'far fa-thumbs-up pr-l';
@@ -161,8 +161,11 @@ const PrimaryResultPage = () => {
                         <div className='modal-title'>{restaurant.name}</div>
                         <div className='modal-filter-matches'>{matchingCuisines}</div>
                         <div className='modal-phone'>{restaurant.display_phone}</div>
-                        <div className='modal-address'>{restaurant.address}</div>
+                        <a href={'https://www.google.com/maps/place/' + restaurant.address.replaceAll(' ', '+').replaceAll('\n', '+')} target='_blank'>
+                            <div className='modal-address'>{restaurant.address}</div>
+                        </a>
                         <div className='modal-distance'>{Math.round(restaurant.distance*100)/100} mi away</div>
+                        <RestaurantHours restaurantID={restaurant.id} />
                     </div>    
                 </div>
 

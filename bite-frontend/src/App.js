@@ -13,14 +13,19 @@ function App() {
   return (
     <div className="App">
       <GlobalProvider>
-      <BrowserRouter>
-        <Navbar />
+        <BrowserRouter>
+          <Navbar />
           <Routes>
             <Route exact path="/" element={<LandingPage />} />
             <Route path="/filter" element={<FilterPage />} />
             <Route path="/primary_result" element={<PrimaryResultPage />} />
             <Route path="/results" element={<ResultsPage />} />
-            <Route path="*" element={<h1>Page not found</h1>} />
+            <Route path="*" element={
+              <div>
+                <h1>404</h1>
+                <h3>( Page not found )</h3>
+              </div>
+            } />
           </Routes>
         </BrowserRouter>
       </GlobalProvider>
