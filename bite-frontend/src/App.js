@@ -13,8 +13,8 @@ function App() {
   return (
     <div className="App">
       <GlobalProvider>
+      <BrowserRouter>
         <Navbar />
-        <BrowserRouter>
           <Routes>
             <Route exact path="/" element={<LandingPage />} />
             <Route path="/filter" element={<FilterPage />} />

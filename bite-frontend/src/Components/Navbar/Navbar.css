@@ -35,6 +35,26 @@
     margin-right: 2rem;
 }
 
+.nav-search-bar {
+    border-radius: 20vmax;
+    width: 40vmax;
+    height: 4vmax;
+    font-size: 2vmax;
+    position: absolute;
+    top: 2%;
+    right: 44%;
+}
+
+.nav-submit-button {
+    border-radius: 50%;
+    height: 4vmax;
+    width: 4vmax;
+    top: 2.5%;
+    left: 57%;
+    position: absolute;
+    display: inherit;
+}
+
 .nav-links {
     background: #AD2B35;
     color: #FFF;
