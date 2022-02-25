@@ -83,6 +83,19 @@
   margin-left: -20vmax;
 }
 
+.pr-carousel {
+  width: 60vmax;
+  height: 45vmax;
+  background-color: transparent;
+}
+
+.pr-loading {
+  width: 60vmax;
+  height: 45vmax;
+  background-color: gainsboro;
+  border-radius: 1.8vmax;
+}
+
 .pr-img {
   border-radius: 1.8vmax;
   width: 60vmax;

@@ -1,6 +1,10 @@
 import './primary_result.css';
-import React, { useContext } from 'react';
+import './primary_result_loader.css';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import axios from 'axios';
 import { GlobalContext } from '../Context/GlobalState';
 import { addRestaurantToLikes, addRestaurantToDislikes, removeRestaurantFromLikes, removeRestaurantFromDislikes, getAllLikes, getAllDislikes } from '../Context/LocalStorage';
 import StarRating from '../Components/StarRating/StarRating';
@@ -12,6 +16,8 @@ const likeOn = 'fas fa-thumbs-up pr-l';
 const dislikeOff = 'far fa-thumbs-down pr-d';
 const dislikeOn = 'fas fa-thumbs-down pr-d';
 var modal = document.getElementById("more-info");
+
+const backendURL = 'http://localhost:8000';
 
 // ===== List of Liked and Disliked Restaurant ===== 
 var likeList = getAllLikes();
@@ -122,6 +128,9 @@ const PrimaryResultPage = () => {
     const { restaurantList } = useContext(GlobalContext);
     const restaurant = restaurantList[0];
 
+    const [restaurantHours, updateHours] = useState(null);
+    const [restaurantImgs, updateImgs] = useState(null);
+
     const handleSeeMore = () => {
         navigate('/results', { replace: false });
     }
@@ -148,6 +157,30 @@ const PrimaryResultPage = () => {
             modal.style.display = "none";
         }
     }
+
+    const fetchDetails = () => {
+      const searchString = backendURL + '/details/' + restaurant.id;
+      console.log('Searching on bite-backend at:\n' + searchString);
+      axios.get(searchString).then((res) => {
+        updateHours(res.data.hours);
+        updateImgs(res.data.photos);
+  
+      }).catch((err) => {
+          console.log('Error with backend API: ' + err.message);
+      });
+    }
+
+    const renderImgs = (imagesList) => {
+      return imagesList.map((img, idx) => (
+        <div key={idx}>
+          <img src={img} alt={restaurant.name + ' Yelp image ' + idx} className='pr-img'/>
+        </div>
+      ));
+    }
+
+    setTimeout(() => {
+      fetchDetails();
+    }, 2500);
     
     return (
         <div className="PrimaryResultPage">
@@ -165,14 +198,31 @@ const PrimaryResultPage = () => {
                             <div className='modal-address'>{restaurant.address}</div>
                         </a>
                         <div className='modal-distance'>{Math.round(restaurant.distance*100)/100} mi away</div>
-                        <RestaurantHours restaurantID={restaurant.id} />
+                        <RestaurantHours hoursList={restaurantHours} />
                     </div>    
                 </div>
 
             </div>
         
-            <div id="card" className='pr-card-holder' onClick={() => showModal()}>
-                <img src={restaurant.image_url} alt={restaurant.name + ' Yelp image'} className='pr-img'/>
+            <div id="card" className='pr-card-holder'>
+                {/* If images have not loaded yet, render a spinner */
+                  restaurantImgs === null &&
+                  (
+                    <div className='pr-loading'>
+                      {/* Loading spinner courtesy of https://loading.io/css/ */}
+                      <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                    </div>
+                  )
+                }
+                {/* If images are loaded, render the image carousel */
+                  restaurantImgs !== null &&
+                  (
+                    <Carousel className='pr-carousel' showThumbs={false} dynamicHeight={true} infiniteLoop={true} renderIndicator={() => (<div/>)}>
+                      {renderImgs(restaurantImgs)}
+                    </Carousel>
+                  )
+                }
+                
                 <div className='pr-card-content'>
                     <div className='pr-title'>
                         {'Best Bite for you: ' + restaurant.name}
