@@ -19,6 +19,9 @@ var modal = document.getElementById("more-info");
 
 const backendURL = 'http://localhost:8000';
 
+// ===== Global Variables =====
+var hasLoaded = false;
+
 // ===== List of Liked and Disliked Restaurant ===== 
 var likeList = getAllLikes();
 var dislikeList = getAllDislikes();
@@ -159,11 +162,14 @@ const PrimaryResultPage = () => {
     }
 
     const fetchDetails = () => {
+      if (hasLoaded) return;
+
       const searchString = backendURL + '/details/' + restaurant.id;
       console.log('Searching on bite-backend at:\n' + searchString);
       axios.get(searchString).then((res) => {
         updateHours(res.data.hours);
         updateImgs(res.data.photos);
+        hasLoaded = true;
   
       }).catch((err) => {
           console.log('Error with backend API: ' + err.message);

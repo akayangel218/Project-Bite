@@ -36,6 +36,7 @@ function buildSearch(location, distance, openNow, priceRange, cuisine) {
 // Exp param types:    string     int        bool       bool         bool          int arr  int arr   str arr    object          object        str arr
 // Example: "/restaurants/santa cruz/5/true/false/false?price=2,3&rating=3,4,5&cuisine=chinese,thai&top_cuisines={"chinese":5,"sushi":2,"hotpot":1}&top_prices={"2":7,"3":3,"1":2}&dislikes=E8RJkjfdcwgtyoPMjQ_Olg,H2PYsyqsocvwlgDBmX_Adi"
 app.get('/restaurants/:location/:distance/:open_now/:doesPickup/:doesDelivery', (req, res) => {
+  console.log('\nRequest received at "/restaurants"');
 
   const yelpAPIEndpoint = 'https://api.yelp.com/v3/businesses/search' + buildSearch(req.params.location, req.params.distance, req.params.open_now, req.query.price, req.query.cuisine);
 
@@ -111,10 +112,17 @@ app.get('/restaurants/:location/:distance/:open_now/:doesPickup/:doesDelivery', 
     // Bump up restaurants with higher relevance
     util.sortRestaurantsByRelevance(responseData.restaurants);
 
+    // Log remaining Yelp API calls
+    console.log('Remaining API calls for today: ' + yelpRes.headers['ratelimit-remaining']);
+
     // Send response data
     res.status(200).json(responseData).end();
 
   }).catch((yelpErr) => {
+    if (yelpErr.response && yelpErr.response.status == 429) {
+      console.log('Maximum daily Yelp API call limit reached');
+    }
+
     // Send error msg otherwise
     res.status(500).send("Error sending request to yelp.").end();
   });
@@ -124,6 +132,7 @@ app.get('/restaurants/:location/:distance/:open_now/:doesPickup/:doesDelivery', 
 // Exp param types:  string
 // Example: "/details/WavvLdfdP6g8aZTtbBQHTw"
 app.get('/details/:id', (req, res) => {
+  console.log('\nRequest received at "/details"');
   const yelpAPIEndpoint = 'https://api.yelp.com/v3/businesses/' + req.params.id;
 
   axios.get(yelpAPIEndpoint, {
@@ -140,10 +149,17 @@ app.get('/details/:id', (req, res) => {
       'open_now': ((yelpRes.data.hours[0]) ? yelpRes.data.hours[0].is_open_now : 'unknown')
     };
 
+    // Log remaining Yelp API calls
+    console.log('Remaining API calls for today: ' + yelpRes.headers['ratelimit-remaining']);
+
     // Send response data
     res.status(200).json(responseData).end();
 
   }).catch((yelpErr) => {
+    if (yelpErr.response && yelpErr.response.status == 429) {
+      console.log('Maximum daily Yelp API call limit reached');
+    }
+
     // Send error msg otherwise
     res.status(500).send("Error sending request to yelp.").end();
   });
