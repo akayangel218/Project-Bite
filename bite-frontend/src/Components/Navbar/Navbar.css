@@ -73,6 +73,24 @@
     color: #457B9D;
 }
 
+.dashboard-button {
+    background-color: #457B9D;
+    color: white;
+    padding: 0.6vmax 1vmax;
+    border-radius: 0.5vmax;
+    text-decoration: none;
+}
+
+.dashboard-button:hover {
+    padding: 0.6vmax 1vmax;
+    border-radius: 0.5vmax;
+    transition: all 0.3s ease-out;
+    background: #fff;
+    color: #AD2B35;
+    transition: 250ms;
+    text-decoration: none;
+}
+
 .nav-links-mobile {
     display: none;
 }

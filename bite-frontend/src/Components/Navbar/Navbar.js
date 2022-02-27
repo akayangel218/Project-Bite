@@ -30,35 +30,43 @@ const Navbar = () => {
 
     return(
             <nav className = 'NavbarItems' >
-                <><a className='navbar-logo' href='/'>Bite <i className='fas fa-hamburger'></i></a><div className='menu-icon' onClick={handleClick}>
+                <a className='navbar-logo' href='/'>Bite <i className='fas fa-hamburger'></i></a>
+
+                <div className='menu-icon' onClick={handleClick}>
                     <i className={clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
-                </div><div>
-                        <input
-                            type='text'
-                            className='nav-search-bar'
-                            placeholder='  Address, Zip Code, or City'
-                            value={text}
-                            onChange={handleChange} />
-                        <button
-                            type='button'
-                            className='nav-submit-button'
-                            onClick={handleSubmit}
-                        >
-                            <i className='fas fa-search-location'></i>
-                        </button>
-                    </div><ul className={clicked ? 'nav-menu active' : 'nav-menu'}>
-                        {MenuItems.map((item, index) => {
-                            return (
-                                <li key={index}>
-                                    <a className={item.cName} href={item.url}>
-                                        {item.title}
-                                    </a>
-                                </li>
-                            );
-                        })}
-                    </ul><Button>Dashboard</Button></>
+                </div>
+
+                <div>
+                    <input
+                        type='text'
+                        className='nav-search-bar'
+                        placeholder='  Address, Zip Code, or City'
+                        value={text}
+                        onChange={handleChange} />
+                    <button
+                        type='button'
+                        className='nav-submit-button'
+                        onClick={handleSubmit}
+                    >
+                        <i className='fas fa-search-location'></i>
+                    </button>
+                </div>
+
+                <ul className={clicked ? 'nav-menu active' : 'nav-menu'}>
+                    {MenuItems.map((item, index) => {
+                        return (
+                            <li key={index}>
+                                <a className={item.cName} href={item.url}>
+                                    {item.title}
+                                </a>
+                            </li>
+                        );
+                    })}
+                </ul>
+                
+                <a className='dashboard-button' href='/dashboard'>Dashboard</a>
             </nav>
         )
 }
 
-export default Navbar
+export default Navbar;
