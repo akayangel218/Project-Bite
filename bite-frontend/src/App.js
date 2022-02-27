@@ -8,6 +8,7 @@ import LandingPage from './Pages/landing';
 import ResultsPage from './Pages/results';
 import FilterPage from './Pages/filter';
 import PrimaryResultPage from './Pages/primary_result';
+import DashboardPage from './Pages/dashboard';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/filter" element={<FilterPage />} />
             <Route path="/primary_result" element={<PrimaryResultPage />} />
             <Route path="/results" element={<ResultsPage />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="*" element={
               <div>
                 <h1>404</h1>
