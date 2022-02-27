@@ -1,0 +1,187 @@
+.dashboard-header {
+    margin-top: 2.5vmax;
+    font-size: 3vmax;
+    font-weight: bold;
+    color: rgb(75, 73, 73);
+    margin-bottom: 2.5vmax;
+}
+
+.lists-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    background-color: transparent;
+    justify-items: center;
+}
+
+.likes-list {
+    background-color: #E63946;
+    border-radius: 2vmax;
+    width: 37vmax;
+    margin-left: 9vmax;
+    overflow: auto;
+    height: 45vmax;
+}
+
+.dislikes-list {
+    background-color: #1D3557;
+    border-radius: 2vmax;
+    width: 37vmax;
+    margin-right: 9vmax;
+    overflow: auto;
+    height: 45vmax;
+}
+
+.lList-header {
+    font-weight: bold;
+    font-size: 2vmax;
+    background-color: #E63946;
+    color: #F1FAEE;
+    padding-top: 1.2vmax;
+    height: 5vmax;
+    position: sticky;
+    top: 0;
+    border-radius: 2vmax;
+}
+
+.dlList-header {
+    font-weight: bold;
+    font-size: 2vmax;
+    background-color: #1D3557;
+    color: #F1FAEE;
+    padding-top: 1.2vmax;
+    height: 5vmax;
+    position: sticky;
+    top: 0;
+    border-radius: 2vmax;
+}
+
+.list-content {
+    display: grid;
+    background-color: transparent;
+    justify-items: center;
+}
+
+.restaurant-card {
+    background-color: #F1FAEE;
+    padding: 0.2vmax;
+    margin-bottom: 2vmax;
+    border-radius: 0.7vmax;
+    width: 30vmax;
+}
+
+.card-name {
+    font-size: 1.3vmax;
+    display: inline;
+    color: gray;
+    font-weight: bold;
+    background-color: transparent;
+    float: left;
+    margin-left: 1vmax;
+    margin-top: 0.8vmax;
+}
+
+.card-info-icon {
+    font-size: 1.2vmax;
+    padding-top: 0.7vmax;
+    padding-left: 1vmax;
+    padding-right: 1vmax;
+    padding-bottom: 0.6vmax;
+    border-radius: 0.6vmax;
+    background-color: #457B9D;
+    color: white;
+    float: right;
+    margin-right: 0.5vmax;
+    margin-top: 0.3vmax;
+    margin-bottom: 0.3vmax;
+    /* box-shadow: 0.2vmax 0.2vmax rgb(58, 57, 57); */
+}
+
+.card-info-icon:hover {
+    background-color: white;
+    color: #457B9D;
+    transition: all 0.3s ease;
+}
+
+/*----------------MODAL-----------------*/
+.moreInfo {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.75); /* Black w/ opacity */
+}
+
+.info {
+    background-color: #F1FAEE;
+    border-radius: 2vmax;
+    margin: 22% auto; /* 15% from the top and centered */
+    width: 80vmax; /* Could be more or less, depending on screen size */
+    height: 25vmax;
+}
+
+.info-image {
+    float: left;
+    border-radius: 2vmax;
+    height: 25vmax;
+    width: 30vmax;
+    object-fit: cover;
+}
+
+.info-content {
+    display: grid;
+    background-color: transparent;
+}
+
+.info-title {
+    background-color: transparent;
+    color: #F1FAEE;
+    font-size: 2.3vmax;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 3vmax;
+    margin-top: 2.5vmax;
+}
+
+.info-cuisines {
+    text-align: left;
+    background-color: transparent;
+    font-size: 0.8vmax;
+    font-weight: bold;
+    column-gap: 0.1vmax;
+    margin-bottom: 1vmax;
+    margin-left: 3vmax;
+    margin-top: 0.5vmax;
+}
+
+.match-cuisines {
+    background-color: #F1FAEE;
+    color: rgb(75, 73, 73);
+    border-radius: 2vmax;
+    padding: 0.1vmax;
+    padding-left: 1vmax;
+    padding-right: 1vmax;
+    margin-right: 1vmax;
+}
+
+.info-rating{
+    text-align: left;
+    background-color: transparent;
+    margin-left: 3vmax;
+    font-size: 1.6vmax;
+    color: #F1FAEE;
+    margin-top: 10vmax;
+}
+
+.info-price{
+    text-align: left;
+    background-color: transparent;
+    color: #F1FAEE;
+    font-weight: bold;
+    font-size: 1.7vmax;
+    margin-left: 3vmax;
+    margin-top: 1vmax;
+}
