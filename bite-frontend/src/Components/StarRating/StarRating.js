@@ -13,26 +13,26 @@ const StarRating = (props) => {
     let starComponent = [];
     for (let star = 0; star < full; star++) {
       starComponent.push(
-        <i className={'fas fa-star apply-color-' + (isPR ? "pr" : "results")}></i>
+        <i className='fas fa-star'></i>
       );
       starsLeft--;
     }
     if (half) {
       starComponent.push(
-        <i className={'fas fa-star-half-alt apply-color-' + (isPR ? "pr" : "results")}></i>
+        <i className='fas fa-star-half-alt'></i>
       );
       starsLeft--;
     }
     for (let star = 0; star < starsLeft; star++) {
       starComponent.push(
-        <i className={'far fa-star apply-color-' + (isPR ? "pr" : "results")}></i>
+        <i className='far fa-star'></i>
       );
     }
     return starComponent;
   }
 
   return (
-    <div className={"StarRating-" + (isPR ? "pr" : "results")}>
+    <div className="StarRating">
       {getStars(fullStars, hasHalfStar)}
       {' (' + props.total + ')'}
     </div>

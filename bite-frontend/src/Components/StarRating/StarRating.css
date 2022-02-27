@@ -1,16 +1,11 @@
-.StarRating-results {
-  background-color: #457B9D;
-}
-
-.apply-color-results {
-  background-color: #457B9D;
-}
-
-.StarRating-pr {
+.StarRating{
   background-color: transparent;
-  color: #AD2B35;
 }
 
-.apply-color-pr {
+.fa-star {
+  background-color: transparent;
+}
+
+.fa-star-half-alt {
   background-color: transparent;
 }
