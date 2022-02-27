@@ -82,6 +82,7 @@
   font-size: 1.5vmax;
   display: grid;
   color : #AD2B35;
+  background-color: transparent;
 }
 .price {
   font-size: 1.5vmax;
