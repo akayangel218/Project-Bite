@@ -99,6 +99,7 @@
 .card-info-icon:hover {
     background-color: white;
     color: #457B9D;
+    cursor: pointer;
     transition: all 0.3s ease;
 }
 
