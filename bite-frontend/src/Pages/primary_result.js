@@ -1,3 +1,6 @@
+//Reference: https://www.w3schools.com/howto/howto_css_modals.asp
+//
+
 import './primary_result.css';
 import './primary_result_loader.css';
 import React, { useContext, useState } from 'react';
