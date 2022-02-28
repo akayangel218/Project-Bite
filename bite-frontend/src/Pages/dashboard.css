@@ -160,12 +160,29 @@
 
 .match-cuisines {
     background-color: #F1FAEE;
-    color: rgb(75, 73, 73);
+    color: rgb(122, 118, 118);
     border-radius: 2vmax;
     padding: 0.1vmax;
     padding-left: 1vmax;
     padding-right: 1vmax;
     margin-right: 1vmax;
+}
+
+.button-items-DB {
+    background-color: transparent;
+    margin-top: 2.5vmax;
+    text-align: right;
+    margin-right: 3vmax;
+}
+
+.button-DB {
+    background-color: transparent;
+    color: #F1FAEE;
+    font-size: 3vmax;
+    border-radius: 1vmax;
+    padding: 0.5vmax;
+    border: 0.25vmax solid #F1FAEE;
+    cursor: pointer;
 }
 
 .info-rating{
@@ -174,7 +191,7 @@
     margin-left: 3vmax;
     font-size: 1.6vmax;
     color: #F1FAEE;
-    margin-top: 10vmax;
+    margin-top: 3vmax;
 }
 
 .info-price{

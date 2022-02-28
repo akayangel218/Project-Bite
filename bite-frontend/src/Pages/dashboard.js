@@ -17,6 +17,12 @@ import RestaurantHours from '../Components/RestaurantHours/RestaurantHours';
 var likeList = getAllLikes();
 var dislikeList = getAllDislikes();
 
+// ===== Like/Dislike Buttons =====
+const likeOff = 'far fa-thumbs-up button-DB';
+const likeOn = 'fas fa-thumbs-up button-DB';
+const dislikeOff = 'far fa-thumbs-down button-DB';
+const dislikeOn = 'fas fa-thumbs-down button-DB';
+
 // ===== Get elements by ID ===== 
 var moreInfo = document.getElementById("modal");
 var infoCard = document.getElementById("infoCard");
@@ -25,12 +31,102 @@ var infoTitle = document.getElementById("infoTitle");
 var infoCuisines = document.getElementById("infoCuisines");
 var infoRating = document.getElementById("infoRating");
 var infoPrice = document.getElementById("infoPrice");
+var infoLike = document.getElementById("infoLike");
+var infoDislike = document.getElementById("infoDislike");
+
 
 const showMoreInfo = () => {
     moreInfo = document.getElementById("modal");
     infoCard = document.getElementById("infoCard");
     moreInfo.style.display = "block";
 }
+
+const defaultLikeButton = (restaurant) => {  //decide which like button to show (toggled? not toggled?)
+    likeList = getAllLikes();
+    for(let i=0; i<likeList.length; i++){
+      if(likeList[i].id === restaurant.id){
+         return(likeOn);
+      }
+    }
+    return(likeOff);
+};
+
+const defaultDislikeButton = (restaurant) => {  //decide which dislike button to show (toggled? not toggled?)
+    dislikeList = getAllDislikes();
+    for(let i=0; i<dislikeList.length; i++){
+      if(dislikeList[i].id === restaurant.id){
+         return(dislikeOn);
+      }
+    }
+    return(dislikeOff);
+};
+
+const likeButtonClick = (restaurant) => {
+    var inLikedList = false;
+    infoLike = document.getElementById("infoLike");
+    infoDislike = document.getElementById("infoDislike");
+
+    //remove from disliked list if like button is pressed
+    for(let i=0; i<dislikeList.length; i++){
+            if(restaurant.id === dislikeList[i].id){
+            removeRestaurantFromDislikes(restaurant.id);
+            console.log(restaurant.name + " is removed from Disiked list");
+            dislikeList = getAllDislikes(); //update disliked list
+            console.log("Disliked #: " + dislikeList.length);
+            infoDislike.className = defaultDislikeButton(restaurant);
+        }
+    }
+    //remove from liked list if press the toggled like button
+    for(let i=0; i<likeList.length; i++){
+            if(restaurant.id === likeList[i].id){
+            inLikedList = true;
+            removeRestaurantFromLikes(restaurant.id);
+            console.log(restaurant.name + " is removed from Liked list");
+        }
+    }
+    //add to liked list if press the untoggled like button
+    if(inLikedList === false){
+        addRestaurantToLikes(restaurant);
+        console.log(restaurant.name + " is added to Liked list");
+    }
+    likeList = getAllLikes(); //update liked list
+    console.log("Liked #: " + likeList.length);
+    infoLike.className = defaultLikeButton(restaurant);
+};
+
+const dislikeButtonClick = (restaurant) => {
+    var inDislikedList = false;
+    infoLike = document.getElementById("infoLike");
+    infoDislike = document.getElementById("infoDislike");
+
+    //remove from liked list if dislike button is pressed
+    for(let i=0; i<likeList.length; i++){
+      if(restaurant.id === likeList[i].id){
+        removeRestaurantFromLikes(restaurant.id);
+        console.log(restaurant.name + " is removed from Liked list");
+        likeList = getAllLikes();
+        console.log("Liked #: " + likeList.length);
+        infoLike.className = defaultLikeButton(restaurant);
+      }
+    }
+
+    //remove from disliked list if press the toggled dislike button
+    for(let i=0; i<dislikeList.length; i++){
+      if(restaurant.id === dislikeList[i].id){
+        inDislikedList = true;
+        removeRestaurantFromDislikes(restaurant.id);
+        console.log(restaurant.name + " is removed from Disliked list");
+      }
+    }
+    //add to disliked list if press the untoggled dislike button
+    if(inDislikedList === false){
+      addRestaurantToDislikes(restaurant);
+      console.log(restaurant.name + " is added to Disliked list");
+    }
+    dislikeList = getAllDislikes(); //update disliked list
+    console.log("Disliked #: " + dislikeList.length);
+    infoDislike.className = defaultDislikeButton(restaurant);
+};
 
 const handleButtonClick = (restaurant, whichList) => {
     infoCard = document.getElementById("infoCard");
@@ -39,7 +135,10 @@ const handleButtonClick = (restaurant, whichList) => {
     infoCuisines = document.getElementById("infoCuisines");
     infoRating = document.getElementById("infoRating");
     infoPrice = document.getElementById("infoPrice");
+    infoLike = document.getElementById("infoLike");
+    infoDislike = document.getElementById("infoDislike");
 
+    //Different background color according to like/dislike
     if(whichList === "like"){
         infoCard.style.backgroundColor = "#E63946";
     }
@@ -48,7 +147,7 @@ const handleButtonClick = (restaurant, whichList) => {
     }
     infoImg.src = restaurant.image_url;
     infoTitle.textContent = restaurant.name;
-
+    //Cuisine Tags
     const matchingCuisines = restaurant.cuisine.map((cuisine, idx) => {
         if (idx > 2) return;
         return (
@@ -58,10 +157,21 @@ const handleButtonClick = (restaurant, whichList) => {
         );
     });
     ReactDOM.render(matchingCuisines, infoCuisines);
+    
+    const whatever = () => {
+        console.log("whae!");
+    }
+    //Display Like Button
+    infoLike.className = defaultLikeButton(restaurant);
+    infoLike.onclick = () => likeButtonClick(restaurant);
+    //Display Dislike Button
+    infoDislike.className = defaultDislikeButton(restaurant);
+    infoDislike.onclick = () => dislikeButtonClick(restaurant);
 
+    //Rating
     const ratingEle = <StarRating rating={restaurant.review_avg} total={restaurant.review_count} isOnPrimaryResultPage={true}/>;
     ReactDOM.render(ratingEle, infoRating);
-
+    //Price
     infoPrice.textContent = restaurant.price;
 
     showMoreInfo();
@@ -93,7 +203,7 @@ const DashboardPage = () => {
                 </div>
             </div>
         )
-    });
+    }); 
 
     window.onclick = function(event){
         if(event.target == moreInfo){
@@ -111,6 +221,13 @@ const DashboardPage = () => {
                     <div className='info-content'>
                         <div id="infoTitle" className='info-title'></div>
                         <div id="infoCuisines" className='info-cuisines'></div>
+                        {/* BUTTONS */}
+                        <div className='button-items-DB'>
+                            <i id="infoLike" className={likeOff}></i>
+                            &nbsp; &nbsp; 
+                            <i id="infoDislike" className={dislikeOff}></i>
+                        </div>
+
                         <div id="infoRating" className='info-rating'></div>
                         <div id="infoPrice" className='info-price'></div>
                     </div>
