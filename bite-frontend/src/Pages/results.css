@@ -67,6 +67,7 @@
   font-size: 2.5vmax;
   color: white;
   box-shadow: 0.2vmax 0.2vmax rgb(58, 57, 57);
+  cursor: pointer;
 }
 
 .r-d {
@@ -76,6 +77,7 @@
   font-size: 2.5vmax;
   color: white;
   box-shadow: 0.2vmax 0.2vmax rgb(58, 57, 57);
+  cursor: pointer;
 }
 
 .stars{
@@ -84,6 +86,7 @@
   color : #AD2B35;
   background-color: transparent;
 }
+
 .price {
   font-size: 1.5vmax;
   color:  white;
