@@ -149,12 +149,12 @@ const PrimaryResultPage = () => {
     if (restaurant == null) {
         return (
             <><div className='noRestaurant'>
-            No restaurant currently meet your criteria
+            No restaurants currently meet your criteria
           </div><div>
               <button
                 className='refindbutton'
                 onClick={redirectFilter}
-              > Refind Your Search
+              > Refine Your Search
               </button>
             </div></>
 
