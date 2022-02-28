@@ -142,11 +142,22 @@ const PrimaryResultPage = () => {
         navigate('/results', { replace: false });
     }
 
+    const redirectFilter = () => {
+        navigate('/filter');
+    }
+    
     if (restaurant == null) {
         return (
-            <div>
-                No restaurants loaded
-            </div>
+            <><div className='noRestaurant'>
+            No restaurant currently meet your criteria
+          </div><div>
+              <button
+                className='refindbutton'
+                onClick={redirectFilter}
+              > Refind Your Search
+              </button>
+            </div></>
+
         )
     }
 

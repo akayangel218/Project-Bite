@@ -262,3 +262,20 @@
   object-fit:cover;
   transform: rotate(180deg);
 }
+
+.noRestaurant{
+  padding: 1vmax;
+  font-size: 2em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.refindbutton{
+  display: inherit;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 2em;
+  padding: 0.25vmax;
+  background-color: #E63946;
+  color: white;
+}
