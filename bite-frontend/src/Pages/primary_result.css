@@ -196,6 +196,7 @@
   font-size: 3.65vmax;
   color: white;
   box-shadow: 0.2vmax 0.2vmax rgb(58, 57, 57);
+  cursor: pointer;
 }
 
 .pr-more-results {
@@ -208,6 +209,7 @@
   background-color: #457B9D;
   color: white;
   box-shadow: 0.2vmax 0.2vmax rgb(58, 57, 57);
+  cursor: pointer;
 }
 
 .pr-more-results:hover {
@@ -223,6 +225,7 @@
   font-size: 3.65vmax;
   color: white;
   box-shadow: 0.2vmax 0.2vmax rgb(58, 57, 57);
+  cursor: pointer;
 }
 
 
