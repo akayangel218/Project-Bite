@@ -19,6 +19,7 @@ const likeOn = 'fas fa-thumbs-up pr-l';
 const dislikeOff = 'far fa-thumbs-down pr-d';
 const dislikeOn = 'fas fa-thumbs-down pr-d';
 var modal = document.getElementById("more-info");
+var card = document.getElementById("card");
 
 const backendURL = 'http://localhost:8000';
 
@@ -163,6 +164,8 @@ const PrimaryResultPage = () => {
             modal.style.display = "none";
         }
     }
+
+    card.onclick = () => showModal();
 
     const fetchDetails = () => {
       if (hasLoaded) return;

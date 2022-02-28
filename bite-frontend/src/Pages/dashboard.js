@@ -158,9 +158,6 @@ const handleButtonClick = (restaurant, whichList) => {
     });
     ReactDOM.render(matchingCuisines, infoCuisines);
     
-    const whatever = () => {
-        console.log("whae!");
-    }
     //Display Like Button
     infoLike.className = defaultLikeButton(restaurant);
     infoLike.onclick = () => likeButtonClick(restaurant);
