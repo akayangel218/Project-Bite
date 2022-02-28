@@ -1,3 +1,7 @@
+//Peer Programming:
+//Jackie Wong
+//Marvin Xu
+
 import React, { useState, useContext } from 'react';
 import '../App.css';
 import './results.css';
