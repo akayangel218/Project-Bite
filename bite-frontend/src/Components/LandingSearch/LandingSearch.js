@@ -1,8 +1,11 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../../Context/GlobalState';
+import axios from 'axios';
 import './LandingSearch.css'
 import logo from '../../temp-logo.png'
+
+const geolocationURL = 'https://geolocation-db.com/jsonp/';
 
 const LandingSearch = () => {
     const [text, updateText] = useState('');
@@ -19,6 +22,16 @@ const LandingSearch = () => {
 
     const handleChange = (event) => {
         updateText(event.target.value);
+    }
+
+    const getLocation = () => {
+        axios.get(geolocationURL).then((res) => {
+            const location = JSON.parse(res.data.replace('callback(', '').replace(')', ''));
+            updateText(location.city + ', ' + location.country_code);
+
+        }).catch((err) => {
+            console.log('Error with geolocation API: ' + err.message);
+        });
     }
 
     return(
@@ -39,6 +52,13 @@ const LandingSearch = () => {
                     value={text}
                     onChange={handleChange}
                 />
+                <button 
+                    type='button' 
+                    className = 'locate-button'
+                    onClick={getLocation}
+                >
+                    <i className='fas fa-location-arrow' style={{backgroundColor: 'transparent'}}></i>
+                </button>
                 <button 
                     type='button' 
                     className = 'submit-button'

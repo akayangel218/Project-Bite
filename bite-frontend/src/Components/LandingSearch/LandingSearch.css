@@ -12,6 +12,17 @@
     right: 30%;
 }
 
+.locate-button {
+    border-radius: 50%;
+    height: 4vmax;
+    width: 4vmax;
+    top: 73.5%;
+    left: 65.5%;
+    position: absolute;
+    display: inherit;
+    background-color: #457b9dad;
+}
+
 .submit-button {
     border-radius: 50%;
     height: 4.6vmax;
