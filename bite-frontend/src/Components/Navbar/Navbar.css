@@ -113,6 +113,14 @@
         position: relative;
     }
 
+    .nav-search-bar {
+        display: none;
+    }
+
+    .nav-submit-button {
+        display: none;
+    }
+
     .nav-menu {
         display: flex;
         flex-direction: column;
