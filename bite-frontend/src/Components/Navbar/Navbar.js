@@ -52,18 +52,13 @@ const Navbar = () => {
                     </button>
                 </div>
 
-                <ul className={clicked ? 'nav-menu active' : 'nav-menu'}>
+                <div className={clicked ? 'nav-menu active' : 'nav-menu'}>
                     {MenuItems.map((item, index) => {
                         return (
-                            <li key={index}>
-                                <a className={item.cName} href={item.url}>
-                                    {item.title}
-                                </a>
-                            </li>
+                            <a className={item.cName} href={item.url}>{item.title}</a>
                         );
                     })}
-                </ul>
-                
+                </div>
                 <a className='dashboard-button' href='/dashboard'>Dashboard</a>
             </nav>
         )
