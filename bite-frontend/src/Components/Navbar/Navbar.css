@@ -1,6 +1,6 @@
 .NavbarItems {
     background: #AD2B35;
-    height: 80px;
+    height: 5.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,20 +11,20 @@
     background: #AD2B35;
     color: #457B9D;
     justify-self: start;
-    margin-left: 20px;
     cursor: pointer;
-    font-size: 2.5rem;
+    font-size: 3.5vmax;
     text-decoration: none;
+    font-weight: 900;
 }
 
 .fa-hamburger {
     background: #AD2B35;
-    margin-left: 0rem;
-    font-size: 2.3rem;
+    margin-left: -0.5vmax;
+    font-size: 3vmax;
 }
 
 .nav-menu {
-    background: #AD2B35;
+    background: transparent;
     display: grid;
     grid-template-columns: repeat(5, auto);
     grid-gap: 10px;
@@ -56,26 +56,31 @@
 }
 
 .nav-links {
-    background: #AD2B35;
-    color: #FFF;
+    background-color: #AD2B35;
+    color: #F1FAEE;
+    padding: 0.45vmax 1.7vmax;
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    margin-right: -5vmax;
+    font-weight: 600;
 }
 
 .nav-links:hover {
-    background-color: #457B9D;
-    border-radius: 4px;
-    transition: all 0.2s ease-out;
+    background-color: #F1FAEE;
+    color: #AD2B35;
+    border-radius: 0.5vmax;
+    transition: all 0.3s ease-out;
 }
 
 .fa-bars {
     background-color: transparent;
-    color: #457B9D;
+    color: #F1FAEE;
+    margin-top: 7px;
 }
 
 .dashboard-button {
     background-color: #457B9D;
-    color: white;
+    color: #F1FAEE;
+    font-weight: 700;
     padding: 0.6vmax 1vmax;
     border-radius: 0.5vmax;
     text-decoration: none;
@@ -85,8 +90,8 @@
     padding: 0.6vmax 1vmax;
     border-radius: 0.5vmax;
     transition: all 0.3s ease-out;
-    background: #fff;
-    color: #AD2B35;
+    background: #F1FAEE;
+    color: #457B9D;
     transition: 250ms;
     text-decoration: none;
 }
@@ -100,6 +105,10 @@
 }
 
 @media screen and (max-width: 960px) {
+    .NavbarItems {
+        height: 87px;
+    }
+
     .NavItems {
         position: relative;
     }
@@ -126,21 +135,28 @@
 
     .nav-links { 
         text-align: center;
-        padding: 2rem;
+        padding: 1.5rem;
         width: 100%;
         display: table;
+        font-size: 1.5rem;
+        font-weight: 600;
     }
 
     .nav-links:hover {
-        background-color: #457B9D;
+        background-color: #F1FAEE;
         border-radius: 0;
     }
 
     .navbar-logo{
         position: absolute;
-        top: 0;
-        left: 0;
-        transform: translate(0%, 35%);
+        left: 2vmax;
+        font-size: 2.1rem;
+    }
+    
+    .fa-hamburger {
+        background: #AD2B35;
+        margin-left: -0.6vmax;
+        font-size: 1.8rem;
     }
 
     .menu-icon {
@@ -156,30 +172,34 @@
 
     .fa-times {
         background-color: transparent;
-        color: #457B9D;
+        color: #F1FAEE;
         font-size: 2rem;
+        margin-top: 5px;
+        margin-right: 2px;
     }
 
     .nav-links-mobile {
         display: block;
         text-align: center;
         padding: 1.5rem;
-        margin: auto;
-        border-radius: 4px;
-
         background-color: #457B9D;
         text-decoration: none;
         color: #F1FAEE;
         font-size: 1.5rem;
+        font-weight: 700;
+        width: 100%;
     }
 
     .nav-links-mobile:hover {
-        background: #fff;
-        color: #AD2B35;
+        background: #F1FAEE;
+        color: #457B9D;
         transition: 250ms;
     }
 
-    Button {
+    .dashboard-button {
+        display: none;
+    }
+    .aboutUS {
         display: none;
     }
 }
