@@ -1,7 +1,7 @@
 .dashboard-header {
     margin-top: 2.5vmax;
     font-size: 3vmax;
-    font-weight: bold;
+    font-weight: 900;
     color: rgb(75, 73, 73);
     margin-bottom: 2.5vmax;
 }
@@ -32,7 +32,7 @@
 }
 
 .lList-header {
-    font-weight: bold;
+    font-weight: 700;
     font-size: 2vmax;
     background-color: #E63946;
     color: #F1FAEE;
@@ -44,7 +44,7 @@
 }
 
 .dlList-header {
-    font-weight: bold;
+    font-weight: 700;
     font-size: 2vmax;
     background-color: #1D3557;
     color: #F1FAEE;
@@ -140,11 +140,11 @@
 .info-title {
     background-color: transparent;
     color: #F1FAEE;
-    font-size: 2.3vmax;
-    font-weight: bold;
+    font-size: 3vmax;
+    font-weight: 800;
     text-align: left;
     margin-left: 3vmax;
-    margin-top: 2.5vmax;
+    margin-top: 1.8vmax;
 }
 
 .info-cuisines {
