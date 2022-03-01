@@ -176,7 +176,7 @@ const PrimaryResultPage = () => {
         }
     }
 
-    card.onclick = () => showModal();
+    // card.onclick = () => showModal();
 
     const fetchDetails = () => {
       if (hasLoaded) return;
