@@ -23,9 +23,6 @@ var card = document.getElementById("card");
 
 const backendURL = 'http://localhost:8000';
 
-// ===== Global Variables =====
-var hasLoaded = false;
-
 // ===== List of Liked and Disliked Restaurant ===== 
 var likeList = getAllLikes();
 var dislikeList = getAllDislikes();
@@ -137,6 +134,7 @@ const PrimaryResultPage = () => {
 
     const [restaurantHours, updateHours] = useState(null);
     const [restaurantImgs, updateImgs] = useState(null);
+    const [hasLoaded, setLoaded] = useState(false);
 
     const handleSeeMore = () => {
         navigate('/results', { replace: false });
@@ -180,13 +178,13 @@ const PrimaryResultPage = () => {
 
     const fetchDetails = () => {
       if (hasLoaded) return;
+      setLoaded(true);
 
       const searchString = backendURL + '/details/' + restaurant.id;
       console.log('Searching on bite-backend at:\n' + searchString);
       axios.get(searchString).then((res) => {
         updateHours(res.data.hours);
         updateImgs(res.data.photos);
-        hasLoaded = true;
   
       }).catch((err) => {
           console.log('Error with backend API: ' + err.message);
@@ -203,7 +201,7 @@ const PrimaryResultPage = () => {
 
     setTimeout(() => {
       fetchDetails();
-    }, 2500);
+    }, 1000);
     
     return (
         <div className="PrimaryResultPage">
