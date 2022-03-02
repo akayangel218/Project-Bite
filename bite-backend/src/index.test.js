@@ -2,7 +2,8 @@ const axios = require('axios');
 
 const endpoint = 'http://localhost:8000';
 const baseParams = '/restaurants/san francisco';
-const defaultParams = baseParams + '/10/false/false/false'
+const defaultParams = baseParams + '/10/false/false/false';
+const detailsParams = '/details/';
 
 let testNum = 0;
 
@@ -71,7 +72,7 @@ function test_rating() {
 
 function test_likes() {
   logTestAssertion('Restaurants with chinese as top cuisine should have a relevance of 3');
-  return axios.get(endpoint + defaultParams + '?cuisine=chinese&top_cuisines={"chinese":6}').then((res) => {
+  return axios.get(endpoint + defaultParams + '?cuisine=chinese&top_cuisines={"chinese":3}').then((res) => {
     res.data.restaurants.forEach(restaurant => {
       if (restaurant.cuisineCodes[0]
         && restaurant.cuisineCodes[0] === 'chinese'
@@ -95,7 +96,7 @@ function test_dislikes() {
 }
 
 async function test_sorting() {
-  logTestAssertion('Chinese restaurants should appear 3 spots higher when there are 6 liked chinese restaurants');
+  logTestAssertion('Chinese restaurants should appear 3 spots higher when there are 3 liked chinese restaurants');
   await axios.get(endpoint + defaultParams).then((res) => {
     const restaurantIdxs = {};
     for (let i = 0; i < res.data.restaurants.length; i++) {
@@ -105,7 +106,7 @@ async function test_sorting() {
       }
     }
 
-    return axios.get(endpoint + defaultParams + '?top_cuisines={"chinese":6}').then((res2) => {
+    return axios.get(endpoint + defaultParams + '?top_cuisines={"chinese":3}').then((res2) => {
       for (let i = 0; i < res2.data.restaurants.length; i++) {
         const restaurant = res2.data.restaurants[i];
         if (restaurant.cuisineCodes[0] && restaurant.cuisineCodes[0] === 'chinese') {
@@ -114,6 +115,16 @@ async function test_sorting() {
       }
       logTestPassed();
     }).catch(endpointFailed);
+  }).catch(endpointFailed);
+}
+
+function test_details() {
+  logTestAssertion('Details endpoint should return list of images and business hours');
+  return axios.get(endpoint + detailsParams + 'HHtpR0RslupSQ99GIIwW5A').then((res) => {
+    if (res.data.name !== 'Marufuku Ramen') logTestFailed();
+    if (res.data.photos == null) logTestFailed();
+    if (res.data.hours == null) logTestFailed();
+    logTestPassed();
   }).catch(endpointFailed);
 }
 
@@ -126,6 +137,7 @@ async function runTests() {
   await test_likes();
   await test_dislikes();
   await test_sorting();
+  await test_details();
   console.log(colorCode('[SUCCESS]: ', 'green') + 'All tests passed!');
 }
 runTests();
