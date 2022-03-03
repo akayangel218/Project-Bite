@@ -15,9 +15,9 @@ import RestaurantHours from '../Components/RestaurantHours/RestaurantHours';
 
 // ===== Constants =====
 const likeOff = 'far fa-thumbs-up pr-l';
-const likeOn = 'fas fa-thumbs-up pr-l';
+const likeOn = 'fas fa-thumbs-up pr-l l-selected';
 const dislikeOff = 'far fa-thumbs-down pr-d';
-const dislikeOn = 'fas fa-thumbs-down pr-d';
+const dislikeOn = 'fas fa-thumbs-down pr-d dl-selected';
 var modal = document.getElementById("more-info");
 var card = document.getElementById("card");
 
@@ -117,10 +117,10 @@ const defaultLikeButton = (restaurant) => {  //decide which like button to show 
     }
   }
 
-    const showModal = () => {
-        modal = document.getElementById("more-info");
-        modal.style.display = "block";
-    }
+  const showModal = () => {
+      modal = document.getElementById("more-info");
+      modal.style.display = "block";
+  }
 
 const PrimaryResultPage = () => {
     const navigate = useNavigate();
@@ -215,11 +215,11 @@ const PrimaryResultPage = () => {
                         <div className='modal-title'>{restaurant.name}</div>
                         <div className='modal-filter-matches'>{matchingCuisines}</div>
                         <div className='modal-phone'>{restaurant.display_phone}</div>
-                        <a href={'https://www.google.com/maps/place/' + restaurant.address.replaceAll(' ', '+').replaceAll('\n', '+')} target='_blank'>
-                            <div className='modal-address'>{restaurant.address}</div>
+                        <a className='modal-address' href={'https://www.google.com/maps/place/' + restaurant.address.replaceAll(' ', '+').replaceAll('\n', '+')} target='_blank'>
+                            <div>{restaurant.address}</div>
                         </a>
+                        <RestaurantHours className='modal-hours' hoursList={restaurantHours} />
                         <div className='modal-distance'>{Math.round(restaurant.distance*100)/100} mi away</div>
-                        <RestaurantHours hoursList={restaurantHours} />
                     </div>    
                 </div>
 
@@ -257,6 +257,9 @@ const PrimaryResultPage = () => {
                     <br></br>
                     <div className='pr-price'>
                         {restaurant.price}
+                    </div>
+                    <div className='pr-more-info' onClick={() => showModal()}>
+                      <i className='fas fa-info pr-info-icon'></i>
                     </div>
                 </div>
             </div>
