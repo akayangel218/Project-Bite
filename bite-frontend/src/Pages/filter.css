@@ -47,6 +47,7 @@ p {
     height: 3.8vmin;
     margin-right: 2vmin;
     margin-top: -1vmin;
+    cursor: pointer;
 }
 
 .button-reset:hover {
@@ -176,6 +177,7 @@ p {
     border-radius: 4vmin;
     text-align: center;
     width: 14vmin;
+    cursor: pointer;
 }
 
 .button-item2:hover {
@@ -201,6 +203,7 @@ p {
     text-align: center;
     width: 14vmin;
     box-shadow: 0.2vmin 0.2vmin rgb(58, 57, 57);
+    cursor: pointer;
 }
 
 /* .gird-apply {
@@ -219,6 +222,7 @@ p {
     border-radius: 1vmin;
     justify-self: center;
     margin-top: 0.5vmin;
+    cursor: pointer;
 }
 
 .apply-button:hover {
