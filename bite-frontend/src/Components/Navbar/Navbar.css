@@ -1,26 +1,27 @@
 .NavbarItems {
     background: #AD2B35;
-    height: 5.5rem;
+    height: 5.6rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.2rem;
 }
 
 .navbar-logo {
+    width: 200px;
     background: #AD2B35;
     color: #457B9D;
-    justify-self: start;
     cursor: pointer;
-    font-size: 3.5vmax;
+    font-size: 2.5rem;
     text-decoration: none;
     font-weight: 900;
+    justify-self: start;
+    margin-left: 0.5rem;
 }
 
 .fa-hamburger {
     background: #AD2B35;
-    margin-left: -0.5vmax;
-    font-size: 3vmax;
+    margin-left: -0.5rem;
+    font-size: 2.1rem;
 }
 
 .nav-menu {
@@ -43,6 +44,7 @@
     position: absolute;
     top: 2%;
     right: 44%;
+    text-indent: 1.7vmax;
 }
 
 .nav-submit-button {
@@ -56,6 +58,7 @@
 }
 
 .nav-links {
+    display: none;
     background-color: #AD2B35;
     color: #F1FAEE;
     padding: 0.45vmax 1.7vmax;
@@ -77,13 +80,29 @@
     margin-top: 7px;
 }
 
+.powered-by {
+    background-color: transparent;
+    font-size: 0.75rem;
+    color: #F1FAEE;
+    font-weight: 600;
+    margin-top: 0.5vmax;
+    padding: 0rem 1.5rem;
+}
+
+.yelp-logo {
+    background-color: transparent;
+    width: 5rem;
+}
+
 .dashboard-button {
+    font-size: 1.1rem;
     background-color: #457B9D;
     color: #F1FAEE;
     font-weight: 700;
     padding: 0.6vmax 1vmax;
     border-radius: 0.5vmax;
     text-decoration: none;
+    margin-right: 2rem;
 }
 
 .dashboard-button:hover {
@@ -105,6 +124,10 @@
 }
 
 @media screen and (max-width: 960px) {
+    .navbar-logo {
+        margin-left: -2rem;
+    }
+
     .NavbarItems {
         height: 87px;
     }
@@ -119,6 +142,19 @@
 
     .nav-submit-button {
         display: none;
+    }
+
+    .powered-by {
+        background-color: transparent;
+        font-size: 0.75rem;
+        color: #F1FAEE;
+        font-weight: 600;
+        
+    }
+    
+    .yelp-logo {
+        background-color: transparent;
+        width: 5rem;
     }
 
     .nav-menu {

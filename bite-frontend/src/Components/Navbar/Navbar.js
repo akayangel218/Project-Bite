@@ -4,6 +4,7 @@ import { MenuItems } from "./MenuItems"
 import { GlobalContext } from '../../Context/GlobalState';
 import { Button } from '../Button/Button';
 import './Navbar.css'
+import yelpLogo from './yelp_logo_dark_bg.png';
 
 const Navbar = () => {
     const [clicked, setClicked] = useState(false)
@@ -40,7 +41,7 @@ const Navbar = () => {
                     <input
                         type='text'
                         className='nav-search-bar'
-                        placeholder='  Address, Zip Code, or City'
+                        placeholder='Address, Zip Code, or City'
                         value={text}
                         onChange={handleChange} />
                     <button
@@ -59,6 +60,12 @@ const Navbar = () => {
                         );
                     })}
                 </div>
+
+                <div className='powered-by'>
+                    Powered By<br></br>
+                    <img className='yelp-logo' src={yelpLogo} alt='Yelp Logo'/>
+                </div>
+                {/* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */}
                 <a className='dashboard-button' href='/dashboard'>Dashboard</a>
             </nav>
         )
