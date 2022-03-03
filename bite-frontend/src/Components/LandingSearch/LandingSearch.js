@@ -48,7 +48,7 @@ const LandingSearch = () => {
                 <input
                     type='text'
                     className = 'input-search'
-                    placeholder='  Address, Zip Code, or City'
+                    placeholder='Address, Zip Code, or City'
                     value={text}
                     onChange={handleChange}
                 />
