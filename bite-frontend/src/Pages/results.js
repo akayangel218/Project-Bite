@@ -131,7 +131,7 @@ const ResultsPage = () => {
             {restaurant.name}
           </span>
           <div className='stars'>
-            <StarRating rating={restaurant.review_avg} total={restaurant.review_count} isOnPrimaryResultPage={false} />
+            <StarRating rating={restaurant.review_avg} total={restaurant.review_count} />
           </div>
           <div className='button-items'>
             <i id={idx} className={defaultLikeButton(restaurant)} onClick={() => handleButtonClick(restaurant, 1, idx, "dis"+idx)}></i>

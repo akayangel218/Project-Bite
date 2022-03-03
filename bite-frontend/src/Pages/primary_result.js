@@ -249,7 +249,7 @@ const PrimaryResultPage = () => {
                         {'Best Bite for you: ' + restaurant.name}
                     </div>
                     <div className='pr-star'>
-                        <StarRating rating={restaurant.review_avg} total={restaurant.review_count} isOnPrimaryResultPage={true} />
+                        <StarRating rating={restaurant.review_avg} total={restaurant.review_count}/>
                     </div>
                     <div className='pr-filter-matches'>
                         {matchingCuisines}
