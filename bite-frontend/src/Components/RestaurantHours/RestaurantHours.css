@@ -2,6 +2,7 @@
   text-align: right;
   font-size: 1.2vmax;
   list-style-type: none;
-  margin-bottom: 0.5vmax;
-  margin-top: -2vmax;
+  margin-top: -1.8vmax;
+  height: 9.5vmax;
+  overflow: auto;
 }
