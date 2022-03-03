@@ -83,7 +83,7 @@
 .powered-by {
     background-color: transparent;
     font-size: 0.75rem;
-    color: #F1FAEE;
+    color: white;
     font-weight: 600;
     margin-top: 0.5vmax;
     padding: 0rem 1.5rem;
@@ -147,7 +147,7 @@
     .powered-by {
         background-color: transparent;
         font-size: 0.75rem;
-        color: #F1FAEE;
+        color: white;
         font-weight: 600;
         
     }
