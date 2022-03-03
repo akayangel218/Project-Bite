@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../../Context/GlobalState';
 import axios from 'axios';
 import './LandingSearch.css'
-import logo from '../../temp-logo.png'
+import logo from '../../Assets/logo.png'
 
 const geolocationURL = 'https://geolocation-db.com/jsonp/';
 
