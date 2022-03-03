@@ -25,10 +25,12 @@
 }
 
 .submit-button {
+    color: gray;
+    font-size: 1.5vmax;
     border-radius: 50%;
     height: 4.6vmax;
     width: 4.6vmax;
-    top: 73.2%;
+    top: 73.1%;
     left: 72%;
     position: absolute;
     display: inherit;
