@@ -40,7 +40,7 @@
   font-size: 1.5vmax;
   color:  white;
   display: grid;
-  font-weight: 400;
+  font-weight: 600;
   background-color: transparent;
   margin-bottom: 0.3vmax;
 }
@@ -51,23 +51,23 @@
   text-align: right;
 }
 
-/* .fa-thumbs-up:hover {
-  background-color: #55191e;
-  padding: 1vmax;
-  border-radius: 1vmax;
-  font-size: 2.5vmax;
-  color: white;
-  box-shadow: 0.2vmax 0.2vmax rgb(58, 57, 57);
-} */
-
 .r-l {
   background-color: #E63946;
   padding: 1vmax;
   border-radius: 1vmax;
   font-size: 2.5vmax;
   color: white;
-  box-shadow: 0.2vmax 0.2vmax rgb(58, 57, 57);
   cursor: pointer;
+}
+
+.r-l:hover {
+  background-color: #AD2B35;
+  transition: all 0.3s ease-in-out;
+}
+
+.l-selected {
+  background-color: #AD2B35;
+  box-shadow: 0.2vmax 0.2vmax rgb(58, 57, 57);
 }
 
 .r-d {
@@ -76,12 +76,21 @@
   border-radius: 1vmax;
   font-size: 2.5vmax;
   color: white;
-  box-shadow: 0.2vmax 0.2vmax rgb(58, 57, 57);
   cursor: pointer;
 }
 
+.r-d:hover {
+  background-color: #25579e;
+  transition: all 0.3s ease-in-out;
+}
+
+.dl-selected {
+  background-color: #25579e;
+  box-shadow: 0.2vmax 0.2vmax rgb(58, 57, 57);
+}
+
 .stars{
-  font-size: 1.5vmax;
+  font-size: 1.4vmax;
   display: grid;
   color : #AD2B35;
   background-color: #457B9D;
@@ -94,4 +103,5 @@
   font-weight: 400;
   background-color: transparent;
   margin-bottom: 1vmax;
+  font-weight: 600;
 }

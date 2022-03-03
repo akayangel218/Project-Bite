@@ -211,12 +211,12 @@
 }
 
 .pr-l:hover {
-  background-color: rgb(143, 28, 12);
+  background-color: #AD2B35;
   transition: all 0.3s ease-in-out;
 }
 
 .l-selected {
-  background-color: rgb(143, 28, 12);
+  background-color: #AD2B35;
   box-shadow: 0.2vmax 0.2vmax rgb(58, 57, 57);
 }
 

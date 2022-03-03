@@ -11,9 +11,9 @@ import StarRating from '../Components/StarRating/StarRating';
 
 // ===== Constants =====
 const likeOff = 'far fa-thumbs-up r-l';
-const likeOn = 'fas fa-thumbs-up r-l';
+const likeOn = 'fas fa-thumbs-up r-l l-selected';
 const dislikeOff = 'far fa-thumbs-down r-d';
-const dislikeOn = 'fas fa-thumbs-down r-d';
+const dislikeOn = 'fas fa-thumbs-down r-d dl-selected';
 
 // ===== List of Liked and Disliked Restaurant ===== 
 var likeList = getAllLikes();
