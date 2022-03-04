@@ -184,14 +184,14 @@
 .pr-more-info {
   display: inline-grid;
   float: right;
-  margin-right: 2vmax;
-  margin-top: 1.3vmax;
+  margin-right: 3.2vmax;
+  margin-top: -3.1vmax;
   cursor: pointer;
 }
 
 .pr-info-icon {
   color: #457B9D;
-  font-size: 1.6vmax;
+  font-size: 2vmax;
 }
 
 .gird-apply {

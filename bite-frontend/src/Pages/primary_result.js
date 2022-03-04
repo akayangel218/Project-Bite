@@ -238,7 +238,12 @@ const PrimaryResultPage = () => {
                 {/* If images are loaded, render the image carousel */
                   restaurantImgs !== null &&
                   (
-                    <Carousel className='pr-carousel' showThumbs={false} dynamicHeight={true} infiniteLoop={true} renderIndicator={() => (<div/>)}>
+                    <Carousel className='pr-carousel' 
+                              showThumbs={false} 
+                              dynamicHeight={true} 
+                              infiniteLoop={true} 
+                              renderIndicator={() => (<div/>)}
+                              >
                       {renderImgs(restaurantImgs)}
                     </Carousel>
                   )
