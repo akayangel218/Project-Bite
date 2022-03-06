@@ -56,7 +56,7 @@ const Navbar = () => {
                 <div className={clicked ? 'nav-menu active' : 'nav-menu'}>
                     {MenuItems.map((item, index) => {
                         return (
-                            <a className={item.cName} href={item.url}>{item.title}</a>
+                            <a key={index} className={item.cName} href={item.url}>{item.title}</a>
                         );
                     })}
                 </div>
