@@ -29,7 +29,7 @@
 4. If it matches, pass test
 
 `Dashboard`
-1. It finds the all tags with text element, "Dashboard"  
+1. It finds all the tags with text element, "Dashboard"  
 3. Compare the href link with the expected one ("/dashboard")
 4. If it matches, pass test
 
