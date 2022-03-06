@@ -140,11 +140,11 @@
 .info-title {
     background-color: transparent;
     color: #F1FAEE;
-    font-size: 3vmax;
+    font-size: 2.5vw;
     font-weight: 800;
     text-align: left;
     margin-left: 3vmax;
-    margin-top: 1.8vmax;
+    margin-top: 2vmax;
 }
 
 .info-cuisines {
