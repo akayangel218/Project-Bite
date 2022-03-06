@@ -22,18 +22,16 @@
 
 **Testing module:** Making sure the Logo & dashboard href work
 
-**Instructions to run:**
-1. In terminal, navigate to `/bite-frontend/`
-2. If you haven't already, run `npm install`
-3. Start the frontend with `npm start`
-4. Run the tests with `npm test`
-
 ### Test cases:
 `Logo Button`
 1. The function finds the closest <a> tag that has text "Bite"  
-3. Compare the href link with the expected one
+3. Compare the href link with the expected one ("/")
 4. If it matches, pass test
 
+`Dashboard`
+1. It finds the all tags with text element, "Dashboard"  
+3. Compare the href link with the expected one ("/dashboard")
+4. If it matches, pass test
 
 
 ## Backend
