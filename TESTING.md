@@ -1,9 +1,7 @@
 # Unit Testing Overview
 
 ## Frontend
-**File location:** `/bite-frontend/src/app.test.js`
-
-**Testing module:** Main App Renders Properly (with react-scripts test)
+**Testing module:** React-scripts test, Jest
 
 **Instructions to run:**
 1. In terminal, navigate to `/bite-frontend/`
@@ -11,18 +9,16 @@
 3. Start the frontend with `npm start`
 4. Run the tests with `npm test`
 
+**File location:** `/bite-frontend/src/app.test.js`
+
 ### Test cases:
 `App()`
 1. Render App(Main app) using the render function from React DOM 
 3. If there's any bug, it fails test
 4. Otherwise, pass test
 
-
 **File location:** `/bite-frontend/src/Components/Navbar/Navbar.test.js`
 
-**Testing module:** Making sure the Logo & dashboard href work
-
-### Test cases:
 `Logo Button`
 1. The function finds the closest <a> tag that has text "Bite"  
 3. Compare the href link with the expected one ("/")
