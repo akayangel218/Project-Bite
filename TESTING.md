@@ -12,12 +12,14 @@
 ### Test cases:
 
 **File location:** `/bite-frontend/src/app.test.js`
+
 `App()`
 1. Render App(Main app) using the render function from React DOM 
 3. If there's any bug, it fails test
 4. Otherwise, pass test
 
 **File location:** `/bite-frontend/src/Components/Navbar/Navbar.test.js`
+
 `Logo Button`
 1. The function finds the closest <a> tag that has text "Bite"  
 3. Compare the href link with the expected one ("/")
