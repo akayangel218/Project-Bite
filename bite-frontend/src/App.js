@@ -9,6 +9,8 @@ import ResultsPage from './Pages/results';
 import FilterPage from './Pages/filter';
 import PrimaryResultPage from './Pages/primary_result';
 import DashboardPage from './Pages/dashboard';
+import AboutPage from './Pages/about';
+
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
             <Route path="/primary_result" element={<PrimaryResultPage />} />
             <Route path="/results" element={<ResultsPage />} />
             <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/About" element={<AboutPage />} />
             <Route path="*" element={
               <div>
                 <h1>404</h1>

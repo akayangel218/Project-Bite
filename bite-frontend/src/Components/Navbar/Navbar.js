@@ -67,6 +67,7 @@ const Navbar = () => {
                 </div>
                 {/* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */}
                 <a className='dashboard-button' href='/dashboard'>Dashboard</a>
+                <a className='dashboard-button' href='/About'>About</a>
             </nav>
         )
 }
