@@ -4,7 +4,7 @@ import { MenuItems } from "./MenuItems"
 import { GlobalContext } from '../../Context/GlobalState';
 import { Button } from '../Button/Button';
 import './Navbar.css'
-import yelpLogo from './yelp_logo_dark_bg.png';
+import yelpLogo from '../../Assets/yelp_logo_dark_bg.png';
 
 const Navbar = () => {
     const [clicked, setClicked] = useState(false)
