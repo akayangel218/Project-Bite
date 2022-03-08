@@ -29,6 +29,7 @@ function App() {
               <div>
                 <h1>404</h1>
                 <h3>( Page not found )</h3>
+                <div style={{height: '70vh'}} />
               </div>
             } />
           </Routes>

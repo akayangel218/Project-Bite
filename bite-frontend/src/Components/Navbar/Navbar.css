@@ -16,6 +16,7 @@
     font-weight: 900;
     justify-self: start;
     margin-left: 0.5rem;
+    text-shadow: #1a2f3d 0.5px 0.5px;
 }
 
 .fa-hamburger {
