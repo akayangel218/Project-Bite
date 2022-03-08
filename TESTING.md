@@ -1,7 +1,13 @@
 # Unit Testing Overview
 
 ## Frontend
-**Testing module:** React-scripts test, Jest
+**File locations:**
+* `/bite-frontend/src/app.test.js`
+* `/bite-frontend/src/Components/Navbar/Navbar.test.js`
+
+**Testing modules:**
+* React-scripts test
+* Jest
 
 **Instructions to run:**
 1. In terminal, navigate to `/bite-frontend/`
@@ -11,17 +17,13 @@
 
 ### Test cases:
 
-**File location:** `/bite-frontend/src/app.test.js`
-
 `App()`
 1. Render App(Main app) using the render function from React DOM 
-3. If there's any bug, it fails test
+3. If there's any errors, it fails test
 4. Otherwise, pass test
 
-**File location:** `/bite-frontend/src/Components/Navbar/Navbar.test.js`
-
 `Logo Button`
-1. The function finds the closest <a> tag that has text "Bite"  
+1. The function finds the closest `<a>` tag that has text "Bite"  
 3. Compare the href link with the expected one ("/")
 4. If it matches, pass test
 
