@@ -31,6 +31,7 @@ var infoTitle = document.getElementById("infoTitle");
 var infoCuisines = document.getElementById("infoCuisines");
 var infoRating = document.getElementById("infoRating");
 var infoPrice = document.getElementById("infoPrice");
+var infoLoc = document.getElementById("infoLoc");
 var infoLike = document.getElementById("infoLike");
 var infoDislike = document.getElementById("infoDislike");
 
@@ -135,6 +136,7 @@ const handleButtonClick = (restaurant, whichList) => {
     infoCuisines = document.getElementById("infoCuisines");
     infoRating = document.getElementById("infoRating");
     infoPrice = document.getElementById("infoPrice");
+    infoLoc = document.getElementById("infoLoc");
     infoLike = document.getElementById("infoLike");
     infoDislike = document.getElementById("infoDislike");
 
@@ -170,6 +172,9 @@ const handleButtonClick = (restaurant, whichList) => {
     ReactDOM.render(ratingEle, infoRating);
     //Price
     infoPrice.textContent = restaurant.price;
+    //Location
+    infoLoc.textContent = restaurant.address;
+    infoLoc.href = 'https://www.google.com/maps/place/' + restaurant.address.replaceAll(' ', '+').replaceAll('\n', '+');
 
     showMoreInfo();
 };
@@ -227,6 +232,7 @@ const DashboardPage = () => {
 
                         <div id="infoRating" className='info-rating'></div>
                         <div id="infoPrice" className='info-price'></div>
+                        <a id="infoLoc" className='info-loc' target="_blank"></a>
                     </div>
                 </div>
             </div>

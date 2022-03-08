@@ -18,7 +18,7 @@ class PrivacyPolicy extends Component {
                     <br></br>
                     <br></br>
                     <span className='text'>
-                        If you ever wish to remove your data from this app, the simplest way is to visit your <a href="https://github.com/akayangel218/Project-Bite">dashboard</a> and un-like all your liked restaurants, then un-dislike all your disliked restaurants. Refresh the page and you've got a clean slate. Alternatively, you can also clear your browser's cache for this website. In any case, we never keep your data.
+                        If you ever wish to remove your data from this app, the simplest way is to visit your <a href="/dashboard">dashboard</a> and un-like all your liked restaurants, then un-dislike all your disliked restaurants. Refresh the page and you've got a clean slate. Alternatively, you can also clear your browser's cache for this website. In any case, we never keep your data.
                     </span>
                 </div>
             </div>

@@ -191,10 +191,19 @@
     margin-left: 3vmax;
     font-size: 1.6vmax;
     color: #F1FAEE;
-    margin-top: 3vmax;
 }
 
 .info-price{
+    text-align: left;
+    background-color: transparent;
+    color: #F1FAEE;
+    font-weight: bold;
+    font-size: 1.7vmax;
+    margin-left: 3vmax;
+    margin-top: 1vmax;
+}
+
+.info-loc{
     text-align: left;
     background-color: transparent;
     color: #F1FAEE;
