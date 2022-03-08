@@ -105,3 +105,10 @@
   margin-bottom: 1vmax;
   font-weight: 600;
 }
+
+.noRestaurant{
+  padding: 1vmax;
+  font-size: 2em;
+  margin-left: auto;
+  margin-right: auto;
+}

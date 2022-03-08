@@ -108,14 +108,12 @@
   height: 45vmax;
   margin-top: 1.5vmax;
   border-radius: 1.8vmax;
-  /* border: 0.5vmax solid black; */
   margin-left: auto;
   margin-right: auto;
   display: inline-grid;
 }
 
 .pr-card-content {
-  /* border: 0.1vmax solid black; */
   margin-top: -13vmax;
   background-color: #F1FAEE;
   opacity: 0.85;
@@ -198,7 +196,6 @@
   grid-template-columns: auto auto auto;
   background-color: transparent;
   margin-top: .5vmax;
-  /* border: .5vmax solid black; */
 }
 
 .pr-l {

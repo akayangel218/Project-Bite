@@ -43,6 +43,14 @@ const defaultDislikeButton = (restaurant) => {  //decide which dislike button to
 const ResultsPage = () => {
   const { restaurantList } = useContext(GlobalContext);
 
+  if (restaurantList <= 1) {
+      return(
+        <div className='noRestaurant'>
+          No other resturants currently meet your criteria.
+        </div>
+      )
+  }
+
   // ===== Functions to Update State =====
   const handleButtonClick = (restaurant, buttonID, idxLike, idxDislike) =>{
     //Step 1: Check if the restaurant is in the liked/disliked list (display toggle/untoggle button)
