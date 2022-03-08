@@ -270,16 +270,6 @@ const FilterPage = () => {
                 <br></br>
                 <div className='button-container'>
                     {cuisineButtons}
-                    {/* <div className='button-item2'>American</div>
-                    <div className='button-item2'>Barbecue</div>
-                    <div className='button-item2'>Chinese</div>
-                    <div className='button-item2'>Hamburger</div>
-                    <div className='button-item2'>Italian</div>
-                    <div className='button-item2'>Japanese</div>
-                    <div className='button-item2'>Pizza</div>
-                    <div className='button-item2'>Mexican</div>
-                    <div className='button-item2'>Sushi</div>
-                    <div className='button-item2'>ANY</div> */}
                 </div>
             </div>
             <div className='divider'></div>
@@ -296,9 +286,7 @@ const FilterPage = () => {
                     </div>
                 </div>
             </div>
-            {/* <div className='gird-apply'> */}
-                <div className='apply-button' onClick={handleSubmit}>Apply</div>
-            {/* </div> */}
+            <div className='apply-button' onClick={handleSubmit}>Apply</div>
           </div>
           <br></br><br></br>
         </div>

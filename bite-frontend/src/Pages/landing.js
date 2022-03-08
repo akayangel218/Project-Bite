@@ -8,9 +8,6 @@ class LandingPage extends Component {
   render() {
     return (
       <div className="LandingPage">
-        {/* <div>
-          <img src={logo} className="App-logo" alt="logo" />
-        </div> */}
         <div>
           <LandingSearch />
         </div>
