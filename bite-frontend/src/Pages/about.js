@@ -9,17 +9,17 @@ class AboutUs  extends Component {
                 <div className='title'> About Us </div>
                 <div className='textbox'> 
                     <span className='text'>
-                        Thank you for visiting. Bite was created by 5 undergrad students at UC Santa Cruz as a class project. Over the past 10 weeks Bite was developed. Our team used SCRUM and Agile practices to collaborate on Bite. We have used the Yelp API to provide users with a curated result with their best restaurant match.
+                        Thank you for visiting. Bite was created by 5 undergrad students at UC Santa Cruz over the course of 10 weeks as a class project. Our team used SCRUM and Agile practices to collaborate on Bite. We're utilizing Yelp's Fusion API to provide users with a custom curated list of restaurants with the intent of matching them with their perfect location.
                     </span>
                     <br></br>
                     <br></br>
                     <span className='text'>
-                        With Bite the guesswork is over; we help you in finding the best restaurant. Using your location and preferences, we will provide you with a match. If you don't like your original match, we share more results for you to find the best place to eat. Your likes matter, we use all your likes and dislikes to provide you with the best-ranked results. Your dashboard displays all information regarding your preferences.
+                        With Bite the guesswork is over; we help you in finding the best restaurant. Using your location and preferences, we will provide you with a match. If you don't like your original match, we share more results for you to find the best place to eat. Your likes matter, as we use all your likes and dislikes to provide you with the best-ranked results. And your dashboard shows you lists of all your liked and disliked restaurants.
                     </span>
                     <br></br>
                     <br></br>
                     <span className='text'>
-                        Interested in more details, check out our GitHub page for further details on how we built Bite. Our GitHub shares everything from Sprint Planning to Source Code. The work was split into 4 sprints that brought us closer to our final product.
+                        Interested in learning more? Check out our <a href="https://github.com/akayangel218/Project-Bite" target="_blank">Github</a> page for the complete source code and Agile documentation. Our GitHub hosts everything from Sprint Planning to Scrum boards. We split our work into 4 sprints that steered us clearly towards our final product.
                     </span>
                 </div>
             </>

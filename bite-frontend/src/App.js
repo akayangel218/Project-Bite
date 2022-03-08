@@ -24,7 +24,7 @@ function App() {
             <Route path="/primary_result" element={<PrimaryResultPage />} />
             <Route path="/results" element={<ResultsPage />} />
             <Route path="/dashboard" element={<DashboardPage />} />
-            <Route path="/About" element={<AboutPage />} />
+            <Route path="/about" element={<AboutPage />} />
             <Route path="*" element={
               <div>
                 <h1>404</h1>

@@ -19,3 +19,7 @@
 .text{
     background-color: transparent;
 }
+
+.text a {
+    background-color: transparent;
+}
