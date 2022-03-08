@@ -214,7 +214,6 @@ const FilterPage = () => {
         event.preventDefault();
 
         const searchString = backendURL + buildSearch();
-        console.log('Searching on bite-backend at:\n' + searchString);
         axios.get(searchString).then((res) => {
             saveRestaurants(res.data.restaurants, res.data.total);
             navigate('/primary_result', { replace: false });

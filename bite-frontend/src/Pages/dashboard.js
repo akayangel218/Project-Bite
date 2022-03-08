@@ -71,9 +71,7 @@ const likeButtonClick = (restaurant) => {
     for(let i=0; i<dislikeList.length; i++){
             if(restaurant.id === dislikeList[i].id){
             removeRestaurantFromDislikes(restaurant.id);
-            console.log(restaurant.name + " is removed from Disiked list");
             dislikeList = getAllDislikes(); //update disliked list
-            console.log("Disliked #: " + dislikeList.length);
             infoDislike.className = defaultDislikeButton(restaurant);
         }
     }
@@ -82,16 +80,13 @@ const likeButtonClick = (restaurant) => {
             if(restaurant.id === likeList[i].id){
             inLikedList = true;
             removeRestaurantFromLikes(restaurant.id);
-            console.log(restaurant.name + " is removed from Liked list");
         }
     }
     //add to liked list if press the untoggled like button
     if(inLikedList === false){
         addRestaurantToLikes(restaurant);
-        console.log(restaurant.name + " is added to Liked list");
     }
     likeList = getAllLikes(); //update liked list
-    console.log("Liked #: " + likeList.length);
     infoLike.className = defaultLikeButton(restaurant);
 };
 
@@ -104,9 +99,7 @@ const dislikeButtonClick = (restaurant) => {
     for(let i=0; i<likeList.length; i++){
       if(restaurant.id === likeList[i].id){
         removeRestaurantFromLikes(restaurant.id);
-        console.log(restaurant.name + " is removed from Liked list");
         likeList = getAllLikes();
-        console.log("Liked #: " + likeList.length);
         infoLike.className = defaultLikeButton(restaurant);
       }
     }
@@ -116,16 +109,13 @@ const dislikeButtonClick = (restaurant) => {
       if(restaurant.id === dislikeList[i].id){
         inDislikedList = true;
         removeRestaurantFromDislikes(restaurant.id);
-        console.log(restaurant.name + " is removed from Disliked list");
       }
     }
     //add to disliked list if press the untoggled dislike button
     if(inDislikedList === false){
       addRestaurantToDislikes(restaurant);
-      console.log(restaurant.name + " is added to Disliked list");
     }
     dislikeList = getAllDislikes(); //update disliked list
-    console.log("Disliked #: " + dislikeList.length);
     infoDislike.className = defaultDislikeButton(restaurant);
 };
 
@@ -180,10 +170,6 @@ const handleButtonClick = (restaurant, whichList) => {
 };
 
 const DashboardPage = () => {
-
-    //Total numbers of liked and disliked restaurants
-    console.log("Liked #: " + likeList.length);
-    console.log("Disliked #: " + dislikeList.length);
 
     const showLikesList = likeList.map((restaurant) => {
         return (
