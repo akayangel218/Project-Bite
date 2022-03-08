@@ -10,6 +10,7 @@ import FilterPage from './Pages/filter';
 import PrimaryResultPage from './Pages/primary_result';
 import DashboardPage from './Pages/dashboard';
 import AboutPage from './Pages/about';
+import PrivacyPolicy from './Pages/privacy_policy';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route path="/results" element={<ResultsPage />} />
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="*" element={
               <div>
                 <h1>404</h1>

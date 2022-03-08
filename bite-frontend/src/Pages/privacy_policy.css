@@ -1,0 +1,25 @@
+.title {
+    margin: 1vmax;
+    font-size: 3vmax;
+    font-weight: 900;
+}
+
+.textbox{
+    text-align: left;
+    width: 60vmax;
+    padding: 1vmax;
+    font-weight: 600;
+    border-radius: 2vmax;
+    font-size: 2vmax;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #457B9D;
+}
+
+.text{
+    background-color: transparent;
+}
+
+.text a {
+    background-color: transparent;
+}
