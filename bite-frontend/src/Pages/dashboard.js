@@ -5,13 +5,9 @@
 //Marvin Xu
 
 import './dashboard.css';
-import React, { useContext, useState } from 'react';
 import ReactDOM from 'react-dom';
-import { useNavigate } from 'react-router-dom';
-import { GlobalContext } from '../Context/GlobalState';
 import { addRestaurantToLikes, addRestaurantToDislikes, removeRestaurantFromLikes, removeRestaurantFromDislikes, getAllLikes, getAllDislikes } from '../Context/LocalStorage';
 import StarRating from '../Components/StarRating/StarRating';
-import RestaurantHours from '../Components/RestaurantHours/RestaurantHours';
 
 // ===== List of Liked and Disliked Restaurant ===== 
 var likeList = getAllLikes();

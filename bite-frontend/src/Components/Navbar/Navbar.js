@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MenuItems } from "./MenuItems"
 import { GlobalContext } from '../../Context/GlobalState';
-import { Button } from '../Button/Button';
 import './Navbar.css'
 import yelpLogo from '../../Assets/yelp_logo_dark_bg.png';
 
