@@ -108,7 +108,7 @@ const ResultsPage = () => {
 
   const restaurantMarkup = restaurantList.map((restaurant, idx) => {
 
-    if (idx === 0) return;
+    if (idx === 0) return <span key={idx}></span>;
     return (
       <div key={idx} className='card'>
         <img src={restaurant.image_url} alt={restaurant.name + ' Yelp image'} className='img'/>

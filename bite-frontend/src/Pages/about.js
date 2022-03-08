@@ -18,7 +18,7 @@ class AboutUs  extends Component {
                     <br></br>
                     <br></br>
                     <span className='text'>
-                        Interested in learning more? Check out our <a href="https://github.com/akayangel218/Project-Bite" target="_blank">Github</a> page for the complete source code and Agile documentation. Our GitHub hosts everything from Sprint Planning to Scrum boards. We split our work into 4 sprints that steered us clearly towards our final product.
+                        Interested in learning more? Check out our <a href="https://github.com/akayangel218/Project-Bite" target="_blank" rel="noreferrer">Github</a> page for the complete source code and Agile documentation. Our GitHub hosts everything from Sprint Planning to Scrum boards. We split our work into 4 sprints that steered us clearly towards our final product.
                     </span>
                 </div>
             </>

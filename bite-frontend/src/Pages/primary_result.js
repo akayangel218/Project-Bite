@@ -19,7 +19,6 @@ const likeOn = 'fas fa-thumbs-up pr-l l-selected';
 const dislikeOff = 'far fa-thumbs-down pr-d';
 const dislikeOn = 'fas fa-thumbs-down pr-d dl-selected';
 var modal = document.getElementById("more-info");
-var card = document.getElementById("card");
 
 const backendURL = 'http://localhost:8000';
 
@@ -146,7 +145,7 @@ const PrimaryResultPage = () => {
     }
 
     const matchingCuisines = restaurant.cuisine.map((cuisine, idx) => {
-        if (idx > 2) return;
+        if (idx > 2) return <span key={idx}></span>;
         return (
             <div className='pr-filter-match' key={idx}>
                 {cuisine}
@@ -155,7 +154,7 @@ const PrimaryResultPage = () => {
     });
 
     window.onclick = function(event){
-        if(event.target == modal){
+        if(event.target === modal){
             modal.style.display = "none";
         }
     }
@@ -198,7 +197,7 @@ const PrimaryResultPage = () => {
                         <div className='modal-title'>{restaurant.name}</div>
                         <div className='modal-filter-matches'>{matchingCuisines}</div>
                         <div className='modal-phone'>{restaurant.display_phone}</div>
-                        <a className='modal-address' href={'https://www.google.com/maps/place/' + restaurant.address.replaceAll(' ', '+').replaceAll('\n', '+')} target='_blank'>
+                        <a className='modal-address' href={'https://www.google.com/maps/place/' + restaurant.address.replaceAll(' ', '+').replaceAll('\n', '+')} target='_blank' rel='noreferrer'>
                             <div>{restaurant.address}</div>
                         </a>
                         <RestaurantHours className='modal-hours' hoursList={restaurantHours} />

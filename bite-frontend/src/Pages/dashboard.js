@@ -137,7 +137,7 @@ const handleButtonClick = (restaurant, whichList) => {
     infoTitle.textContent = restaurant.name;
     //Cuisine Tags
     const matchingCuisines = restaurant.cuisine.map((cuisine, idx) => {
-        if (idx > 2) return;
+        if (idx > 2) return <span key={idx}></span>;
         return (
             <span className='match-cuisines' key={idx}>
                 {cuisine}
@@ -190,7 +190,7 @@ const DashboardPage = () => {
     }); 
 
     window.onclick = function(event){
-        if(event.target == moreInfo){
+        if(event.target === moreInfo){
             moreInfo.style.display = "none";
         }
     }
@@ -201,7 +201,7 @@ const DashboardPage = () => {
 
             <div id="modal" className='moreInfo'>
                 <div id="infoCard" className='info'>
-                    <img id="infoImg" className='info-image'/>
+                    <img id="infoImg" alt="Yelp Img" className='info-image'/>
                     <div className='info-content'>
                         <div id="infoTitle" className='info-title'></div>
                         <div id="infoCuisines" className='info-cuisines'></div>
@@ -214,7 +214,7 @@ const DashboardPage = () => {
 
                         <div id="infoRating" className='info-rating'></div>
                         <div id="infoPrice" className='info-price'></div>
-                        <a id="infoLoc" className='info-loc' target="_blank"></a>
+                        <a id="infoLoc" className='info-loc' href='/dashboard' target='_blank' rel='noreferrer'>  </a>
                     </div>
                 </div>
             </div>
